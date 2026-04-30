@@ -1,0 +1,109 @@
+{
+  "$schema": "https://sustainablefinancepartner.com/schemas/pricing.v1.json",
+  "manifest_version": "2026-04-30",
+  "operator": "Sustainable Finance Partners, LLC",
+  "service": "Phronesis Forecasting Platform",
+  "currency": "USD",
+  "pricing_model": "per_call_plus_subscription",
+  "_note_pending_strategy_v1": "Pricing Strategy v1 is in ratification queue. Values below reflect cost-attestation curves and current architectural positions. Final tier dollar values may be adjusted at Pricing Strategy v1 BINDING ratification per Plutus v1.1.1 §12.",
+  "per_call_pricing": {
+    "model": "inference_cost_attestation_times_markup",
+    "inference_cost_range_usd": {
+      "minimum": 0.0084,
+      "maximum": 0.0151,
+      "model_provider": "Anthropic",
+      "inference_model": "claude-haiku-4-5",
+      "cost_attested_per_call": true
+    },
+    "markup_multiplier": {
+      "current": 33.0,
+      "subject_to_change_per_terms_section_5_4": true
+    },
+    "estimated_per_call_price_range_usd": {
+      "minimum": 0.277,
+      "maximum": 0.498,
+      "calculation": "inference_cost × markup_multiplier"
+    },
+    "settlement_method": "stripe_meter_event",
+    "settlement_trigger": "canonical_persistence_to_mnemosyne_ledger"
+  },
+  "subscription_tiers": [
+    {
+      "id": "T1",
+      "name": "T1 Starter",
+      "target_customer": "individual_developer_or_small_team",
+      "monthly_price_usd": null,
+      "annual_price_usd": null,
+      "_status": "tier_dollar_value_pending_pricing_strategy_v1_ratification",
+      "included_calls_per_month": null,
+      "overage_rate": "per_call_pricing_applies"
+    },
+    {
+      "id": "T2",
+      "name": "T2 Professional",
+      "target_customer": "professional_capital_allocator_or_corporate_strategy",
+      "monthly_price_usd": null,
+      "annual_price_usd": null,
+      "_status": "tier_dollar_value_pending_pricing_strategy_v1_ratification",
+      "included_calls_per_month": null,
+      "overage_rate": "per_call_pricing_applies"
+    },
+    {
+      "id": "T3",
+      "name": "T3 Team",
+      "target_customer": "investment_team_or_research_desk",
+      "monthly_price_usd": null,
+      "annual_price_usd": null,
+      "_status": "tier_dollar_value_pending_pricing_strategy_v1_ratification",
+      "included_calls_per_month": null,
+      "overage_rate": "per_call_pricing_applies",
+      "seats": "multiple"
+    },
+    {
+      "id": "T4",
+      "name": "T4 Enterprise",
+      "target_customer": "enterprise_customer_with_master_service_agreement",
+      "monthly_price_usd": null,
+      "annual_price_usd": null,
+      "_status": "custom_msa_pricing_per_engagement",
+      "included_calls_per_month": "negotiated",
+      "overage_rate": "negotiated",
+      "msa_supersedes_published_terms": true
+    }
+  ],
+  "verticals": [
+    { "id": "V1", "name": "Energy Transition", "status": "live", "first_mint_cost_usd": "(baseline)" },
+    { "id": "V2", "name": "Computing + AI Infrastructure", "status": "live", "first_mint_cost_usd": 0.0133 },
+    { "id": "V3", "name": "Healthcare", "status": "live", "first_mint_cost_usd": 0.0084, "compliance": "HIPAA_Safe_Harbor" },
+    { "id": "V4", "name": "Climate Physical Risk", "status": "pre_launch" },
+    { "id": "V5", "name": "Regulatory", "status": "pre_launch" },
+    { "id": "V6", "name": "Supply-Chain", "status": "pre_launch" },
+    { "id": "V7", "name": "Space + Space Economy", "status": "live", "first_mint_cost_usd": 0.0149 },
+    { "id": "V8", "name": "Robotics", "status": "live", "first_mint_cost_usd": 0.0151 }
+  ],
+  "fees_and_contributions": {
+    "stripe_processing_fee": "applied_per_transaction_per_stripe_then_current_pricing",
+    "stripe_climate_contribution_pct": 1.0,
+    "stripe_climate_purpose": "certified_carbon_removal_portfolios",
+    "tax_handling": "stripe_tax_complete_tier_jurisdiction_aware"
+  },
+  "refund_policy_summary": {
+    "subscription_14_day_money_back_first_time_subscribers": true,
+    "annual_pro_rata_refund_day_15_to_90_minus_15pct_admin_fee": true,
+    "per_call_charges_non_refundable": true,
+    "policy_url": "https://sustainablefinancepartner.com/refund-policy"
+  },
+  "service_credits": {
+    "available_for_24hr_plus_continuous_outage": true,
+    "credit_calculation": "prorated_subscription_fee_for_outage_duration",
+    "applied_to": "next_billing_period",
+    "cash_refund": false
+  },
+  "links": {
+    "terms_of_service": "https://sustainablefinancepartner.com/terms-of-service",
+    "privacy_policy": "https://sustainablefinancepartner.com/privacy-policy",
+    "refund_policy": "https://sustainablefinancepartner.com/refund-policy",
+    "spec": "https://sustainablefinancepartner.com/spec",
+    "calibration_scorecard": "https://phronesis-jrstinehour.replit.app/scorecard.json"
+  }
+}

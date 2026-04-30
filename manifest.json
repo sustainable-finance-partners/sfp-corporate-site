@@ -1,0 +1,16 @@
+{
+  "name": "Sustainable Finance Partners — Phronesis",
+  "short_name": "Phronesis",
+  "description": "Verified-correctness forecasting substrate. API-forward. Practical wisdom for the energy transition.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8FAFC",
+  "theme_color": "#0A1628",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
