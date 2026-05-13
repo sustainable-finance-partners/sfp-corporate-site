@@ -11,8 +11,8 @@
     "inference_cost_range_usd": {
       "minimum": 0.0084,
       "maximum": 0.0151,
-      "model_provider": "Anthropic",
-      "inference_model": "claude-haiku-4-5",
+      "compute_tier": "standard",
+      "compute_tier_substrate": "abstract",
       "cost_attested_per_call": true
     },
     "markup_multiplier": {
