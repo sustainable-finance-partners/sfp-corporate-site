@@ -5,7 +5,7 @@
   "service": "Phronesis Forecasting Platform",
   "currency": "USD",
   "pricing_model": "per_call_plus_subscription",
-  "_note_pending_strategy_v1": "Pricing Strategy v1 is in ratification queue. Values below reflect cost-attestation curves and current architectural positions. Final tier dollar values may be adjusted at Pricing Strategy v1 BINDING ratification per Plutus v1.1.1 §12.",
+  "_note_pricing_strategy_v1_2_canonical": "Pricing_Strategy v1.2 ratified and BINDING. Tier nomenclature below is canonical (Discovery / Inquiry / Practice / Practice+ / Enterprise / Outcome-Conditional). Customer-facing compute-tier abstraction: Standard / Deep / Strategic / Strategic Sync Compute. Twelve verticals all LIVE on production per 12-VERTICAL-COMPLETE substrate milestone.",
   "per_call_pricing": {
     "model": "inference_cost_attestation_times_markup",
     "inference_cost_range_usd": {
@@ -29,45 +29,73 @@
   },
   "subscription_tiers": [
     {
-      "id": "T1",
-      "name": "T1 Starter",
-      "target_customer": "individual_developer_or_small_team",
+      "id": "tier-1-discovery",
+      "name": "Discovery",
+      "target_customer": "individual_explorer_or_evaluation_team",
       "monthly_price_usd": null,
       "annual_price_usd": null,
-      "_status": "tier_dollar_value_pending_pricing_strategy_v1_ratification",
-      "included_calls_per_month": null,
-      "overage_rate": "per_call_pricing_applies"
-    },
-    {
-      "id": "T2",
-      "name": "T2 Professional",
-      "target_customer": "professional_capital_allocator_or_corporate_strategy",
-      "monthly_price_usd": null,
-      "annual_price_usd": null,
-      "_status": "tier_dollar_value_pending_pricing_strategy_v1_ratification",
-      "included_calls_per_month": null,
-      "overage_rate": "per_call_pricing_applies"
-    },
-    {
-      "id": "T3",
-      "name": "T3 Team",
-      "target_customer": "investment_team_or_research_desk",
-      "monthly_price_usd": null,
-      "annual_price_usd": null,
-      "_status": "tier_dollar_value_pending_pricing_strategy_v1_ratification",
+      "_status": "pricing_strategy_v1_2_canonical",
       "included_calls_per_month": null,
       "overage_rate": "per_call_pricing_applies",
+      "compute_tier_abstraction": "standard"
+    },
+    {
+      "id": "tier-2-inquiry",
+      "name": "Inquiry",
+      "target_customer": "professional_capital_allocator_or_corporate_strategy_inquiry",
+      "monthly_price_usd": null,
+      "annual_price_usd": null,
+      "_status": "pricing_strategy_v1_2_canonical",
+      "included_calls_per_month": null,
+      "overage_rate": "per_call_pricing_applies",
+      "compute_tier_abstraction": "standard"
+    },
+    {
+      "id": "tier-3-practice",
+      "name": "Practice",
+      "target_customer": "investment_team_or_research_desk_in_practice",
+      "monthly_price_usd": null,
+      "annual_price_usd": null,
+      "_status": "pricing_strategy_v1_2_canonical",
+      "included_calls_per_month": null,
+      "overage_rate": "per_call_pricing_applies",
+      "compute_tier_abstraction": "deep",
       "seats": "multiple"
     },
     {
-      "id": "T4",
-      "name": "T4 Enterprise",
+      "id": "tier-4-practice-plus",
+      "name": "Practice+",
+      "target_customer": "investment_team_with_strategic_compute_depth",
+      "monthly_price_usd": null,
+      "annual_price_usd": null,
+      "_status": "pricing_strategy_v1_2_canonical",
+      "included_calls_per_month": null,
+      "overage_rate": "per_call_pricing_applies",
+      "compute_tier_abstraction": "strategic",
+      "seats": "multiple"
+    },
+    {
+      "id": "tier-5-enterprise",
+      "name": "Enterprise",
       "target_customer": "enterprise_customer_with_master_service_agreement",
       "monthly_price_usd": null,
       "annual_price_usd": null,
       "_status": "custom_msa_pricing_per_engagement",
       "included_calls_per_month": "negotiated",
       "overage_rate": "negotiated",
+      "compute_tier_abstraction": "strategic_sync",
+      "msa_supersedes_published_terms": true
+    },
+    {
+      "id": "tier-6-outcome-conditional",
+      "name": "Outcome-Conditional",
+      "target_customer": "enterprise_with_outcome_conditional_contract_structure",
+      "monthly_price_usd": null,
+      "annual_price_usd": null,
+      "_status": "outcome_conditional_pricing_per_engagement",
+      "included_calls_per_month": "negotiated",
+      "overage_rate": "negotiated",
+      "compute_tier_abstraction": "strategic_sync",
       "msa_supersedes_published_terms": true
     }
   ],
@@ -75,12 +103,18 @@
     { "id": "V1", "name": "Energy Transition", "status": "live", "first_mint_cost_usd": "(baseline)" },
     { "id": "V2", "name": "Computing + AI Infrastructure", "status": "live", "first_mint_cost_usd": 0.0133 },
     { "id": "V3", "name": "Healthcare", "status": "live", "first_mint_cost_usd": 0.0084, "compliance": "HIPAA_Safe_Harbor" },
-    { "id": "V4", "name": "Climate Physical Risk", "status": "pre_launch" },
-    { "id": "V5", "name": "Regulatory", "status": "pre_launch" },
-    { "id": "V6", "name": "Supply-Chain", "status": "pre_launch" },
+    { "id": "V4", "name": "Climate Physical Risk", "status": "live" },
+    { "id": "V5", "name": "Regulatory", "status": "live" },
+    { "id": "V6", "name": "Supply-Chain", "status": "live" },
     { "id": "V7", "name": "Space + Space Economy", "status": "live", "first_mint_cost_usd": 0.0149 },
-    { "id": "V8", "name": "Robotics", "status": "live", "first_mint_cost_usd": 0.0151 }
+    { "id": "V8", "name": "Robotics", "status": "live", "first_mint_cost_usd": 0.0151 },
+    { "id": "V9", "name": "AI/AGI & Compute", "status": "live", "themis_cluster": "Themis-AI-AGI" },
+    { "id": "V10", "name": "Physics & Materials Discovery", "status": "live", "themis_cluster": "Themis-Physics" },
+    { "id": "V11", "name": "Longevity & Human Health", "status": "live", "themis_cluster": "Themis-Longevity", "compliance": "HIPAA_adjacent_de_identified_only" },
+    { "id": "V12", "name": "Quantum Computing", "status": "live", "themis_cluster": "Themis-Quantum" }
   ],
+  "vertical_count": 12,
+  "substrate_milestone": "12-VERTICAL-COMPLETE",
   "fees_and_contributions": {
     "stripe_processing_fee": "applied_per_transaction_per_stripe_then_current_pricing",
     "stripe_climate_contribution_pct": 1.0,

@@ -21,7 +21,7 @@ Scorecard: https://phronesis-jrstinehour.replit.app/scorecard.json
 # Path A (autonomous agents):  AP2 mandate (Google Agent Payments Protocol)
 #                              Intent Mandate + Cart Mandate as Verifiable Credentials
 # Path B (agents-for-humans):  Stripe SPT (Shared Payment Token) bound to AP2 Cart Mandate
-# Path C (humans):             Bearer JWT, T1-T4 subscription tiers
+# Path C (humans):             Bearer JWT; six canonical subscription tiers (Pricing_Strategy v1.2)
 Auth-Methods: AP2, Stripe-SPT, Bearer-JWT
 
 # --- Discipline ---
@@ -35,19 +35,23 @@ Error-Format: structured-json
 # --- Pricing model ---
 # Per-call: inference cost-attestation × markup multiplier (currently 33x)
 # Cost range: $0.0084 - $0.0151 per forecast (Standard Compute tier)
-# Subscription tiers: T1 Starter, T2 Professional, T3 Team, T4 Enterprise
+# Subscription tiers: Discovery / Inquiry / Practice / Practice+ / Enterprise / Outcome-Conditional (Pricing_Strategy v1.2 canonical)
 # Settlement: Stripe meter events at canonical persistence to Mnemosyne ledger
 Pricing-Model: per-call+subscription
 
-# --- Verticals (8 total; 5 live on production) ---
+# --- Verticals (12 total; all twelve LIVE on production per 12-VERTICAL-COMPLETE substrate milestone) ---
 Vertical: V1=Energy LIVE
 Vertical: V2=Computing+AI-Infrastructure LIVE
 Vertical: V3=Healthcare LIVE (HIPAA Safe Harbor)
-Vertical: V4=Climate-Physical-Risk pre-launch
-Vertical: V5=Regulatory pre-launch
-Vertical: V6=Supply-Chain pre-launch
+Vertical: V4=Climate-Physical-Risk LIVE
+Vertical: V5=Regulatory LIVE
+Vertical: V6=Supply-Chain LIVE
 Vertical: V7=Space LIVE
 Vertical: V8=Robotics LIVE
+Vertical: V9=AI/AGI-and-Compute LIVE
+Vertical: V10=Physics-and-Materials-Discovery LIVE
+Vertical: V11=Longevity-and-Human-Health LIVE (HIPAA-adjacent, de-identified-only)
+Vertical: V12=Quantum-Computing LIVE
 
 # --- Substrate properties ---
 # Verified-correctness substrate. Forecasts persisted to canonical Mnemosyne ledger.
