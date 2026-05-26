@@ -168,3 +168,64 @@ jobs:
             exit 1
           fi
           echo "PASS: Trust Center linkage present"
+
+  agent-fetchability-parity:
+    runs-on: ubuntu-latest
+    name: Agent-fetchability parity — non-browser GET returns real HTML
+    # Per CC_4_7_POSITIONING_RECUT_AND_SITES_FIX_DISPATCH_20260525.md §D6 AC-D6-4.
+    # Root cause documented: Cloudflare Pages auto-rewrites .html-suffix paths to
+    # the canonical no-extension URL via a 308, returning a zero-byte body. The
+    # canonical no-extension URLs themselves return real HTML for both browser
+    # and non-browser User-Agents — this parity job locks that property in.
+    #
+    # Assertions per URL (root + 3 footer legal pages):
+    #   - HTTP 200 for non-browser UA ("Mozilla/5.0 (compatible; agent)")
+    #   - Body length > 1024 bytes (zero-byte / stub responses fail)
+    #   - Body contains a non-empty <h1>...</h1> with meaningful text
+    #
+    # If a future Cloudflare config change or CDN reconfiguration causes the
+    # canonical URLs to regress to .html-suffix-style 308-empty-body behavior,
+    # this gate fails the build before the regression reaches production.
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Probe canonical URLs as non-browser agent
+        run: |
+          set -e
+          URLS=(
+            "https://sustainablefinancepartner.com/"
+            "https://sustainablefinancepartner.com/terms-of-service"
+            "https://sustainablefinancepartner.com/privacy-policy"
+            "https://sustainablefinancepartner.com/refund-policy"
+          )
+          UA="Mozilla/5.0 (compatible; agent)"
+          FAILED=0
+          for url in "${URLS[@]}"; do
+            echo "--- Probing: $url"
+            CODE=$(curl -sS -o /tmp/body.html -w "%{http_code}" -A "$UA" -L --max-time 30 "$url" || echo "000")
+            SIZE=$(wc -c < /tmp/body.html | tr -d ' ')
+            if [ "$CODE" != "200" ]; then
+              echo "FAIL [$url]: status $CODE (expected 200)"
+              FAILED=1
+              continue
+            fi
+            if [ "$SIZE" -lt 1024 ]; then
+              echo "FAIL [$url]: body too small ($SIZE bytes; expected > 1024)"
+              FAILED=1
+              continue
+            fi
+            # Extract first <h1>...</h1> innerText. If empty, the page is a stub.
+            H1=$(grep -oiE "<h1[^>]*>[^<]+</h1>" /tmp/body.html | head -1 || echo "")
+            if [ -z "$H1" ]; then
+              echo "FAIL [$url]: no non-empty <h1> in body"
+              FAILED=1
+              continue
+            fi
+            echo "PASS [$url]: status=$CODE size=$SIZE h1=$H1"
+          done
+          if [ "$FAILED" -ne 0 ]; then
+            echo "FAIL: agent-fetchability parity regressed; non-browser GET against one or more canonical URLs no longer returns real HTML"
+            exit 1
+          fi
+          echo "PASS: agent-fetchability parity holds for all canonical URLs"
