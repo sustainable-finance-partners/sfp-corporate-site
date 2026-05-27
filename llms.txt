@@ -1,0 +1,55 @@
+# llms.txt — Sustainable Finance Partners (operating entity)
+# Last updated: 2026-05-26
+
+> Sustainable Finance Partners, LLC is the Colorado limited liability company that operates **Phronesis** — the agentic economy's decision-assurance layer. This site carries the corporate-entity identity (registered entity, federal credentials, trademark filing, governance substrate). The product manifest lives on **phronesisintel.com**.
+
+## What SFP is
+
+Sustainable Finance Partners, LLC (SFP) is a Colorado-registered limited liability company. It exists to operate Phronesis. As the operating entity, SFP holds:
+
+- **Intellectual property** — the Phronesis codebase, the Decision Asset schema, the six-primitive architecture, the V#0 meta-vertical, the Market Memory ledger.
+- **Customer contracts** — per-call agreements + subscription tiers + Decision Asset settlement obligations.
+- **Federal credentials** — UEI E5FZM8GKGPJ6, EIN 99-0917951, SBC SBC_002676886, ORCID 0009-0000-5641-1456, NSF ID 0000A8RD8.
+- **Trademark filing** — PHRONESIS, USPTO serial 99842940 (as-filed scope).
+- **Governance substrate** — operating model, ratification ledger, strategic canonical, legal protections substrate, runbooks.
+
+## What Phronesis is (compact reference; full canonical at phronesisintel.com)
+
+Phronesis is the agentic economy's decision-assurance layer. A neutral substrate where agents and enterprises verify intent, price uncertainty, evaluate counterparties, coordinate transactions, and insure outcomes before acting.
+
+- **Atomic product:** the Decision Asset — a 10-field machine-readable, auditable decision packet.
+- **Moat:** Market Memory — the resolved-outcome ledger that compounds on wall-clock time.
+- **Architecture:** six foundational primitives (P1 Identity & Mandate, P2 Reputation / Counterparty Passport, P3 Forecast & Evidence, P4 Coordination, P5 Insurance, P6 Market-State Telemetry) × twelve applied verticals (energy, computing, healthcare, climate, regulatory, supply-chain, space, robotics, AI/AGI, physics, longevity, quantum) + V#0 AI Industrial Mobilization & Situational Awareness meta-vertical.
+- **Interfaces:** MCP and REST co-equal at every endpoint.
+
+## Product-side canonical surfaces
+
+- Product site: https://phronesisintel.com
+- Product agentic-commerce manifest: https://phronesisintel.com/.well-known/agentic-commerce.json
+- Product agents.txt: https://phronesisintel.com/.well-known/agents.txt
+- Product llms.txt: https://phronesisintel.com/llms.txt
+- API spec: https://phronesisintel.com/spec
+- OpenAPI: https://phronesisintel.com/openapi.json
+- Calibration scorecard: https://phronesisintel.com/scorecard
+- Decision Quality Bench: https://phronesis-jrstinehour.replit.app/bench
+
+## Corporate-entity surfaces (this site)
+
+- Corporate site: https://sustainablefinancepartner.com
+- Corporate agents.txt: https://sustainablefinancepartner.com/.well-known/agents.txt
+- Corporate agentic-commerce manifest: https://sustainablefinancepartner.com/.well-known/agentic-commerce.json
+- Terms of Service: https://sustainablefinancepartner.com/terms-of-service
+- Privacy Policy: https://sustainablefinancepartner.com/privacy-policy
+- Refund Policy: https://sustainablefinancepartner.com/refund-policy
+
+## Stewardship posture
+
+SFP operates in stewardship mode: capital allocation and product operation in service of long-arc societal infrastructure. **V#0 AI Industrial Mobilization & Situational Awareness** is the meta-vertical the corporate entity cares about most — it frames every capital-allocation decision SFP makes.
+
+## What SFP is not
+
+SFP is not a separate forecasting platform, consulting practice, or advisory firm. There is one product — Phronesis — and SFP operates it. SFP is also not an investment advisor, broker-dealer, or fiduciary for customer capital decisions. Phronesis mints Decision Assets that capital allocators may consult; Decision Assets are not investment recommendations.
+
+## Supersession note (§15.10.89 forward-only)
+
+Earlier framing on this site described SFP as a "verified-correctness forecasting platform / substrate spanning twelve verticals." That was the pre-pivot brand state and has been superseded by the decision-assurance-layer canonical (ratified 2026-05-21 onward). Older framing is preserved via supersession-forward, not retroactively deleted.
