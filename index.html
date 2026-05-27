@@ -3,30 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sustainable Finance Partners — Phronesis. Practical wisdom for the energy transition.</title>
-<meta name="description" content="Sustainable Finance Partners, LLC operates Phronesis, a verified-correctness forecasting substrate spanning twelve verticals (energy + computing + healthcare + climate + regulatory + supply-chain + space + robotics + AI/AGI + physics & materials + longevity + quantum computing). API-forward. Agentic-commerce-native. Twelve-vertical-complete on production.">
+<title>Sustainable Finance Partners — Operating entity behind Phronesis, the agentic economy's decision-assurance layer</title>
+<meta name="description" content="Sustainable Finance Partners, LLC is a Colorado limited liability company that operates Phronesis — the agentic economy's decision-assurance layer. SFP holds the intellectual property, customer contracts, federal credentials (UEI / EIN / SBC / ORCID / NSF), and the PHRONESIS trademark filing (serial 99842940). Phronesis is the product; SFP is the corporate sphere that operates it. The product manifest is at phronesisintel.com.">
 
-<!-- Agent discovery: Link headers (mirror in HTML) -->
-<link rel="alternate" type="text/markdown" href="/spec" title="Phronesis API Contract Spec">
-<link rel="alternate" type="application/json" href="/openapi.json" title="OpenAPI 3.1 spec">
+<!-- Agent discovery: link headers + meta tags -->
+<link rel="alternate" type="application/json" href="/.well-known/agentic-commerce.json" title="SFP corporate agentic-commerce manifest">
 <link rel="api-catalog" href="/.well-known/agents.txt">
+<link rel="canonical" href="https://sustainablefinancepartner.com/">
 
-<!-- Agent discovery: meta tags -->
-<meta name="agent-mcp-endpoint" content="https://phronesis-jrstinehour.replit.app/mcp">
-<meta name="agent-rest-endpoint" content="https://phronesis-jrstinehour.replit.app">
-<meta name="agent-spec" content="/spec">
-<meta name="agent-pricing" content="/pricing.json">
+<meta name="agent-product-site" content="https://phronesisintel.com">
+<meta name="agent-product-manifest" content="https://phronesisintel.com/.well-known/agentic-commerce.json">
+<meta name="agent-product-agents-txt" content="https://phronesisintel.com/.well-known/agents.txt">
+<meta name="agent-product-spec" content="https://phronesisintel.com/spec">
+<meta name="agent-product-bench" content="https://phronesis-jrstinehour.replit.app/bench">
 
-<!-- Open Graph + Twitter card -->
-<meta property="og:title" content="Sustainable Finance Partners — Phronesis">
-<meta property="og:description" content="Practical wisdom for the energy transition. API-forward forecasting substrate. Twelve-vertical-complete on production.">
+<!-- Open Graph + Twitter -->
+<meta property="og:title" content="Sustainable Finance Partners — Operating entity behind Phronesis">
+<meta property="og:description" content="SFP is the Colorado LLC that operates Phronesis, the agentic economy's decision-assurance layer. Phronesis is the product; SFP is the corporate sphere.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sustainablefinancepartner.com/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sustainable Finance Partners — Phronesis">
-<meta name="twitter:description" content="Practical wisdom for the energy transition. API-forward forecasting substrate.">
+<meta name="twitter:title" content="Sustainable Finance Partners — Operating entity behind Phronesis">
+<meta name="twitter:description" content="Operating entity behind Phronesis, the agentic economy's decision-assurance layer.">
 
-<!-- JSON-LD: Organization -->
+<!-- JSON-LD: Organization (parent / operating entity) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -35,9 +35,11 @@
   "alternateName": ["SFP", "Sustainable Finance Partners"],
   "url": "https://sustainablefinancepartner.com",
   "logo": "https://sustainablefinancepartner.com/logo.svg",
-  "description": "Sustainable Finance Partners, LLC operates Phronesis, a verified-correctness forecasting substrate for the energy transition with API-forward and agentic-commerce-native architecture.",
+  "description": "Colorado limited liability company. Operating entity behind Phronesis, the agentic economy's decision-assurance layer. Holds the intellectual property, customer contracts, federal credentials, and the PHRONESIS trademark filing.",
+  "foundingDate": "2024",
   "address": {
     "@type": "PostalAddress",
+    "addressRegion": "CO",
     "addressCountry": "US"
   },
   "founder": {
@@ -45,46 +47,15 @@
     "name": "John Stinehour"
   },
   "owns": {
-    "@type": "Product",
+    "@type": "SoftwareApplication",
     "name": "Phronesis",
-    "description": "Verified-correctness forecasting substrate. Practical wisdom for the energy transition."
-  }
-}
-</script>
-
-<!-- JSON-LD: Service / Offer Catalog (machine-readable offerings) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Phronesis Forecasting Platform",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sustainable Finance Partners, LLC"
+    "alternateName": "Phronesis Decision-Assurance Layer",
+    "url": "https://phronesisintel.com",
+    "description": "The agentic economy's decision-assurance layer. The atomic product is the Decision Asset — a 10-field machine-readable, auditable decision packet."
   },
-  "serviceType": "Probabilistic forecasting via API and MCP",
-  "areaServed": "Worldwide",
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Phronesis Forecasting Verticals",
-    "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Phronesis Energy", "description": "Energy transition forecasts: generation capacity, demand, infrastructure, climate-fund allocation. LIVE on production." }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Phronesis Computing + AI Infrastructure", "description": "Cross-vertical compute + power forecasts. Phronesis Grid-Compute Forecast flagship. LIVE on production." }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Phronesis Healthcare", "description": "Disease incidence + population health forecasts under HIPAA Safe Harbor. LIVE on production." }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Phronesis Space + Space Economy", "description": "Launch cadence, IPO probability, orbital infrastructure forecasts. LIVE on production." }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Phronesis Robotics", "description": "Humanoid + autonomous-system deployment cadence. Universal cross-pollinator vertical. LIVE on production." }}
-    ]
-  },
-  "potentialAction": {
-    "@type": "ConsumeAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "https://phronesis-jrstinehour.replit.app/forecast/mint",
-      "encodingType": "application/json",
-      "contentType": "application/json",
-      "actionPlatform": ["http://schema.org/DesktopWebPlatform", "AgentPlatform"]
-    }
-  }
+  "sameAs": [
+    "https://phronesisintel.com"
+  ]
 }
 </script>
 
@@ -107,10 +78,10 @@
         <span>Sustainable Finance Partners</span>
       </a>
       <ul class="nav-links">
-        <li><a href="#verticals">Verticals</a></li>
+        <li><a href="#what-sfp-is">About</a></li>
+        <li><a href="#phronesis">Phronesis</a></li>
         <li><a href="#substrate">Substrate</a></li>
-        <li><a href="/spec">API Spec</a></li>
-        <li><a href="https://phronesis-jrstinehour.replit.app/scorecard.json">Scorecard</a></li>
+        <li><a href="https://phronesisintel.com" rel="noopener">Product →</a></li>
       </ul>
     </nav>
   </div>
@@ -119,28 +90,37 @@
 <main id="main">
 
 <!-- ============================================================
-     Hero — explicit API-forward framing per Q-SFP-Pivot-3c
+     Hero — SFP-as-operating-entity, Phronesis-as-decision-assurance-layer
+     §15.10.98 Q-CARRY-1 parallel recut (mirror product-site shape;
+     parent-company-adapted). CCO-drafted h1; A/B variant in comment
+     below preserves dispatch's suggested phrasing for owner review.
      ============================================================ -->
 <section class="hero">
   <div class="container">
     <div class="hero-content">
-      <span class="eyebrow">Sustainable Finance Partners, LLC</span>
-      <h1>Phronesis.<br>Practical wisdom for the energy transition.</h1>
-      <p class="hero-tagline">A verified-correctness forecasting substrate. API-forward by design. Agents are first-class customers; humans are welcome too.</p>
-      <p class="text-small" style="margin-top: -1rem; margin-bottom: 2rem; max-width: 50ch;">Phronesis is the flagship platform of <strong style="color: var(--color-deep);">Sustainable Finance Partners, LLC</strong> — a Colorado limited liability company.</p>
+      <span class="eyebrow">Sustainable Finance Partners, LLC · Colorado</span>
+      <!-- A/B variants (COO/owner review at PR time):
+           DISPATCH-A: "Sustainable Finance Partners — Operating Sphere for Phronesis: the agentic economy's decision-assurance layer."
+           CCO-RECOMMEND (live): "Sustainable Finance Partners — the operating entity behind Phronesis."
+              + subtitle: "Phronesis is the agentic economy's decision-assurance layer. SFP holds the IP, contracts, and federal credentials."
+           Rationale: "operating entity" parses without spec-vocabulary baggage; subtitle separates WHO (SFP) from WHAT (Phronesis = layer).
+      -->
+      <h1>Sustainable Finance Partners —<br>the operating entity behind Phronesis.</h1>
+      <p class="hero-tagline"><strong>Phronesis is the agentic economy's decision-assurance layer.</strong> SFP is the Colorado limited liability company that operates it: holds the intellectual property, the customer contracts, the federal credentials, and the PHRONESIS trademark filing.</p>
+      <p class="text-small" style="margin-top: -0.5rem; margin-bottom: 2rem; max-width: 56ch;">The product manifest, the API contract, the calibration scorecard, and the Decision Asset substrate all live on <a href="https://phronesisintel.com" rel="noopener" style="color: var(--color-deep);"><strong>phronesisintel.com</strong></a>. This site is the corporate identity for the operating entity.</p>
 
       <div class="routing-grid">
-        <a href="/spec" class="routing-card" aria-label="API spec for agent customers">
-          <span class="eyebrow">For Agents</span>
-          <h3>Start at <code>/spec</code></h3>
-          <p>Markdown-first contract docs. OpenAPI 3.1. MCP server endpoint. Idempotency-key required. Sub-cent meter-event precision. AP2 mandate compatible.</p>
-          <span class="arrow">Open the contract surface</span>
+        <a href="https://phronesisintel.com" class="routing-card" aria-label="Open Phronesis product site" rel="noopener">
+          <span class="eyebrow">Product</span>
+          <h3>phronesisintel.com →</h3>
+          <p>Phronesis — the agentic economy's decision-assurance layer. Decision Asset substrate, Counterparty Passport, Market Memory, six primitives × twelve verticals + V#0 meta-vertical. MCP + REST co-equal. Calibration scorecard public from day one.</p>
+          <span class="arrow">Open the product surface</span>
         </a>
-        <a href="#verticals" class="routing-card" aria-label="Continue reading for human visitors">
-          <span class="eyebrow">For Humans</span>
-          <h3>Keep scrolling</h3>
-          <p>Five forecasting verticals operating on production today. Cost-attestation per forecast in dollars and cents. Calibration scorecard public from day one.</p>
-          <span class="arrow">See the substrate</span>
+        <a href="#what-sfp-is" class="routing-card" aria-label="What SFP is and is not">
+          <span class="eyebrow">Corporate entity</span>
+          <h3>What SFP is</h3>
+          <p>Colorado LLC. Operates Phronesis. Pursues federal grant capital (SBIR / STTR pipeline). Holds federal credentials (UEI / EIN / SBC / ORCID / NSF ID) and the PHRONESIS trademark filing. Stewardship-mode purpose.</p>
+          <span class="arrow">Read the corporate framing</span>
         </a>
       </div>
     </div>
@@ -148,113 +128,103 @@
 </section>
 
 <!-- ============================================================
-     Bridge — what is Phronesis (closes the hero-to-metrics gap)
+     What SFP is (and is not) — parent-company framing block
      ============================================================ -->
-<section style="padding: var(--space-16) 0 var(--space-8) 0;">
+<section id="what-sfp-is" style="padding: var(--space-16) 0 var(--space-8) 0;">
   <div class="container-narrow">
-    <span class="eyebrow">What is Phronesis</span>
-    <h2 style="font-size: var(--text-3xl); max-width: 38ch;">A forecasting platform that capital allocators can audit and agents can call directly.</h2>
-    <p class="lead" style="margin-top: var(--space-4);">Phronesis mints probabilistic forecasts across twelve verticals — energy, computing, healthcare, climate physical risk, regulatory, supply-chain, space, robotics, AI/AGI &amp; compute, physics &amp; materials discovery, longevity &amp; human health, and quantum computing. Every forecast is primary-source-cited, time-stamped, persisted to a canonical ledger, and rendered publicly on a calibration scorecard from the moment it issues. Humans get a methodologically defensible forecasting service. Agents get a contract surface designed for them, not retrofitted to them.</p>
+    <span class="eyebrow">What SFP is</span>
+    <h2 style="font-size: var(--text-3xl); max-width: 42ch;">Sustainable Finance Partners is the operating entity behind one product: Phronesis.</h2>
+
+    <p class="lead" style="margin-top: var(--space-4);">SFP is a Colorado limited liability company. It exists to operate Phronesis — the agentic economy's decision-assurance layer — and to do that with the credentials, contracts, and governance substrate that institutional capital allocators and federal counterparties can diligence as a discrete legal entity.</p>
+
+    <p class="lead">What SFP holds, as the parent operating entity:</p>
+    <ul style="margin-top: var(--space-4); padding-left: var(--space-6);">
+      <li><strong>Intellectual property</strong> — the Phronesis codebase, the Decision Asset schema, the six-primitive architecture, the V#0 meta-vertical, the Market Memory ledger.</li>
+      <li><strong>Customer contracts</strong> — every per-call agreement, every subscription tier (Discovery / Inquiry / Practice / Practice+ / Enterprise), every Decision Asset settlement obligation.</li>
+      <li><strong>Federal credentials</strong> — UEI <code>E5FZM8GKGPJ6</code>, EIN <code>99-0917951</code>, SBC <code>SBC_002676886</code>, ORCID <code>0009-0000-5641-1456</code>, NSF ID <code>0000A8RD8</code>. The credentials that let SFP pursue SBIR / STTR / DOE / NSF / DOD opportunities and that any federal counterparty can verify independently.</li>
+      <li><strong>Trademark filing</strong> — PHRONESIS, USPTO serial <code>99842940</code> (as-filed scope; the canonical trademark surface for the product brand).</li>
+      <li><strong>Governance substrate</strong> — the operating model, the ratification ledger, the strategic canonical, the legal protections substrate, the runbooks. The discipline layer that makes the entity diligence-able.</li>
+      <li><strong>Stewardship-mode purpose</strong> — SFP's posture is to allocate capital and operate the product in service of long-arc societal infrastructure. V#0 (AI Industrial Mobilization & Situational Awareness) is the meta-vertical the corporate entity cares about most.</li>
+    </ul>
+
+    <h3 style="font-size: var(--text-2xl); margin-top: var(--space-12);">What SFP is not.</h3>
+    <p class="lead" style="margin-top: var(--space-3);">SFP is not a separate forecasting platform, a separate consulting practice, or a separate advisory firm. There is one product — Phronesis — and SFP operates it. Earlier framing on this site described SFP as "a verified-correctness forecasting platform"; that was the pre-pivot brand state and has been superseded by the decision-assurance-layer canonical (ratified 2026-05-21 onward; full canonical at <a href="https://phronesisintel.com" rel="noopener"><strong>phronesisintel.com</strong></a>). Older framing is preserved via supersession-forward discipline, not retroactively deleted.</p>
+
+    <p class="lead">SFP is also not an investment advisor, a broker-dealer, or a fiduciary for customer capital decisions. Phronesis mints Decision Assets that capital allocators may consult; Decision Assets are not investment recommendations. The non-investment-advice posture is canonical at the legal-substrate layer and unchanged by this positioning recut.</p>
   </div>
 </section>
 
 <!-- ============================================================
-     Substrate proof — verifiable production state
+     What Phronesis is — compact reference, full content on product site
      ============================================================ -->
-<section id="substrate" style="padding-top: var(--space-8);">
+<section id="phronesis" style="background: var(--color-fog); padding: var(--space-16) 0;">
+  <div class="container-narrow">
+    <span class="eyebrow">What Phronesis is (compact)</span>
+    <h2 style="font-size: var(--text-3xl);">Phronesis is the agentic economy's decision-assurance layer.</h2>
+    <p class="lead" style="margin-top: var(--space-4);">A neutral substrate where agents and enterprises verify intent, price uncertainty, evaluate counterparties, coordinate transactions, and insure outcomes before acting. <strong>Forecasting is the entry primitive, not the product.</strong> The atomic product is the <strong>Decision Asset</strong> — a 10-field machine-readable, auditable decision packet that an agent or enterprise can cite, reuse, dispute, and settle against. The compounding moat is <strong>Market Memory</strong> — the resolved-outcome ledger that strengthens on wall-clock time.</p>
+
+    <p class="lead">The Aristotelian name is deliberate. <em>Phronesis</em> — practical wisdom — is the form of wisdom that guides judgment in domains where rules cannot be mechanically applied. The product names that function precisely. The platform: <a href="https://phronesisintel.com" rel="noopener"><strong>phronesisintel.com</strong></a>. The full Decision Asset schema, the calibration scorecard, the API spec, the OpenAPI surface, the agent-discoverable manifests — all there.</p>
+
+    <p class="lead" style="margin-top: var(--space-8);"><strong>Six primitives × N applied verticals (compact reference):</strong></p>
+    <ul style="margin-top: var(--space-3); padding-left: var(--space-6);">
+      <li><strong>P1 Identity &amp; Mandate</strong> — LIVE. AP2 mandate verification at the boundary publish gate.</li>
+      <li><strong>P2 Reputation &amp; Track Record</strong> — LIVE. <em>Counterparty Passport</em> surfaces the live trust profile.</li>
+      <li><strong>P3 Forecast &amp; Evidence</strong> — LIVE. The Decision Asset substrate; every mint primary-source-cited.</li>
+      <li><strong>P4 Coordination &amp; Negotiation</strong> — planned (named per public roadmap discipline; not over-promised as shipped).</li>
+      <li><strong>P5 Insurance &amp; Outcome</strong> — planned (same).</li>
+      <li><strong>P6 Market-State Telemetry</strong> — LIVE. The agentic-marketplace microstructure feed.</li>
+    </ul>
+
+    <p class="lead" style="margin-top: var(--space-6);"><strong>Verticals:</strong> twelve applied verticals are LIVE on production (energy, computing &amp; AI infrastructure, healthcare, climate physical risk, regulatory, supply-chain, space, robotics, AI/AGI, physics &amp; materials, longevity, quantum). <strong>V#0 — AI Industrial Mobilization &amp; Situational Awareness</strong> — sits above them as the meta-vertical: the cross-cutting view that watches the agentic-economy build-out at once. V#0 is also the meta-vertical SFP cares about most as a stewardship-mode operating entity — it frames every capital-allocation decision the corporate entity makes.</p>
+
+    <div class="btn-group" style="margin-top: var(--space-8);">
+      <a href="https://phronesisintel.com" class="btn btn-primary" rel="noopener">Open Phronesis</a>
+      <a href="https://phronesisintel.com/.well-known/agentic-commerce.json" class="btn btn-secondary" rel="noopener">Product manifest (JSON)</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Substrate proof — operating-entity-level posture
+     ============================================================ -->
+<section id="substrate" style="padding: var(--space-16) 0;">
   <div class="container">
-    <span class="eyebrow section-eyebrow">Production state</span>
-    <h2 class="section-title">Twelve verticals operating on production today</h2>
-    <p class="section-lead">Every forecast is timestamped, primary-source-cited, persisted to the canonical Mnemosyne ledger, and rendered publicly on the calibration scorecard at issue.</p>
+    <span class="eyebrow section-eyebrow">Operating posture</span>
+    <h2 class="section-title">A corporate entity built so agents and counsel can diligence it independently.</h2>
+    <p class="section-lead">Every claim on this page has a substrate-evidence anchor. Federal credentials are publicly verifiable. The trademark filing is publicly searchable. The product runs on a public calibration substrate. The legal entity is registered with the Colorado Secretary of State.</p>
 
     <div class="proof-grid">
       <div class="proof-card">
-        <div class="label">Verticals live</div>
-        <div class="value">12 of 12</div>
-        <div class="detail">V#1 Energy, V#2 Computing + AI Infrastructure, V#3 Healthcare, V#4 Climate, V#5 Regulatory, V#6 Supply-Chain, V#7 Space, V#8 Robotics, V#9 AI/AGI &amp; Compute, V#10 Physics &amp; Materials Discovery, V#11 Longevity &amp; Human Health, V#12 Quantum Computing — all minting forecasts on production per 12-VERTICAL-COMPLETE substrate milestone.</div>
+        <div class="label">Federal credentials</div>
+        <div class="value">5 of 5</div>
+        <div class="detail">UEI <code>E5FZM8GKGPJ6</code> · EIN <code>99-0917951</code> · SBC <code>SBC_002676886</code> · ORCID <code>0009-0000-5641-1456</code> · NSF ID <code>0000A8RD8</code>. Verifiable at SAM.gov, IRS, SBA, ORCID.org, and NSF Research.gov respectively.</div>
       </div>
       <div class="proof-card">
-        <div class="label">Cost per forecast</div>
-        <div class="value">$0.0084 – $0.0151</div>
-        <div class="detail">Real Standard Compute tier inference cost per minted forecast, attested per call. Vertical-specific template depth drives the curve.</div>
+        <div class="label">Trademark filing</div>
+        <div class="value">99842940</div>
+        <div class="detail">PHRONESIS trademark filing at USPTO. As-filed scope per <code>Domain_and_Trademark_Execution_Runbook §4.2.2</code>. Status verifiable at <a href="https://tsdr.uspto.gov" rel="noopener">tsdr.uspto.gov</a>.</div>
       </div>
       <div class="proof-card">
-        <div class="label">API uptime</div>
-        <div class="value">24/7</div>
-        <div class="detail">Hermes contract surface running continuously on dedicated production runtime. MCP and REST co-equal at every endpoint.</div>
+        <div class="label">Product surface</div>
+        <div class="value">phronesisintel.com</div>
+        <div class="detail">Phronesis is LIVE on production. Twelve applied verticals + V#0 meta-vertical. Decision Asset substrate. Market Memory v1 ledger in production since 2026-05-25.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     Vertical lineup — 8/8 architectural depth
-     ============================================================ -->
-<section id="verticals" style="background: var(--color-fog);">
-  <div class="container">
-    <span class="eyebrow section-eyebrow">Vertical axis</span>
-    <h2 class="section-title">Twelve verticals. One substrate.</h2>
-    <p class="section-lead">Phronesis is an AI-native forecasting substrate instantiated for energy-transition first. Roughly seventy percent of the architecture is vertical-agnostic; the per-vertical layer specializes the prompt library and the data plane.</p>
-
-    <ul class="vertical-list">
-      <li class="vertical-item"><span class="vertical-num">V#1</span><span class="vertical-name">Energy Transition</span><span class="vertical-status live">Live</span></li>
-      <li class="vertical-item"><span class="vertical-num">V#2</span><span class="vertical-name">Computing + AI Infrastructure</span><span class="vertical-status live">Live</span></li>
-      <li class="vertical-item"><span class="vertical-num">V#3</span><span class="vertical-name">Healthcare (HIPAA Safe Harbor)</span><span class="vertical-status live">Live</span></li>
-      <li class="vertical-item"><span class="vertical-num">V#4</span><span class="vertical-name">Climate Physical Risk</span><span class="vertical-status live">Live</span></li>
-      <li class="vertical-item"><span class="vertical-num">V#5</span><span class="vertical-name">Regulatory</span><span class="vertical-status live">Live</span></li>
-      <li class="vertical-item"><span class="vertical-num">V#6</span><span class="vertical-name">Supply-Chain</span><span class="vertical-status live">Live</span></li>
-      <li class="vertical-item"><span class="vertical-num">V#7</span><span class="vertical-name">Space + Space Economy</span><span class="vertical-status live">Live</span></li>
-      <li class="vertical-item"><span class="vertical-num">V#8</span><span class="vertical-name">Robotics</span><span class="vertical-status live">Live</span></li>
-      <li class="vertical-item"><span class="vertical-num">V#9</span><span class="vertical-name">AI/AGI &amp; Compute</span><span class="vertical-status live">Live</span></li>
-      <li class="vertical-item"><span class="vertical-num">V#10</span><span class="vertical-name">Physics &amp; Materials Discovery</span><span class="vertical-status live">Live</span></li>
-      <li class="vertical-item"><span class="vertical-num">V#11</span><span class="vertical-name">Longevity &amp; Human Health</span><span class="vertical-status live">Live</span></li>
-      <li class="vertical-item"><span class="vertical-num">V#12</span><span class="vertical-name">Quantum Computing</span><span class="vertical-status live">Live</span></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ============================================================
-     Architecture — what makes the substrate verifiable
-     ============================================================ -->
-<section>
-  <div class="container-narrow">
-    <span class="eyebrow section-eyebrow">How it works</span>
-    <h2 class="section-title" style="font-size: var(--text-3xl);">Verified correctness is a substrate property.</h2>
-    <p class="section-lead">Four architectural commitments, enforced at the code layer.</p>
-
-    <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 44rem; margin: 0 auto;">
-      <div>
-        <h3 style="font-size: var(--text-xl);"><span style="font-family: var(--font-mono); color: var(--color-gold-deep); font-size: var(--text-sm); margin-right: 0.5rem;">01</span> Primary-source citation always</h3>
-        <p>Every forecast traces to a primary source: FERC filings, EDGAR, USPTO, state PUC dockets, DOE grant awards, peer-reviewed research. No second-hand citations of secondary citations.</p>
-      </div>
-      <div>
-        <h3 style="font-size: var(--text-xl);"><span style="font-family: var(--font-mono); color: var(--color-gold-deep); font-size: var(--text-sm); margin-right: 0.5rem;">02</span> Timestamp discipline</h3>
-        <p>Every forecast carries an issue date and an evaluation window. The forecast ledger is the canonical record of what was known when. Calibration accrues publicly over time.</p>
-      </div>
-      <div>
-        <h3 style="font-size: var(--text-xl);"><span style="font-family: var(--font-mono); color: var(--color-gold-deep); font-size: var(--text-sm); margin-right: 0.5rem;">03</span> API and MCP co-equal</h3>
-        <p>Every endpoint that exists for human-driven REST clients exists at parity for autonomous-agent MCP clients. Idempotency keys are required, not optional. Errors are structured and machine-recoverable.</p>
-      </div>
-      <div>
-        <h3 style="font-size: var(--text-xl);"><span style="font-family: var(--font-mono); color: var(--color-gold-deep); font-size: var(--text-sm); margin-right: 0.5rem;">04</span> Agentic-commerce native</h3>
-        <p>Stripe Agentic Commerce Suite integration: Shared Payment Tokens, AP2 mandate verification at the contract surface, sub-cent meter-event precision. Three-layer trust stack from authorization to settlement.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     CTA — Slot C trust posture as primary heading; dual-surface routing
+     For agents — cross-link to product-site manifests
      ============================================================ -->
 <section style="background: var(--gradient-hero); border-top: 1px solid var(--color-cloud); border-bottom: 1px solid var(--color-cloud);">
   <div class="container-narrow" style="text-align: center;">
-    <span class="eyebrow">Engage</span>
-    <h2>Forecasts you can audit.<br>Decisions you can defend.</h2>
-    <p class="section-lead">If you are an agent acting on behalf of a capital allocator, start at the contract surface. If you are a human, the calibration scorecard is the most useful place to begin.</p>
+    <span class="eyebrow">For agents diligencing SFP as counterparty</span>
+    <h2>The corporate identity here. The product manifest there.</h2>
+    <p class="section-lead">If you are an agent diligencing Sustainable Finance Partners as a counterparty, this site carries the corporate identity layer: registered entity, federal credentials, trademark filing, governance substrate. The product manifest — Phronesis API contract, Decision Asset schema, calibration scorecard, AP2 mandate posture, MCP and REST endpoints — lives on the product surface.</p>
 
     <div class="btn-group" style="justify-content: center;">
-      <a href="/spec" class="btn btn-primary">View API spec</a>
-      <a href="https://phronesis-jrstinehour.replit.app/scorecard.json" class="btn btn-secondary">Open calibration scorecard</a>
+      <a href="https://phronesisintel.com/.well-known/agentic-commerce.json" class="btn btn-primary" rel="noopener">Product agentic-commerce.json</a>
+      <a href="/.well-known/agents.txt" class="btn btn-secondary">SFP agents.txt</a>
     </div>
   </div>
 </section>
@@ -266,23 +236,24 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <h4>Sustainable Finance Partners, LLC</h4>
-        <p>Operator of the Phronesis platform.</p>
+        <p>Colorado LLC. Operating entity behind Phronesis.</p>
       </div>
       <div class="footer-col">
-        <h5>Platform</h5>
+        <h5>Product</h5>
         <ul class="footer-links">
-          <li><a href="/spec">API spec</a></li>
-          <li><a href="/openapi.json">OpenAPI</a></li>
-          <li><a href="/.well-known/agents.txt">agents.txt</a></li>
-          <li><a href="/pricing.json">Pricing JSON</a></li>
+          <li><a href="https://phronesisintel.com" rel="noopener">Phronesis →</a></li>
+          <li><a href="https://phronesisintel.com/spec" rel="noopener">API spec</a></li>
+          <li><a href="https://phronesisintel.com/.well-known/agentic-commerce.json" rel="noopener">Product manifest</a></li>
+          <li><a href="https://phronesisintel.com/scorecard" rel="noopener">Calibration scorecard</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Verticals</h5>
+        <h5>Corporate</h5>
         <ul class="footer-links">
-          <li><a href="#verticals">All twelve</a></li>
-          <li><a href="https://phronesis-jrstinehour.replit.app/scorecard.json">Scorecard</a></li>
-          <li><a href="https://phronesis-jrstinehour.replit.app/trust">Trust Center</a></li>
+          <li><a href="#what-sfp-is">What SFP is</a></li>
+          <li><a href="/.well-known/agents.txt">agents.txt</a></li>
+          <li><a href="/llms.txt">llms.txt</a></li>
+          <li><a href="/.well-known/agentic-commerce.json">Corporate manifest</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -296,7 +267,7 @@
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 Sustainable Finance Partners, LLC. All rights reserved.</p>
-      <p>Phronesis is a product brand of Sustainable Finance Partners, LLC.</p>
+      <p>Phronesis is the product operated by Sustainable Finance Partners, LLC. PHRONESIS is a trademark filing of Sustainable Finance Partners, LLC (USPTO serial 99842940).</p>
     </div>
   </div>
 </footer>

@@ -1,28 +1,59 @@
 {
   "$schema": "https://schemas.agentic-commerce.org/v1/manifest.json",
   "spec_version": "1.0",
-  "manifest_version": "2026-04-30",
+  "manifest_version": "2026-05-26",
+  "supersession_note": "Sprint 5.33+ §15.10.98 Q-CARRY-1 corporate-site positioning parallel. Earlier manifest (2026-04-30) described service.name='Phronesis Forecasting Platform' with discipline.verified_correctness_substrate=true. Both have been superseded by the decision-assurance-layer canonical (ratified 2026-05-21 onward). Older framing preserved via supersession-forward per §15.10.89, not retroactively deleted. Canonical product manifest: https://phronesisintel.com/.well-known/agentic-commerce.json",
   "operator": {
     "legal_name": "Sustainable Finance Partners, LLC",
-    "trade_name": "Phronesis",
+    "entity_type": "Colorado Limited Liability Company",
+    "trade_name": "Phronesis (product brand)",
     "jurisdiction": "Colorado, United States",
     "contact_email": "jrstinehour@gmail.com",
-    "website": "https://sustainablefinancepartner.com"
+    "website": "https://sustainablefinancepartner.com",
+    "product_site": "https://phronesisintel.com",
+    "federal_credentials": {
+      "uei": "E5FZM8GKGPJ6",
+      "ein": "99-0917951",
+      "sbc": "SBC_002676886",
+      "orcid": "0009-0000-5641-1456",
+      "nsf_id": "0000A8RD8"
+    },
+    "trademark_filing": {
+      "mark": "PHRONESIS",
+      "uspto_serial": "99842940",
+      "tsdr_url": "https://tsdr.uspto.gov"
+    }
   },
   "service": {
-    "name": "Phronesis Forecasting Platform",
-    "description": "Verified-correctness probabilistic forecasting substrate. Twelve verticals; all twelve live on production per 12-VERTICAL-COMPLETE substrate milestone. Forecasts persisted to canonical Mnemosyne ledger with public calibration scorecard.",
-    "category": "data-services/forecasting",
+    "name": "Phronesis Decision-Assurance Layer",
+    "description": "The agentic economy's decision-assurance layer: a neutral substrate where agents and enterprises verify intent, price uncertainty, evaluate counterparties, coordinate transactions, and insure outcomes before acting. Forecasting is the entry primitive, not the product.",
+    "atomic_product": "decision_asset",
+    "atomic_product_description": "10-field machine-readable, auditable decision packet: forecast_distribution, evidence_graph, methodology_hash, calibration_grade, baseline_comparison, mandate_scope, counterparty_passport, action_boundary, settlement_hook, audit_receipt.",
+    "moat": "market_memory",
+    "moat_description": "Resolved-outcome ledger that compounds on wall-clock time. Per-vertical, per-horizon-class, per-methodology-version calibration history accrues publicly.",
+    "category": "data-services/decision-assurance-layer",
+    "meta_vertical": "v0-ai-industrial-mobilization-situational-awareness",
     "verticals_live": ["energy", "computing-ai-infrastructure", "healthcare", "climate-physical-risk", "regulatory", "supply-chain", "space", "robotics", "ai-agi-compute", "physics-materials-discovery", "longevity-human-health", "quantum-computing"],
-    "verticals_pre_launch": []
+    "verticals_pre_launch": [],
+    "primitives_live": ["P1-identity-mandate", "P2-reputation-counterparty-passport", "P3-forecast-evidence", "P6-market-state-telemetry"],
+    "primitives_planned": ["P4-coordination-negotiation", "P5-insurance-outcome"]
+  },
+  "canonical_product_surfaces": {
+    "product_site": "https://phronesisintel.com",
+    "product_manifest": "https://phronesisintel.com/.well-known/agentic-commerce.json",
+    "product_agents_txt": "https://phronesisintel.com/.well-known/agents.txt",
+    "product_llms_txt": "https://phronesisintel.com/llms.txt",
+    "product_spec": "https://phronesisintel.com/spec",
+    "product_openapi": "https://phronesisintel.com/openapi.json",
+    "product_pricing": "https://phronesisintel.com/pricing.json",
+    "product_scorecard": "https://phronesisintel.com/scorecard",
+    "product_bench": "https://phronesis-jrstinehour.replit.app/bench"
   },
   "endpoints": {
     "mcp": "https://phronesis-jrstinehour.replit.app/mcp",
     "rest_base": "https://phronesis-jrstinehour.replit.app",
-    "openapi": "https://sustainablefinancepartner.com/openapi.json",
-    "spec_documentation": "https://sustainablefinancepartner.com/spec",
     "calibration_scorecard": "https://phronesis-jrstinehour.replit.app/scorecard.json",
-    "pricing_machine_readable": "https://sustainablefinancepartner.com/pricing.json"
+    "calibration_scorecard_wellknown": "https://phronesis-jrstinehour.replit.app/.well-known/scorecard.json"
   },
   "authentication": {
     "supported_methods": ["ap2_mandate", "stripe_spt", "bearer_jwt"],
@@ -42,7 +73,7 @@
     "human_paths": {
       "path_c_human_saas": {
         "description": "Direct human subscription with Bearer JWT auth",
-        "subscription_tiers": ["tier-1-discovery", "tier-2-inquiry", "tier-3-practice", "tier-4-practice-plus", "tier-5-enterprise", "tier-6-outcome-conditional"]
+        "subscription_tiers": ["tier-1-discovery", "tier-2-inquiry", "tier-3-practice", "tier-4-practice-plus", "tier-5-enterprise"]
       }
     }
   },
@@ -51,7 +82,6 @@
     "stripe_acs_native": true,
     "currency": "USD",
     "tax_handling": "stripe_tax_complete_tier",
-    "climate_contribution_pct": 1.0,
     "pricing_model": "per_call_plus_subscription",
     "per_call_pricing": {
       "inference_cost_range_usd": [0.0084, 0.0151],
@@ -64,20 +94,19 @@
     "idempotency": "required_on_all_mutations",
     "idempotency_archive_minimum_hours": 72,
     "error_format": "structured_json_with_stable_codes",
-    "per_tenant_isolation": "boundary_publish_layer",
-    "audit_trail": "canonical_mnemosyne_ledger_immutable",
-    "verified_correctness_substrate": true
+    "decision_asset_substrate": true,
+    "proof_of_decision": "audit_receipt_publicly_verifiable_per_decision_asset"
   },
   "trust_stack": {
     "layer_1_authorization": "ap2_mandate_verification",
     "layer_2_orchestration": "phronesis_plutus_ring",
     "layer_3_settlement": "stripe_spt_execution",
-    "sacred_invariants": {
-      "5": "mcp_rest_co_equal_at_every_layer",
-      "7": "attribution_timestamp_confidence_audit_per_forecast",
-      "8": "per_tenant_isolation_at_boundary_publish",
-      "9": "boundary_as_only_publish",
-      "10": "prompt_versioning_is_code"
+    "substrate_guarantees": {
+      "mcp_rest_co_equal": "every_endpoint_at_parity_neither_transport_primary",
+      "attribution_timestamp_confidence_audit": "enforced_at_boundary_publish_per_decision_asset",
+      "per_tenant_isolation": "boundary_publish_layer_code_path_enforced",
+      "single_publish_surface": "boundary_publish_is_only_exit_point",
+      "prompt_versioning_is_code": "agent_prompts_semver_loaded_via_prompt_loader"
     }
   },
   "legal": {
@@ -85,12 +114,14 @@
     "privacy_policy_url": "https://sustainablefinancepartner.com/privacy-policy",
     "refund_policy_url": "https://sustainablefinancepartner.com/refund-policy",
     "governing_law": "Colorado",
-    "dispute_resolution": "AAA_arbitration_Denver"
+    "dispute_resolution": "AAA_arbitration_Denver",
+    "non_investment_advice": "decision_assets_are_not_investment_recommendations"
   },
   "agent_directives": {
-    "rate_limits_per_mandate": "documented_at_/spec",
-    "structured_errors": "16_code_enum_at_/spec#errors",
+    "rate_limits_per_mandate": "documented_at_product_site_/spec",
+    "structured_errors": "16_code_enum_at_product_site_/spec#errors",
     "preferred_caching": "scorecard_15min_pricing_24hr",
-    "deprecation_window_months": 6
+    "deprecation_window_months": 6,
+    "canonical_product_manifest_pointer": "https://phronesisintel.com/.well-known/agentic-commerce.json"
   }
 }

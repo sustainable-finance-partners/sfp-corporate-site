@@ -1,59 +1,81 @@
-# agents.txt — Phronesis agent discovery manifest
-# Authority: Sustainable Finance Partners, LLC (operator)
-# Spec: https://sustainablefinancepartner.com/spec
-# Last updated: 2026-04-30
+# agents.txt — Sustainable Finance Partners (operating entity) discovery manifest
+# Authority: Sustainable Finance Partners, LLC (Colorado LLC; operating entity behind Phronesis)
+# Last updated: 2026-05-26
 
 User-Agent: *
 
-# --- Surfaces ---
-Contact: jrstinehour@gmail.com
-Spec: https://sustainablefinancepartner.com/spec
-OpenAPI: https://sustainablefinancepartner.com/openapi.json
-Pricing: https://sustainablefinancepartner.com/pricing.json
-ACP: https://sustainablefinancepartner.com/.well-known/agentic-commerce.json
+# --- What this surface is ---
+# This is the agent-discovery surface for SUSTAINABLE FINANCE PARTNERS, LLC —
+# the Colorado limited liability company that operates Phronesis.
+# Phronesis is the agentic economy's decision-assurance layer (the product).
+# SFP is the corporate entity that holds the IP, customer contracts, federal
+# credentials, and the PHRONESIS trademark filing.
+#
+# Agents diligencing SFP as a COUNTERPARTY land here.
+# Agents calling the PRODUCT API surface go to phronesisintel.com — see below.
 
-# --- Endpoints ---
+# --- Product manifest (canonical product-side surfaces) ---
+Product-Site: https://phronesisintel.com
+Product-Manifest: https://phronesisintel.com/.well-known/agentic-commerce.json
+Product-Agents-TXT: https://phronesisintel.com/.well-known/agents.txt
+Product-LLMs-TXT: https://phronesisintel.com/llms.txt
+Product-Spec: https://phronesisintel.com/spec
+Product-OpenAPI: https://phronesisintel.com/openapi.json
+Product-Pricing: https://phronesisintel.com/pricing.json
+Product-Scorecard: https://phronesisintel.com/scorecard
+Product-Bench: https://phronesis-jrstinehour.replit.app/bench
+
+# --- Corporate-entity surfaces (this site) ---
+Contact: jrstinehour@gmail.com
+Corporate-Site: https://sustainablefinancepartner.com
+Corporate-Manifest: https://sustainablefinancepartner.com/.well-known/agentic-commerce.json
+
+# --- Live API endpoints (operated by SFP; canonical home on product site) ---
 MCP: https://phronesis-jrstinehour.replit.app/mcp
 REST: https://phronesis-jrstinehour.replit.app
-Scorecard: https://phronesis-jrstinehour.replit.app/scorecard.json
+Scorecard-JSON: https://phronesis-jrstinehour.replit.app/scorecard.json
 
-# --- Authentication ---
+# --- What Phronesis is (one paragraph) ---
+# Phronesis is the agentic economy's decision-assurance layer: a neutral
+# substrate where agents and enterprises verify intent, price uncertainty,
+# evaluate counterparties, coordinate transactions, and insure outcomes
+# before acting. Forecasting is the entry primitive, not the product.
+# The atomic product is the Decision Asset — a 10-field machine-readable,
+# auditable decision packet. Market Memory is the moat. MCP + REST co-equal.
+# Full canonical at https://phronesisintel.com.
+
+# --- Authentication (canonical at product site) ---
 # Path A (autonomous agents):  AP2 mandate (Google Agent Payments Protocol)
-#                              Intent Mandate + Cart Mandate as Verifiable Credentials
 # Path B (agents-for-humans):  Stripe SPT (Shared Payment Token) bound to AP2 Cart Mandate
-# Path C (humans):             Bearer JWT; six canonical subscription tiers (Pricing_Strategy v1.2)
+# Path C (humans):             Bearer JWT; subscription tiers
 Auth-Methods: AP2, Stripe-SPT, Bearer-JWT
 
-# --- Discipline ---
-# Idempotency-Key header REQUIRED on all mutating endpoints.
-# Errors are structured with stable machine-recoverable codes (16-code enum).
-# REST and MCP are co-equal at every endpoint per Sacred Invariant #5.
-# Per-tenant isolation enforced at boundary publish layer per Sacred Invariant #8.
-Idempotency: required
-Error-Format: structured-json
+# --- Corporate-entity identity (federal credentials; publicly verifiable) ---
+# Verifiable at SAM.gov / IRS / SBA / ORCID / NSF Research.gov respectively.
+Entity-Name: Sustainable Finance Partners, LLC
+Entity-Type: Colorado Limited Liability Company
+Entity-UEI: E5FZM8GKGPJ6
+Entity-EIN: 99-0917951
+Entity-SBC: SBC_002676886
+Entity-ORCID: 0009-0000-5641-1456
+Entity-NSF-ID: 0000A8RD8
 
-# --- Pricing model ---
-# Per-call: inference cost-attestation × markup multiplier (currently 33x)
-# Cost range: $0.0084 - $0.0151 per forecast (Standard Compute tier)
-# Subscription tiers: Discovery / Inquiry / Practice / Practice+ / Enterprise / Outcome-Conditional (Pricing_Strategy v1.2 canonical)
-# Settlement: Stripe meter events at canonical persistence to Mnemosyne ledger
-Pricing-Model: per-call+subscription
-
-# --- Verticals (12 total; all twelve LIVE on production per 12-VERTICAL-COMPLETE substrate milestone) ---
-Vertical: V1=Energy LIVE
-Vertical: V2=Computing+AI-Infrastructure LIVE
-Vertical: V3=Healthcare LIVE (HIPAA Safe Harbor)
-Vertical: V4=Climate-Physical-Risk LIVE
-Vertical: V5=Regulatory LIVE
-Vertical: V6=Supply-Chain LIVE
-Vertical: V7=Space LIVE
-Vertical: V8=Robotics LIVE
-Vertical: V9=AI/AGI-and-Compute LIVE
-Vertical: V10=Physics-and-Materials-Discovery LIVE
-Vertical: V11=Longevity-and-Human-Health LIVE (HIPAA-adjacent, de-identified-only)
-Vertical: V12=Quantum-Computing LIVE
+# --- Trademark filing ---
+# As-filed scope per Domain_and_Trademark_Execution_Runbook §4.2.2.
+# Status verifiable at https://tsdr.uspto.gov.
+Trademark-Filing: PHRONESIS, USPTO serial 99842940
 
 # --- Substrate properties ---
-# Verified-correctness substrate. Forecasts persisted to canonical Mnemosyne ledger.
-# Public calibration scorecard. Audit trail every forecast.
-# Three-layer trust stack: AP2 authorization → Plutus orchestration → Stripe SPT execution.
+# Decision Assets persisted to canonical Mnemosyne ledger (Market Memory).
+# Public calibration scorecard. Audit trail on every Decision Asset.
+# MCP and REST are co-equal at every endpoint — neither transport is the
+# "real" API; both pass through the same boundary publish gate.
+# Per-tenant isolation is enforced at the code path itself.
+
+# --- Supersession note (§15.10.89 forward-only discipline) ---
+# Earlier framing on this site described SFP as a "verified-correctness
+# forecasting platform / substrate spanning twelve verticals." That was
+# the pre-pivot brand state and has been superseded by the
+# decision-assurance-layer canonical (ratified 2026-05-21 onward).
+# SFP is the operating entity; Phronesis is the product. Older framing
+# is preserved via supersession-forward, not retroactively deleted.
