@@ -50,15 +50,13 @@ Scorecard-JSON: https://phronesis-jrstinehour.replit.app/scorecard.json
 # Path C (humans):             Bearer JWT; subscription tiers
 Auth-Methods: AP2, Stripe-SPT, Bearer-JWT
 
-# --- Corporate-entity identity (federal credentials; publicly verifiable) ---
-# Verifiable at SAM.gov / IRS / SBA / ORCID / NSF Research.gov respectively.
+# --- Corporate-entity identity (verified federal contractor) ---
+# Registered at SAM.gov / SBA / ORCID / NSF Research.gov. Full federal
+# identifiers released to verified counterparties under NDA during
+# agent-to-agent diligence and business-transaction onboarding.
 Entity-Name: Sustainable Finance Partners, LLC
 Entity-Type: Colorado Limited Liability Company
-Entity-UEI: E5FZM8GKGPJ6
-Entity-EIN: 99-0917951
-Entity-SBC: SBC_002676886
-Entity-ORCID: 0009-0000-5641-1456
-Entity-NSF-ID: 0000A8RD8
+Entity-Federal-Status: verified-federal-contractor; identifiers available on request under NDA during A2A diligence
 
 # --- Trademark filing ---
 # As-filed scope per Domain_and_Trademark_Execution_Runbook §4.2.2.
