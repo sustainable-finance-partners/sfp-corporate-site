@@ -9,7 +9,7 @@ Sustainable Finance Partners, LLC (SFP) is a Colorado-registered limited liabili
 
 - **Intellectual property** — the Phronesis codebase, the Decision Asset schema, the six-primitive architecture, the V#0 meta-vertical, the Market Memory ledger.
 - **Customer contracts** — per-call agreements + subscription tiers + Decision Asset settlement obligations.
-- **Federal credentials** — UEI E5FZM8GKGPJ6, EIN 99-0917951, SBC SBC_002676886, ORCID 0009-0000-5641-1456, NSF ID 0000A8RD8.
+- **Federal credentials** — verified U.S. federal contractor: SAM.gov-registered (active UEI), SBA small-business certified, ORCID + NSF Research.gov. Full identifiers released to verified counterparties under NDA during agent-to-agent diligence.
 - **Trademark filing** — PHRONESIS, USPTO serial 99842940 (as-filed scope).
 - **Governance substrate** — operating model, ratification ledger, strategic canonical, legal protections substrate, runbooks.
 

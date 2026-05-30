@@ -12,11 +12,9 @@
     "website": "https://sustainablefinancepartner.com",
     "product_site": "https://phronesisintel.com",
     "federal_credentials": {
-      "uei": "E5FZM8GKGPJ6",
-      "ein": "99-0917951",
-      "sbc": "SBC_002676886",
-      "orcid": "0009-0000-5641-1456",
-      "nsf_id": "0000A8RD8"
+      "status": "verified_federal_contractor",
+      "registries": ["SAM.gov", "SBA", "ORCID", "NSF Research.gov"],
+      "identifier_disclosure": "Full federal identifiers released to verified counterparties under NDA during agent-to-agent diligence and business-transaction onboarding."
     },
     "trademark_filing": {
       "mark": "PHRONESIS",
