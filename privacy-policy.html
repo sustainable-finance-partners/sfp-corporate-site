@@ -55,18 +55,15 @@
     <p class="lead">CCPA and Colorado Privacy Act aligned. Protected Health Information explicitly excluded. Per-tenant isolation enforced at the boundary publish layer.</p>
 
     <div class="legal-meta">
-      <div><strong>Effective Date</strong>To be set at publish time (recommended 2026-05-01)</div>
-      <div><strong>Last Updated</strong>2026-04-30</div>
+      <div><strong>Effective Date</strong>2026-09-05</div>
+      <div><strong>Last Updated</strong>2026-09-05</div>
+      <div><strong>Version</strong>v1.1</div>
       <div><strong>Operator</strong>Sustainable Finance Partners, LLC, DBA Phronesis</div>
-      <div><strong>Applies to</strong>All visitors to sustainablefinancepartner.com and all platform users</div>
+      <div><strong>Applies to</strong>All visitors to sustainablefinancepartner.com and phronesisintel.com, all platform users, and all persons who submit an engagement inquiry</div>
     </div>
 
     <div class="legal-banner">
-      <strong>v1 — pending legal review.</strong> This Privacy Policy was authored using standard SaaS templates adapted to Phronesis substrate specifics, with attention to Colorado Privacy Act (CPA) and California Consumer Privacy Act (CCPA) touchpoints. Pending review by retained outside counsel. Material changes will be communicated per Section 10 below.
-    </div>
-
-    <div class="legal-banner" style="margin-top: var(--space-4); background: rgba(201, 169, 110, 0.08); border-color: var(--color-gold);">
-      <strong>Brand-positioning supersession notice (§15.10.89, effective 2026-05-26):</strong> Portions of this document refer to Phronesis as a "verified-correctness" platform / substrate or to a "forecast moat" — the pre-pivot framing. The product was repositioned on 2026-05-21 onward as the agentic economy's <strong>decision-assurance layer</strong>; the atomic product is now the Decision Asset, and the compounding moat is Market Memory (the resolved-outcome ledger). The operative privacy clauses below remain in effect as written — only the product-framing language is superseded. Canonical product positioning at <a href="https://phronesisintel.com" rel="noopener">phronesisintel.com</a>.
+      <strong>Version note:</strong> v1.1 supersedes v1 (2026-04-30) and aligns this Policy with the Terms of Service v1.1 (effective 2026-09-05). Phronesis is the agentic economy's decision-assurance layer; the atomic product is the Decision Asset; the Record (Market Memory) is the anchored ledger of Decision Assets and their Resolutions.
     </div>
   </div>
 </header>
@@ -80,21 +77,23 @@
 <ul>
   <li><strong>Account information:</strong> name, email address, billing contact information, organization name (where applicable)</li>
   <li><strong>Payment information:</strong> processed exclusively by our payment processor Stripe, Inc. Phronesis does not store payment card numbers, bank account numbers, or credit card verification values. We retain only the Stripe customer identifier and high-level transaction metadata necessary for billing reconciliation.</li>
-  <li><strong>Authentication credentials:</strong> email address and password (or single sign-on identity), API keys we issue to you, JSON Web Tokens (JWTs) generated for authenticated sessions</li>
+  <li><strong>Authentication credentials:</strong> API keys we issue to you and JSON Web Tokens (JWTs) generated for authenticated sessions</li>
   <li><strong>Communications:</strong> content of support requests, feedback submissions, and other voluntary communications with Phronesis</li>
 </ul>
 <p>For autonomous-agent customers using the Hermes contract surface, we additionally collect:</p>
 <ul>
-  <li><strong>Agent payment authorization:</strong> Google Agent Payments Protocol (AP2) signed mandates including Intent Mandate and Cart Mandate Verifiable Credentials, persisted to our audit-trail substrate per Sacred Invariant #7 attribution discipline</li>
+  <li><strong>Delegated-authority evidence:</strong> where an agent presents an AP2 Mandate or an equivalent delegated-authority credential, we record it as evidence in the audit trail of the resulting Decision Asset (Terms &sect;4.3). Mandate material is stored as hashes and references, not as reusable bearer material.</li>
+  <li><strong>Agent registration:</strong> when an autonomous agent registers to use the Service (OAuth dynamic client registration), we issue a signed client identifier derived from the registration; registration is stateless &mdash; we do not store a registration record, and we retain only a revocation entry if a client identifier is later revoked.</li>
+  <li><strong>Engagement inquiries:</strong> if you submit an inquiry through phronesisintel.com/deploy or the <code>engagement_inquiry</code> tool, we collect the decision owner, the decision described in one sentence, its materiality, the resolution horizon, the systems in play, and the contact address you provide. We use them only to evaluate and respond to your inquiry and to maintain a record of it; every inquiry is reviewed by a person before any response or engagement, and no inquiry is accepted automatically.</li>
 </ul>
 
 <h3>1.2 Information we collect automatically</h3>
 <p>When you use the Phronesis platform, we automatically collect:</p>
 <ul>
   <li><strong>Usage telemetry:</strong> API request timestamps, endpoint paths, response codes, request payload sizes, response payload sizes</li>
-  <li><strong>Forecast metadata:</strong> which forecast templates you request, which verticals (V#1 Energy through V#8 Robotics) and archetypes you query, frequency of queries, total queries per billing period</li>
-  <li><strong>Cost-attestation records:</strong> the per-call inference cost incurred for each forecast you request (typically $0.0084 to $0.0151 per forecast at standard cost-attestation curve), persisted to the Phronesis Plutus ring meter event substrate for billing</li>
-  <li><strong>Diagnostic information:</strong> rate-limiting events, circuit-breaker triggers, error responses, escalation route signals to the Iris ring (Phronesis customer relations substrate)</li>
+  <li><strong>Forecast metadata:</strong> which Decision Asset templates you request, which applied verticals (as published at phronesisintel.com/verticals) and archetypes you query, frequency of queries, total queries per billing period</li>
+  <li><strong>Cost-attestation records:</strong> the per-call inference cost incurred for each Decision Asset you request (published as a range in the canonical price list), persisted to our billing substrate</li>
+  <li><strong>Diagnostic information:</strong> rate-limiting events, circuit-breaker triggers, error responses, support-routing signals</li>
   <li><strong>Cookies and similar technologies:</strong> minimal session cookies for authentication state only. Phronesis does not use third-party advertising cookies or cross-site tracking technologies.</li>
 </ul>
 
@@ -105,6 +104,7 @@
   <li><strong>Customer underlying business or financial data:</strong> Phronesis processes the forecast queries you submit, but does not collect or store the underlying business datasets, financial records, or strategic plans you may use to inform your queries.</li>
   <li><strong>Children's personal information:</strong> the Phronesis platform is not directed to children under 13. We do not knowingly collect personal information from children under 13.</li>
   <li><strong>Sensitive personal information categories without explicit consent:</strong> Phronesis does not collect biometric identifiers, precise geolocation, racial or ethnic origin data, religious or philosophical beliefs, or genetic data.</li>
+  <li><strong>Personal data inside Decision Assets:</strong> Decision Assets describe market, infrastructure, and institutional events, not individuals. The Terms (&sect;4.2) prohibit submitting queries about specifically identified individuals in violation of privacy law, and we do not design Decision Asset templates to profile natural persons.</li>
 </ul>
 
 <h2>2. How we use your information</h2>
@@ -120,9 +120,9 @@
 
 <h3>2.2 To improve the Phronesis platform</h3>
 <ul>
-  <li>Analyze aggregated, anonymized usage telemetry to understand platform performance and identify areas for improvement</li>
-  <li>Validate forecast calibration accuracy against ground-truth resolution windows (the Phronesis verified-correctness moat)</li>
-  <li>Tune forecast prompt templates and archetype designs through the AutoResearch substrate (governed by canonical-correctness guards in the Themis substrate; subject to per-tenant isolation; planned Sprint 6+ activation)</li>
+  <li>Analyze de-identified, aggregated usage telemetry to understand platform performance and identify areas for improvement</li>
+  <li>Score Decision Assets against ground-truth resolution and publish the results on the Calibration Scorecard (Market Memory)</li>
+  <li>Improve prompt templates and archetype designs using de-identified, aggregated data, subject to Terms &sect;7.1B and &sect;7.2; we do not use customer-identifying information to train or improve models without separate explicit consent</li>
   <li>Detect and prevent fraudulent or abusive use of the platform</li>
 </ul>
 
@@ -135,20 +135,21 @@
 
 <h2>3. How we share your information</h2>
 
-<h3>3.1 Service providers we share with</h3>
+<h3>3.1 Service providers (subprocessors) we share with</h3>
 <table>
   <thead>
-    <tr><th>Provider</th><th>Purpose</th><th>Data shared</th><th>Privacy policy</th></tr>
+    <tr><th>Provider</th><th>Purpose</th><th>Data shared</th><th>Retention at provider</th><th>Privacy policy</th></tr>
   </thead>
   <tbody>
-    <tr><td>Stripe, Inc.</td><td>Payment processing, tax automation, agentic commerce settlement</td><td>Payment information, billing contact, transaction metadata</td><td><a href="https://stripe.com/privacy">stripe.com/privacy</a></td></tr>
-    <tr><td>Anthropic PBC</td><td>Large language model inference for forecast minting</td><td>Forecast query content + model invocation metadata; no customer-identifying information beyond what is necessary for inference</td><td><a href="https://www.anthropic.com/legal/privacy">anthropic.com/legal/privacy</a></td></tr>
-    <tr><td>Replit, Inc.</td><td>Cloud infrastructure hosting (Hermes Reserved VM production runtime)</td><td>Platform telemetry data only; no customer-content data persisted at hosting layer beyond Mnemosyne ledger</td><td><a href="https://replit.com/site/privacy">replit.com/site/privacy</a></td></tr>
-    <tr><td>Cloudflare, Inc. (transitioning from ZenBusiness Inc.)</td><td>Domain registration, DNS, and CDN services for sustainablefinancepartner.com</td><td>Public domain registration metadata only; HTTP request metadata at CDN edge</td><td><a href="https://www.cloudflare.com/privacypolicy/">cloudflare.com/privacypolicy</a></td></tr>
+    <tr><td>Stripe, Inc.</td><td>Payment processing, tax automation, agentic-commerce settlement</td><td>Payment information, billing contact, transaction metadata</td><td>Per Stripe's terms</td><td><a href="https://stripe.com/privacy">stripe.com/privacy</a></td></tr>
+    <tr><td>Anthropic, PBC</td><td>Large-language-model inference for Decision Asset minting</td><td>Forecast query content and evidence passed for inference; model-invocation metadata; no account-identifying data beyond what inference requires</td><td>Up to 30 days under Anthropic's standard commercial API terms; Phronesis has not configured a zero-data-retention arrangement</td><td><a href="https://www.anthropic.com/legal/privacy">anthropic.com/legal/privacy</a></td></tr>
+    <tr><td>Replit, Inc.</td><td>Cloud infrastructure hosting (production runtime, US-based)</td><td>Platform telemetry; ledger data at rest</td><td>Duration of hosting</td><td><a href="https://replit.com/site/privacy">replit.com/site/privacy</a></td></tr>
+    <tr><td>Cloudflare, Inc.</td><td>Domain, DNS, and CDN services</td><td>Public registration metadata; HTTP request metadata at the edge</td><td>Per Cloudflare's terms</td><td><a href="https://www.cloudflare.com/privacypolicy/">cloudflare.com/privacypolicy</a></td></tr>
+    <tr><td>Bitcoin network and RFC 3161 timestamp authority</td><td>Anchoring the Record</td><td>Cryptographic hashes of Decision Assets only &mdash; no personal data and no content is placed on any public ledger</td><td>Permanent (hashes are immutable by design)</td><td>n/a</td></tr>
   </tbody>
 </table>
 
-<p>Phronesis does not sell, rent, or trade your personal information to third parties for their direct marketing purposes.</p>
+<p>Phronesis does not sell, rent, or trade your personal information, and does not share it for cross-context behavioral advertising. We will update this table before adding a subprocessor that receives personal data.</p>
 
 <h3>3.2 Legal disclosures</h3>
 <p>We may disclose your information if required by law (subpoena, court order, regulatory request) or to protect the rights, safety, or property of Phronesis, our customers, or others. We will notify you of any legal request for your information unless prohibited by law.</p>
@@ -156,12 +157,18 @@
 <h3>3.3 Business transactions</h3>
 <p>If Phronesis or Sustainable Finance Partners, LLC undergoes a merger, acquisition, financing, sale of assets, or similar transaction, your information may be transferred to the successor entity. We will notify you in advance of any such transfer that materially affects how your information is processed.</p>
 
+<h3>3.4 De-identified and aggregated data</h3>
+<p>Where Phronesis uses de-identified data (Terms &sect;7.1B, &sect;7.2), Phronesis (i) takes reasonable measures to ensure the data cannot reasonably be linked to an identified or identifiable individual or Customer, (ii) publicly commits to maintain and use the data only in de-identified form and not to attempt re-identification, and (iii) contractually obligates any recipient to comply with the same commitments.</p>
+
 <h2>4. Data retention</h2>
 <ul>
   <li><strong>Active account data:</strong> retained for the duration of your active customer relationship with Phronesis</li>
   <li><strong>Post-cancellation account data:</strong> retained for seven (7) years after account cancellation per accounting and tax compliance requirements; thereafter deleted or fully anonymized</li>
   <li><strong>Transactional financial records:</strong> retained per applicable federal and Colorado state tax law (typically seven years)</li>
-  <li><strong>Forecast ledger entries:</strong> retained indefinitely as part of the Phronesis verified-correctness audit trail (the Mnemosyne canonical persistence substrate); customer identifying information is anonymized at the time of account cancellation while preserving the underlying forecast data and calibration history</li>
+  <li><strong>Decision Assets and anchors:</strong> Decision Assets and their Resolution records are retained indefinitely in the Record; their anchored cryptographic hashes are immutable and contain no personal data. Customer-identifying account data associated with the Record is deleted or anonymized on account cancellation or verified request, subject to legal retention requirements, while the Decision Assets and calibration history are preserved.</li>
+  <li><strong>Model-inference subprocessor:</strong> inference inputs and outputs are retained by Anthropic for up to 30 days under its standard terms (&sect;3.1).</li>
+  <li><strong>Engagement inquiries:</strong> retained for twenty-four (24) months from last contact, or for the life of the resulting customer relationship if one forms.</li>
+  <li><strong>Agent registration records:</strong> retained for the life of the registration and twelve (12) months thereafter.</li>
   <li><strong>Support communications:</strong> retained for three (3) years for quality assurance and recurring-issue identification</li>
   <li><strong>Diagnostic and telemetry data:</strong> retained for ninety (90) days at full granularity; aggregated for indefinite retention in anonymized form</li>
 </ul>
@@ -192,6 +199,7 @@
 </ul>
 
 <h3>5.3 How to exercise your rights</h3>
+<p>Customers may also export their Decision Assets in the published portable format at any time (Terms &sect;7.1A, &sect;12.3). Deletion requests are honored for account and personal data; anchored hashes contain no personal data and are not alterable.</p>
 <p>To exercise any of the rights above, contact Phronesis support at the email address published on the Sustainable Finance Partners website Contact page. Include:</p>
 <ol>
   <li>The nature of your request (access, deletion, correction, etc.)</li>
@@ -205,20 +213,20 @@
 <p>Phronesis maintains technical and organizational measures appropriate to the sensitivity of the information we process:</p>
 <ul>
   <li><strong>Encryption in transit:</strong> all communications with the Hermes contract surface and between Phronesis substrate components use industry-standard TLS encryption</li>
-  <li><strong>Encryption at rest:</strong> customer data is encrypted at rest in the Mnemosyne canonical persistence layer and at the Replit Reserved VM cloud infrastructure layer</li>
+  <li><strong>Encryption at rest:</strong> customer data is encrypted at rest in the Mnemosyne canonical persistence layer and at the production hosting layer</li>
   <li><strong>Payment card data:</strong> never touches Phronesis systems; processed directly by Stripe under PCI DSS Level 1 compliance</li>
   <li><strong>API key management:</strong> Phronesis-issued API keys can be rotated by you at any time via your account settings; suspected key compromise should be reported to support immediately</li>
-  <li><strong>Per-tenant isolation:</strong> Phronesis substrate enforces strict per-tenant isolation; cross-tenant data access is architecturally prevented at the boundary publish layer (Sacred Invariant #8)</li>
+  <li><strong>Per-tenant isolation:</strong> Phronesis substrate enforces strict per-tenant isolation; cross-tenant data access is architecturally prevented at the boundary publish layer</li>
   <li><strong>Backup and disaster recovery:</strong> triple-redundancy backup of the Mnemosyne canonical ledger (operational substrate plus version-controlled snapshots plus offline archive)</li>
-  <li><strong>Two-factor authentication:</strong> required for all customer accounts at the human-SaaS surface; AP2 cryptographic mandates required for autonomous-agent customers</li>
+  <li><strong>Authentication:</strong> platform access is authenticated by Authority Credential (JWT or workload credential) for all callers &mdash; human and autonomous; no password-based login surface exists, and therefore no separate two-factor layer; delegated-authority evidence is recorded where presented (Terms &sect;4.3)</li>
 </ul>
 
-<p>No system is perfectly secure. We will notify affected customers and applicable regulators of any data breach as required by Colorado HB 18-1128 and other applicable breach notification laws (typically within seventy-two hours of discovery for material breaches affecting personally identifiable information).</p>
+<p>No system is perfectly secure. We will notify affected customers and applicable regulators of any data breach as required by applicable law, and for Colorado residents in any event not later than thirty (30) days after determination that a security breach occurred (C.R.S. &sect; 6-1-716).</p>
 
 <h2>7. International data transfers</h2>
-<p>Phronesis operates from the United States. Customer data is stored at US-based cloud infrastructure (Replit Reserved VM in AWS US regions; Stripe US data centers; Anthropic US-based inference). Customers located outside the United States who access the Phronesis platform consent to the transfer and processing of their information in the United States.</p>
+<p>Phronesis operates from the United States. Customer data is stored on US-based infrastructure (production hosting in US regions; Stripe US data centers; Anthropic US-based inference). Customers located outside the United States who access the Phronesis platform consent to the transfer and processing of their information in the United States.</p>
 
-<p>Phronesis does not currently offer EU-located data residency or processing. Customers subject to GDPR or other regional data protection regimes should evaluate whether US-based processing meets their compliance requirements before subscribing.</p>
+<p>Phronesis does not currently offer EU-located data residency or processing. Customers subject to GDPR or other regional data protection regimes should evaluate whether US-based processing meets their compliance requirements before subscribing. If you are in the EU or UK and submit an engagement inquiry, we process it on the basis of our legitimate interest in responding to your inquiry; you may object at any time by contacting us at the address in Section 11.</p>
 
 <h2>8. Cookies and tracking</h2>
 <p>Phronesis uses minimal cookies:</p>
