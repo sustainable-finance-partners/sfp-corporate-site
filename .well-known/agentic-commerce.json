@@ -1,25 +1,32 @@
 {
   "$schema": "https://schemas.agentic-commerce.org/v1/manifest.json",
   "spec_version": "1.0",
-  "manifest_version": "2026-05-26",
-  "supersession_note": "Sprint 5.33+ §15.10.98 Q-CARRY-1 corporate-site positioning parallel. Earlier manifest (2026-04-30) described service.name='Phronesis Forecasting Platform' with discipline.verified_correctness_substrate=true. Both have been superseded by the decision-assurance-layer canonical (ratified 2026-05-21 onward). Older framing preserved via supersession-forward per §15.10.89, not retroactively deleted. Canonical product manifest: https://phronesisintel.com/.well-known/agentic-commerce.json",
+  "manifest_version": "2026-10-06",
   "operator": {
     "legal_name": "Sustainable Finance Partners, LLC",
     "entity_type": "Colorado Limited Liability Company",
     "trade_name": "Phronesis (product brand)",
     "jurisdiction": "Colorado, United States",
-    "contact_email": "jrstinehour@gmail.com",
+    "contact_email": "ops@phronesisintel.com",
     "website": "https://sustainablefinancepartner.com",
     "product_site": "https://phronesisintel.com",
     "federal_credentials": {
       "status": "verified_federal_contractor",
-      "registries": ["SAM.gov", "SBA", "ORCID", "NSF Research.gov"],
+      "registries": [
+        "SAM.gov",
+        "SBA",
+        "ORCID",
+        "NSF Research.gov"
+      ],
       "identifier_disclosure": "Full federal identifiers released to verified counterparties under NDA during agent-to-agent diligence and business-transaction onboarding."
     },
-    "trademark_filing": {
+    "legal_contact_email": "legal@phronesisintel.com",
+    "trademark_license": {
       "mark": "PHRONESIS",
+      "owner": "John Ross Stinehour",
+      "licensee": "Sustainable Finance Partners, LLC (exclusive license)",
       "uspto_serial": "99842940",
-      "tsdr_url": "https://tsdr.uspto.gov"
+      "status": "Pending application; status verifiable at tsdr.uspto.gov."
     }
   },
   "service": {
@@ -31,10 +38,31 @@
     "moat_description": "Resolved-outcome ledger that compounds on wall-clock time. Per-vertical, per-horizon-class, per-methodology-version calibration history accrues publicly.",
     "category": "data-services/decision-assurance-layer",
     "meta_vertical": "v0-ai-industrial-mobilization-situational-awareness",
-    "verticals_live": ["energy", "computing-ai-infrastructure", "healthcare", "climate-physical-risk", "regulatory", "supply-chain", "space", "robotics", "ai-agi-compute", "physics-materials-discovery", "longevity-human-health", "quantum-computing"],
+    "verticals_live": [
+      "energy",
+      "computing-ai-infrastructure",
+      "healthcare",
+      "climate-physical-risk",
+      "regulatory",
+      "supply-chain",
+      "space",
+      "robotics",
+      "ai-agi-compute",
+      "physics-materials-discovery",
+      "longevity-human-health",
+      "quantum-computing"
+    ],
     "verticals_pre_launch": [],
-    "primitives_live": ["P1-identity-mandate", "P2-reputation-counterparty-passport", "P3-forecast-evidence", "P6-market-state-telemetry"],
-    "primitives_planned": ["P4-coordination-negotiation", "P5-insurance-outcome"]
+    "primitives_live": [
+      "P1-identity-mandate",
+      "P2-reputation-counterparty-passport",
+      "P3-forecast-evidence",
+      "P6-market-state-telemetry"
+    ],
+    "primitives_planned": [
+      "P4-coordination-negotiation",
+      "P5-insurance-outcome"
+    ]
   },
   "canonical_product_surfaces": {
     "product_site": "https://phronesisintel.com",
@@ -45,20 +73,27 @@
     "product_openapi": "https://phronesisintel.com/openapi.json",
     "product_pricing": "https://phronesisintel.com/pricing.json",
     "product_scorecard": "https://phronesisintel.com/scorecard",
-    "product_bench": "https://phronesis-jrstinehour.replit.app/bench"
+    "product_bench": "https://api.phronesisintel.com/bench"
   },
   "endpoints": {
-    "mcp": "https://phronesis-jrstinehour.replit.app/mcp",
-    "rest_base": "https://phronesis-jrstinehour.replit.app",
-    "calibration_scorecard": "https://phronesis-jrstinehour.replit.app/scorecard.json",
-    "calibration_scorecard_wellknown": "https://phronesis-jrstinehour.replit.app/.well-known/scorecard.json"
+    "mcp": "https://api.phronesisintel.com/mcp",
+    "rest_base": "https://api.phronesisintel.com",
+    "calibration_scorecard": "https://api.phronesisintel.com/scorecard.json",
+    "calibration_scorecard_wellknown": "https://api.phronesisintel.com/.well-known/scorecard.json"
   },
   "authentication": {
-    "supported_methods": ["ap2_mandate", "stripe_spt", "bearer_jwt"],
+    "supported_methods": [
+      "ap2_mandate",
+      "stripe_spt",
+      "bearer_jwt"
+    ],
     "agent_paths": {
       "path_a_autonomous_agent": {
         "description": "Direct API access via AP2 mandate authorization (Google Agent Payments Protocol)",
-        "mandate_types_required": ["intent_mandate", "cart_mandate"],
+        "mandate_types_required": [
+          "intent_mandate",
+          "cart_mandate"
+        ],
         "mandate_format": "verifiable_credential_signed_by_principal",
         "authorization_budget_seconds": 5
       },
@@ -71,19 +106,29 @@
     "human_paths": {
       "path_c_human_saas": {
         "description": "Direct human subscription with Bearer JWT auth",
-        "subscription_tiers": ["tier-1-discovery", "tier-2-inquiry", "tier-3-practice", "tier-4-practice-plus", "tier-5-enterprise"]
+        "subscription_tiers": [
+          "tier-1-discovery",
+          "tier-2-inquiry",
+          "tier-3-practice",
+          "tier-4-practice-plus",
+          "tier-5-enterprise"
+        ]
       }
     }
   },
   "commerce": {
-    "supported_settlement": ["stripe_meter_events"],
+    "supported_settlement": [
+      "stripe_meter_events",
+      {
+        "x402": "in preparation; not yet accepted"
+      }
+    ],
     "stripe_acs_native": true,
     "currency": "USD",
     "tax_handling": "stripe_tax_complete_tier",
-    "pricing_model": "per_call_plus_subscription",
+    "pricing_model": "decision_asset_lifecycle",
     "per_call_pricing": {
-      "inference_cost_range_usd": [0.0084, 0.0151],
-      "markup_multiplier": 33.0,
+      "agent_schedule_ref": "https://api.phronesisintel.com/.well-known/pricing.json#agent_schedule",
       "settlement": "stripe_meter_event_at_canonical_persistence"
     },
     "refund_policy_url": "https://sustainablefinancepartner.com/refund-policy"

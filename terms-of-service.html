@@ -55,9 +55,9 @@
     <p class="lead">By creating a Phronesis account, accessing the Service through its API or MCP contract surface, completing an agentic-commerce checkout, or otherwise using the Service, you agree to these Terms. Where the Service is accessed by an automated agent, the principal on whose behalf the agent acts is the Customer and is bound by these Terms; the agent's access constitutes the principal's acceptance to the extent permitted by applicable electronic-transactions law.</p>
 
     <div class="legal-meta">
-      <div><strong>Effective Date</strong>2026-09-05</div>
-      <div><strong>Last Updated</strong>2026-09-04</div>
-      <div><strong>Version</strong>v1.1</div>
+      <div><strong>Effective Date</strong>2026-10-06</div>
+      <div><strong>Last Updated</strong>2026-10-06</div>
+      <div><strong>Version</strong>v1.2</div>
       <div><strong>Operator</strong>Sustainable Finance Partners, LLC, a Colorado limited liability company, DBA Phronesis</div>
       <div><strong>Jurisdiction</strong>Colorado law; AAA arbitration in Denver</div>
     </div>
@@ -134,6 +134,9 @@
 <h3>4.4 Per-tenant data isolation</h3>
 <p>The Service enforces per-tenant data isolation at the boundary publish layer. Customer agrees not to attempt to access, query, or otherwise interact with data belonging to other Customers. Discovery of cross-tenant data access opportunities (whether intentional or inadvertent) must be reported to Phronesis support immediately.</p>
 
+<h3>4.6 Consequential decisions about individuals</h3>
+<p>Phronesis outputs forecast events, markets, sectors, and entities. Customer shall not (a) submit personal data about an identified or identifiable natural person to the Service, or (b) use any Phronesis output as a factor in a decision that produces legal or similarly significant effects concerning a natural person — including decisions about education, employment, housing, credit or lending, insurance, health care, or essential government services — except under a written Consequential-Use Addendum executed by both parties. Counterparty Passports describe entities, software agents, and model versions; they do not describe natural persons. Customer is solely responsible for determining whether any law governing automated decision-making applies to Customer's own use.</p>
+
 <h2>5. Subscription tiers and pricing</h2>
 
 <h3>5.1 Tier offerings</h3>
@@ -145,10 +148,13 @@
 <h3>5.3 Stripe processing</h3>
 <p>All payments are processed by Stripe, Inc. By providing payment information, Customer authorizes Phronesis to charge the payment method via Stripe according to Customer's pricing tier and usage. Stripe processing fees and Stripe Climate contributions (currently 1% of revenue contributed to certified carbon-removal portfolios) are factored into Phronesis pricing.</p>
 
-<h3>5.4 Pricing changes</h3>
+<h3>5.4 Agent-native payment</h3>
+<p>Where offered, Customer (including an automated agent acting for Customer) may pay per-request charges in a supported U.S.-dollar stablecoin over the x402 protocol. Such payments are final upon network settlement, are denominated and recorded in U.S. dollars at the stated price, and are governed by this Agreement and the Refund Policy. A purchase entitles Customer to the specific version of the Decision Asset identified by its content digest; re-reading that version incurs no further charge until it is superseded. Requests bearing the same <code>purchase_id</code> within 72 hours are treated as one purchase. Phronesis holds no customer wallet keys and does not initiate outbound payments.</p>
+
+<h3>5.5 Pricing changes</h3>
 <p>Phronesis may update pricing, allowances, overage rates, or tier structure from time to time. Changes affecting active paid subscriptions will be communicated by email at least thirty (30) days before the effective date; Customer may cancel before the effective date if Customer does not accept the change. Per-call prices for autonomous-agent usage apply as published at the time of each call.</p>
 
-<h3>5.5 Taxes</h3>
+<h3>5.6 Taxes</h3>
 <p>Stripe Tax (Stripe's automated tax collection service, currently configured at the Complete tier) automatically calculates and collects applicable sales tax, VAT, GST, and other consumption taxes based on Customer's billing jurisdiction at the time of each transaction. Customer is responsible for any taxes not collected by Stripe Tax (e.g., income tax on forecast-derived income, withholding obligations applicable to Customer's jurisdiction).</p>
 
 <h2>6. Refunds</h2>
@@ -212,7 +218,7 @@
 <h2>12. Termination</h2>
 
 <h3>12.1 By Customer</h3>
-<p>Customer may cancel Customer's subscription at any time via account settings or by contacting support. Cancellation takes effect at the end of the current billing period; Customer retains access through the paid-through date. See Refund Policy for refund eligibility.</p>
+<p>Customer may cancel at any time by contacting support. Cancellation takes effect at the end of the current billing period; Customer retains access through the paid-through date. See Refund Policy for refund eligibility.</p>
 
 <h3>12.2 By Phronesis</h3>
 <p>Phronesis may suspend or terminate Customer's Account immediately, with or without notice, if:</p>
@@ -317,7 +323,8 @@ United States</p>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 Sustainable Finance Partners, LLC. All rights reserved.</p>
-      <p>Phronesis is a product brand of Sustainable Finance Partners, LLC.</p>
+      <p>Sustainable Finance Partners, LLC operates the Phronesis platform.</p>
+      <p>PHRONESIS is a trademark of John Ross Stinehour, used under license by Sustainable Finance Partners, LLC.</p>
     </div>
   </div>
 </footer>

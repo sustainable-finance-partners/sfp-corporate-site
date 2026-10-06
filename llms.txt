@@ -31,7 +31,7 @@ Phronesis is the agentic economy's decision-assurance layer. A neutral substrate
 - API spec: https://phronesisintel.com/spec
 - OpenAPI: https://phronesisintel.com/openapi.json
 - Calibration scorecard: https://phronesisintel.com/scorecard
-- Decision Quality Bench: https://phronesis-jrstinehour.replit.app/bench
+- Decision Quality Bench: https://api.phronesisintel.com/bench
 
 ## Corporate-entity surfaces (this site)
 
@@ -49,7 +49,3 @@ SFP operates in stewardship mode: capital allocation and product operation in se
 ## What SFP is not
 
 SFP is not a separate forecasting platform, consulting practice, or advisory firm. There is one product — Phronesis — and SFP operates it. SFP is also not an investment advisor, broker-dealer, or fiduciary for customer capital decisions. Phronesis mints Decision Assets that capital allocators may consult; Decision Assets are not investment recommendations.
-
-## Supersession note (§15.10.89 forward-only)
-
-Earlier framing on this site described SFP as a "verified-correctness forecasting platform / substrate spanning twelve verticals." That was the pre-pivot brand state and has been superseded by the decision-assurance-layer canonical (ratified 2026-05-21 onward). Older framing is preserved via supersession-forward, not retroactively deleted.

@@ -1,0 +1,6 @@
+/terms-of-service
+  Cache-Control: public, max-age=300, must-revalidate
+/privacy-policy
+  Cache-Control: public, max-age=300, must-revalidate
+/refund-policy
+  Cache-Control: public, max-age=300, must-revalidate
