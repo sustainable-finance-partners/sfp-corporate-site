@@ -1,143 +1,99 @@
 {
-  "$schema": "https://sustainablefinancepartner.com/schemas/pricing.v1.json",
-  "manifest_version": "2026-04-30",
-  "operator": "Sustainable Finance Partners, LLC",
-  "service": "Phronesis Forecasting Platform",
-  "currency": "USD",
-  "pricing_model": "per_call_plus_subscription",
-  "_note_pricing_strategy_v1_2_canonical": "Pricing_Strategy v1.2 ratified and BINDING. Tier nomenclature below is canonical (Discovery / Inquiry / Practice / Practice+ / Enterprise / Outcome-Conditional). Customer-facing compute-tier abstraction: Standard / Deep / Strategic / Strategic Sync Compute. Twelve verticals all LIVE on production per 12-VERTICAL-COMPLETE substrate milestone.",
-  "per_call_pricing": {
-    "model": "inference_cost_attestation_times_markup",
-    "inference_cost_range_usd": {
-      "minimum": 0.0084,
-      "maximum": 0.0151,
-      "compute_tier": "standard",
-      "compute_tier_substrate": "abstract",
-      "cost_attested_per_call": true
-    },
-    "markup_multiplier": {
-      "current": 33.0,
-      "subject_to_change_per_terms_section_5_4": true
-    },
-    "estimated_per_call_price_range_usd": {
-      "minimum": 0.277,
-      "maximum": 0.498,
-      "calculation": "inference_cost × markup_multiplier"
-    },
-    "settlement_method": "stripe_meter_event",
-    "settlement_trigger": "canonical_persistence_to_mnemosyne_ledger"
+  "surface": "pricing",
+  "updated": "2026-10-02",
+  "operator": {
+    "legal_name": "Sustainable Finance Partners, LLC",
+    "trade_name": "Phronesis",
+    "product_website": "https://phronesisintel.com"
   },
-  "subscription_tiers": [
+  "model": "decision_asset_lifecycle",
+  "currency": "USD",
+  "tiers": [
     {
-      "id": "tier-1-discovery",
+      "id": "discovery",
       "name": "Discovery",
-      "target_customer": "individual_explorer_or_evaluation_team",
-      "monthly_price_usd": null,
-      "annual_price_usd": null,
-      "_status": "pricing_strategy_v1_2_canonical",
-      "included_calls_per_month": null,
-      "overage_rate": "per_call_pricing_applies",
-      "compute_tier_abstraction": "standard"
+      "price_usd_month": 0,
+      "includes": {
+        "api_reads_per_month": 100
+      },
+      "claim_state": "live"
     },
     {
-      "id": "tier-2-inquiry",
-      "name": "Inquiry",
-      "target_customer": "professional_capital_allocator_or_corporate_strategy_inquiry",
-      "monthly_price_usd": null,
-      "annual_price_usd": null,
-      "_status": "pricing_strategy_v1_2_canonical",
-      "included_calls_per_month": null,
-      "overage_rate": "per_call_pricing_applies",
-      "compute_tier_abstraction": "standard"
+      "id": "record",
+      "name": "Record",
+      "price_usd_month": 49,
+      "includes": {
+        "mints_standard_per_month": 5
+      },
+      "claim_state": "live"
     },
     {
-      "id": "tier-3-practice",
+      "id": "practice",
       "name": "Practice",
-      "target_customer": "investment_team_or_research_desk_in_practice",
-      "monthly_price_usd": null,
-      "annual_price_usd": null,
-      "_status": "pricing_strategy_v1_2_canonical",
-      "included_calls_per_month": null,
-      "overage_rate": "per_call_pricing_applies",
-      "compute_tier_abstraction": "deep",
-      "seats": "multiple"
+      "price_usd_month": 499,
+      "includes": {
+        "mints_standard_per_month": 50
+      },
+      "claim_state": "live"
     },
     {
-      "id": "tier-4-practice-plus",
-      "name": "Practice+",
-      "target_customer": "investment_team_with_strategic_compute_depth",
-      "monthly_price_usd": null,
-      "annual_price_usd": null,
-      "_status": "pricing_strategy_v1_2_canonical",
-      "included_calls_per_month": null,
-      "overage_rate": "per_call_pricing_applies",
-      "compute_tier_abstraction": "strategic",
-      "seats": "multiple"
+      "id": "decision_room",
+      "price": "on_inquiry",
+      "structure": "milestone_fee_credited_against_year_one",
+      "claim_state": "live"
     },
     {
-      "id": "tier-5-enterprise",
-      "name": "Enterprise",
-      "target_customer": "enterprise_customer_with_master_service_agreement",
-      "monthly_price_usd": null,
-      "annual_price_usd": null,
-      "_status": "custom_msa_pricing_per_engagement",
-      "included_calls_per_month": "negotiated",
-      "overage_rate": "negotiated",
-      "compute_tier_abstraction": "strategic_sync",
-      "msa_supersedes_published_terms": true
-    },
-    {
-      "id": "tier-6-outcome-conditional",
-      "name": "Outcome-Conditional",
-      "target_customer": "enterprise_with_outcome_conditional_contract_structure",
-      "monthly_price_usd": null,
-      "annual_price_usd": null,
-      "_status": "outcome_conditional_pricing_per_engagement",
-      "included_calls_per_month": "negotiated",
-      "overage_rate": "negotiated",
-      "compute_tier_abstraction": "strategic_sync",
-      "msa_supersedes_published_terms": true
+      "id": "outcome_conditional",
+      "claim_state": "PLANNED"
     }
   ],
-  "verticals": [
-    { "id": "V1", "name": "Energy Transition", "status": "live", "first_mint_cost_usd": "(baseline)" },
-    { "id": "V2", "name": "Computing + AI Infrastructure", "status": "live", "first_mint_cost_usd": 0.0133 },
-    { "id": "V3", "name": "Healthcare", "status": "live", "first_mint_cost_usd": 0.0084, "compliance": "HIPAA_Safe_Harbor" },
-    { "id": "V4", "name": "Climate Physical Risk", "status": "live" },
-    { "id": "V5", "name": "Regulatory", "status": "live" },
-    { "id": "V6", "name": "Supply-Chain", "status": "live" },
-    { "id": "V7", "name": "Space + Space Economy", "status": "live", "first_mint_cost_usd": 0.0149 },
-    { "id": "V8", "name": "Robotics", "status": "live", "first_mint_cost_usd": 0.0151 },
-    { "id": "V9", "name": "AI/AGI & Compute", "status": "live", "themis_cluster": "Themis-AI-AGI" },
-    { "id": "V10", "name": "Physics & Materials Discovery", "status": "live", "themis_cluster": "Themis-Physics" },
-    { "id": "V11", "name": "Longevity & Human Health", "status": "live", "themis_cluster": "Themis-Longevity", "compliance": "HIPAA_adjacent_de_identified_only" },
-    { "id": "V12", "name": "Quantum Computing", "status": "live", "themis_cluster": "Themis-Quantum" }
+  "agent_schedule": [
+    {
+      "request": "read_public_asset_digest_or_index_snapshot",
+      "scheme": "exact",
+      "price_usd": 0
+    },
+    {
+      "request": "read_party_scoped_or_unresolved_asset",
+      "scheme": "exact",
+      "price_usd": 0.05
+    },
+    {
+      "request": "mint_standard",
+      "scheme": "exact",
+      "price_usd": 1.0,
+      "resolution_fee_usd": 0.5
+    },
+    {
+      "request": "mint_deep",
+      "scheme": "upto",
+      "price_usd": 25.0,
+      "resolution_fee_usd": 5.0
+    },
+    {
+      "request": "mint_strategic",
+      "scheme": "upto",
+      "price_usd": 100.0,
+      "resolution_fee_usd": 50.0
+    },
+    {
+      "request": "passport_read_digest",
+      "scheme": "exact",
+      "price_usd": 0.1,
+      "claim_state": "when the Passport is live"
+    },
+    {
+      "request": "passport_read_full",
+      "scheme": "exact",
+      "price_usd": 1.0,
+      "claim_state": "when the Passport is live"
+    }
   ],
-  "vertical_count": 12,
-  "substrate_milestone": "12-VERTICAL-COMPLETE",
-  "fees_and_contributions": {
-    "stripe_processing_fee": "applied_per_transaction_per_stripe_then_current_pricing",
-    "stripe_climate_contribution_pct": 1.0,
-    "stripe_climate_purpose": "certified_carbon_removal_portfolios",
-    "tax_handling": "stripe_tax_complete_tier_jurisdiction_aware"
+  "agent_payment_rails": {
+    "stripe": "live",
+    "x402": "in preparation; not yet accepted"
   },
-  "refund_policy_summary": {
-    "subscription_14_day_money_back_first_time_subscribers": true,
-    "annual_pro_rata_refund_day_15_to_90_minus_15pct_admin_fee": true,
-    "per_call_charges_non_refundable": true,
-    "policy_url": "https://sustainablefinancepartner.com/refund-policy"
-  },
-  "service_credits": {
-    "available_for_24hr_plus_continuous_outage": true,
-    "credit_calculation": "prorated_subscription_fee_for_outage_duration",
-    "applied_to": "next_billing_period",
-    "cash_refund": false
-  },
-  "links": {
-    "terms_of_service": "https://sustainablefinancepartner.com/terms-of-service",
-    "privacy_policy": "https://sustainablefinancepartner.com/privacy-policy",
-    "refund_policy": "https://sustainablefinancepartner.com/refund-policy",
-    "spec": "https://sustainablefinancepartner.com/spec",
-    "calibration_scorecard": "https://phronesis-jrstinehour.replit.app/scorecard.json"
-  }
+  "honest_claim_states": true,
+  "discipline": "claim-states are labeled per surface; no SKU is implied that has not shipped",
+  "canonical_machine_pricing": "https://api.phronesisintel.com/.well-known/pricing.json"
 }

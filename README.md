@@ -28,7 +28,7 @@ For the Phronesis product platform, see [phronesisintel.com](https://phronesisin
 
 Cloudflare Pages → custom domain `sustainablefinancepartner.com` (root + `www`). Email path
 (`mx.sustainablefinancepartner.com.cust.b.hostedemail.com` MX + SPF + DMARC) preserved at
-DNS layer through Cloudflare Pages custom-domain wire — see Sprint 5.4 dispatch §AC-SFP-Site-2.
+DNS layer through Cloudflare Pages custom-domain wire.
 
 ## Contributing
 
