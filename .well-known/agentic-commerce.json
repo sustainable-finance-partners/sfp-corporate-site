@@ -98,7 +98,8 @@
         "authorization_budget_seconds": 5
       },
       "path_b_agent_for_human": {
-        "description": "Stripe Agentic Commerce Suite checkout flow with SPT bound to AP2 Cart Mandate at issuance",
+        "description": "Stripe Agentic Commerce Suite checkout flow with SPT bound to AP2 Cart Mandate at issuance (in build)",
+        "availability": "in_build",
         "spt_required": true,
         "ap2_cart_mandate_at_spt_issuance": true
       }
@@ -118,7 +119,9 @@
   },
   "commerce": {
     "supported_settlement": [
-      "stripe_meter_events",
+      {
+        "stripe_meter_events": "in_build"
+      },
       {
         "x402": "in preparation; not yet accepted"
       }
@@ -129,7 +132,8 @@
     "pricing_model": "decision_asset_lifecycle",
     "per_call_pricing": {
       "agent_schedule_ref": "https://api.phronesisintel.com/.well-known/pricing.json#agent_schedule",
-      "settlement": "stripe_meter_event_at_canonical_persistence"
+      "settlement": "stripe_meter_event_at_canonical_persistence",
+      "availability": "in_build"
     },
     "refund_policy_url": "https://sustainablefinancepartner.com/refund-policy"
   },
