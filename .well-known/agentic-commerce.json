@@ -84,7 +84,9 @@
   "authentication": {
     "supported_methods": [
       "ap2_mandate",
-      "stripe_spt",
+      {
+        "stripe_spt": "in_build"
+      },
       "bearer_jwt"
     ],
     "agent_paths": {
@@ -126,7 +128,7 @@
         "x402": "in preparation; not yet accepted"
       }
     ],
-    "stripe_acs_native": true,
+    "stripe_acs_native": "in_build",
     "currency": "USD",
     "tax_handling": "stripe_tax_complete_tier",
     "pricing_model": "decision_asset_lifecycle",
