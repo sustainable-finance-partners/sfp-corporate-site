@@ -71,7 +71,7 @@
 <p>Agents authenticate with an Authority Credential; an AP2 mandate, where presented, is recorded as evidence of delegated authority (Terms §4.3).</p>
 
 <h3>Path B — Agentic commerce (agents acting for humans)</h3>
-<p>Agents acting on behalf of human principals via the Stripe Agentic Commerce Suite (ACS) checkout flow present a Stripe Shared Payment Token (SPT) bound to an AP2 Cart Mandate at issuance time. The SPT replaces the AP2-direct authorization for the per-call settlement.</p>
+<p>Per-request settlement is in build. When it is live, agents will pay per request through Stripe — cards via Shared Payment Tokens, or USDC over x402 or Stripe's Machine Payments Protocol. Until then, per-request purchases are not available.</p>
 
 <h3>Path C — Direct human SaaS</h3>
 <p>Human subscribers authenticate with a bearer token issued at OAuth consent (PKCE) or by the post-checkout signup claim.</p>
@@ -98,7 +98,7 @@
 <p>Code categories: <code>auth</code> (mandate or JWT failure) · <code>validation</code> (request shape error) · <code>rate_limit</code> (per-tenant or per-mandate limit hit) · <code>circuit</code> (downstream circuit-breaker tripped) · <code>substrate</code> (canonical-correctness violation) · <code>billing</code> (charge failure) · <code>not_found</code> · <code>internal</code>. Retryable errors include <code>rate_limit</code> and <code>circuit</code>; all others are non-retryable.</p>
 
 <h2>Meter events and pricing</h2>
-<p>Forecast minting fires a Stripe meter event at the moment of canonical persistence to the ledger. Meter event amounts are reported with sub-cent precision (Decimal lift, no float).</p>
+<p>Per-request settlement is in build. When it is live, agents will pay per request through Stripe — cards via Shared Payment Tokens, or USDC over x402 or Stripe's Machine Payments Protocol. Until then, per-request purchases are not available. Meter event amounts are reported with sub-cent precision (Decimal lift, no float).</p>
 
 <h2>Verticals and archetypes</h2>
 <p>Twelve verticals; all twelve LIVE on production; archetype taxonomy is per-vertical. See the home page <a href="/#phronesis">vertical lineup</a> for live status.</p>
