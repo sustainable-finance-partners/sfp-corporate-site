@@ -64,6 +64,6 @@ Entity-Federal-Status: verified-federal-contractor; identifiers available on req
 Trademark-License: PHRONESIS, USPTO serial 99842940 (owner John Ross Stinehour; exclusive licensee Sustainable Finance Partners, LLC)
 
 # --- Substrate properties ---
-# Decision Assets persisted to canonical Mnemosyne ledger (Market Memory).
+# Decision Assets persisted to the ledger (Market Memory).
 # Public calibration scorecard. Audit trail on every Decision Asset.
 # Per-tenant isolation is enforced at the code path itself.

@@ -169,7 +169,7 @@
   },
   "trust_stack": {
     "layer_1_authorization": "ap2_mandate_verification",
-    "layer_2_orchestration": "phronesis_plutus_ring",
+    "layer_2_orchestration": "phronesis_orchestration_layer",
     "layer_3_settlement": "stripe_spt_execution",
     "layer_3_settlement_availability": "in_build",
     "substrate_guarantees": {

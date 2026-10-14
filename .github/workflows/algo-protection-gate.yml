@@ -49,9 +49,32 @@ jobs:
           # Banned-language patterns (case-insensitive). Match (a) model-vendor +
           # tier/family names; (b) explicit model-id strings; (c) pricing.json
           # algorithm-exposure keys.
-          BANNED_NAMES='\b(anthropic|haiku|claude(?!bot)|gpt(?!bot)|opus|sonnet|gemini|openai|kimi|qwen|deepseek)\b'
+          #
+          # BANNED_NAMES matches whole words. grep -E has no lookahead: the earlier
+          # claude(?!bot) and gpt(?!bot) alternatives never matched, so a bare
+          # "claude" or "gpt" passed. The word boundary already keeps "ClaudeBot" and
+          # "GPTBot" out, because each is one word.
+          BANNED_NAMES='\b(anthropic|haiku|claude|gpt|opus|sonnet|gemini|openai|kimi|qwen|deepseek)\b'
           BANNED_MODEL_IDS='\b(claude-[a-z0-9.-]+|haiku-[0-9.]+|opus-[0-9.]+|sonnet-[0-9.]+|gpt-[a-z0-9.-]+)\b'
           BANNED_JSON_KEYS='"(model_provider|inference_model|model_tier|model_family|model_name)"\s*:\s*"[^"]+"'
+
+          # Matcher self-test: a pattern that cannot match is a gate that cannot fail.
+          # Every name in BANNED_NAMES must match as a bare word, in any case, and the
+          # two crawler names must pass. It runs before any file is read.
+          must_match=(anthropic haiku claude gpt opus sonnet gemini openai kimi qwen deepseek CLAUDE Claude GPT Gpt)
+          must_pass=(ClaudeBot claudebot GPTBot gptbot 'User-agent: ClaudeBot' 'User-agent: GPTBot')
+          for probe in "${must_match[@]}"; do
+            if ! grep -E -i -q "$BANNED_NAMES" <<< "$probe"; then
+              echo "::error::Algorithm Protection Gate matcher self-test FAILED: '$probe' must match BANNED_NAMES and does not"
+              exit 1
+            fi
+          done
+          for probe in "${must_pass[@]}"; do
+            if grep -E -i -q "$BANNED_NAMES" <<< "$probe"; then
+              echo "::error::Algorithm Protection Gate matcher self-test FAILED: crawler name '$probe' must pass BANNED_NAMES and does not"
+              exit 1
+            fi
+          done
 
           violations=0
           violation_log=$(mktemp)
