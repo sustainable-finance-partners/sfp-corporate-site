@@ -20,7 +20,7 @@ Phronesis is the agentic economy's decision-assurance layer. A neutral substrate
 - **Atomic product:** the Decision Asset — a 10-field machine-readable, auditable decision packet.
 - **Moat:** Market Memory — the resolved-outcome ledger that compounds on wall-clock time.
 - **Architecture:** six foundational primitives (P1 Identity & Mandate, P2 Reputation / Counterparty Passport, P3 Forecast & Evidence, P4 Coordination, P5 Insurance, P6 Market-State Telemetry) × twelve applied verticals (energy, computing, healthcare, climate, regulatory, supply-chain, space, robotics, AI/AGI, physics, longevity, quantum) + V#0 AI Industrial Mobilization & Situational Awareness meta-vertical.
-- **Interfaces:** MCP and REST co-equal at every endpoint.
+- **Interfaces:** Semantic parity across REST and MCP.
 
 ## Product-side canonical surfaces
 

@@ -38,7 +38,7 @@ Scorecard-JSON: https://api.phronesisintel.com/scorecard.json
 # --- What Phronesis is (one paragraph) ---
 # Phronesis is the agentic economy's decision-assurance layer: a neutral
 # substrate where agents and enterprises verify intent, price uncertainty,
-# evaluate counterparties, coordinate transactions, and insure outcomes
+# evaluate counterparties, coordinate transactions, and reconcile outcomes
 # before acting. Forecasting is the entry primitive, not the product.
 # The atomic product is the Decision Asset — a 10-field machine-readable,
 # auditable decision packet. Market Memory is the moat.

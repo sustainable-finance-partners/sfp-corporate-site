@@ -31,7 +31,7 @@
   },
   "service": {
     "name": "Phronesis Decision-Assurance Layer",
-    "description": "The agentic economy's decision-assurance layer: a neutral substrate where agents and enterprises verify intent, price uncertainty, evaluate counterparties, coordinate transactions, and insure outcomes before acting. Forecasting is the entry primitive, not the product.",
+    "description": "The agentic economy's decision-assurance layer: a neutral substrate where agents and enterprises verify intent, price uncertainty, evaluate counterparties, coordinate transactions, and reconcile outcomes before acting. Forecasting is the entry primitive, not the product.",
     "atomic_product": "decision_asset",
     "atomic_product_description": "10-field machine-readable, auditable decision packet: forecast_distribution, evidence_graph, methodology_hash, calibration_grade, baseline_comparison, mandate_scope, counterparty_passport, action_boundary, settlement_hook, audit_receipt.",
     "moat": "market_memory",
