@@ -15,7 +15,7 @@ Sustainable Finance Partners, LLC (SFP) is a Colorado-registered limited liabili
 
 ## What Phronesis is (compact reference; full canonical at phronesisintel.com)
 
-Phronesis is the agentic economy's decision-assurance layer. A neutral substrate where agents and enterprises verify intent, price uncertainty, evaluate counterparties, coordinate transactions, and insure outcomes before acting.
+Phronesis is the agentic economy's decision-assurance layer. A neutral substrate where agents and enterprises verify intent, price uncertainty, evaluate counterparties, coordinate transactions, and reconcile outcomes before acting.
 
 - **Atomic product:** the Decision Asset — a 10-field machine-readable, auditable decision packet.
 - **Moat:** Market Memory — the resolved-outcome ledger that compounds on wall-clock time.

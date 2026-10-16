@@ -79,7 +79,16 @@ jobs:
           violations=0
           violation_log=$(mktemp)
 
-          # Scan candidate files (HTML + JSON + TXT + MD), excluding legal allow-list.
+          # The published tree is site/ (Cloudflare Pages build output directory);
+          # the repository root is not published. A missing site/ would make the
+          # scan below read nothing and pass, so its absence fails the gate.
+          if [[ ! -f site/index.html ]]; then
+            echo "::error::Algorithm Protection Gate: site/index.html not found; the published tree must be site/"
+            exit 1
+          fi
+
+          # Scan candidate files (HTML + JSON + TXT + MD) in the published tree,
+          # excluding the legal allow-list.
           while IFS= read -r -d '' file; do
             basename=$(basename "$file")
             # Allow-listed legal-substrate files: skip
@@ -101,7 +110,7 @@ jobs:
             if [[ $matched -eq 1 ]]; then
               violations=$((violations + 1))
             fi
-          done < <(find . -type f \( -name '*.html' -o -name '*.json' -o -name '*.txt' -o -name '*.md' \) -not -path './.git/*' -not -path './node_modules/*' -not -path './.github/*' -print0)
+          done < <(find site -type f \( -name '*.html' -o -name '*.json' -o -name '*.txt' -o -name '*.md' \) -print0)
 
           if [[ -s "$violation_log" ]]; then
             echo "::error::Algorithm Protection Gate FAILED — banned-language found in customer-facing copy"

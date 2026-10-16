@@ -53,7 +53,7 @@ jobs:
           )
           FAILED=0
           for pattern in "${STALE_PATTERNS[@]}"; do
-            if grep -rn -l "$pattern" --include="*.html" --include="*.json" .; then
+            if grep -rn -l "$pattern" --include="*.html" --include="*.json" site; then
               echo "FAIL: stale vertical-count reference '$pattern' present in repo"
               FAILED=1
             fi
@@ -77,7 +77,7 @@ jobs:
           for tier in "${FORBIDDEN_TIERS[@]}"; do
             # Allow citations within EXACT-DEPRECATION-CONTEXT only (e.g. ADR or change-log narratives describing the move)
             # In static-site HTML this should never appear in customer-facing copy
-            if grep -rn "$tier" --include="*.html" --include="*.json" .; then
+            if grep -rn "$tier" --include="*.html" --include="*.json" site; then
               echo "FAIL: superseded Sprint-5.8-era tier name '$tier' present"
               FAILED=1
             fi
@@ -112,7 +112,7 @@ jobs:
           )
           FAILED=0
           for token in "${REQUIRED_VERTICAL_TOKENS[@]}"; do
-            if ! grep -rn -l "$token" --include="*.html" . > /dev/null; then
+            if ! grep -rn -l "$token" --include="*.html" site > /dev/null; then
               echo "FAIL: canonical V#9-V#12 token '$token' NOT present in any HTML file"
               FAILED=1
             fi
@@ -130,8 +130,8 @@ jobs:
           # published price list instead of naming them, so the tier names are checked
           # in that one source (pricing.json), never restated across HTML pages.
           for token in Discovery Record Practice; do
-            if ! grep -q "\"name\": \"$token\"" pricing.json; then
-              echo "FAIL: Pricing v1.3 tier '$token' NOT present in pricing.json"
+            if ! grep -q "\"name\": \"$token\"" site/pricing.json; then
+              echo "FAIL: Pricing v1.3 tier '$token' NOT present in site/pricing.json"
               exit 1
             fi
           done
@@ -146,11 +146,11 @@ jobs:
           # The Trust Center surface lives at the Phronesis production deployment
           # (https://phronesis-jrstinehour.replit.app/trust). The static sites must
           # link to it from at least one location (footer typical).
-          if ! grep -rn -l "trust" --include="*.html" . | xargs -I {} grep -l "trust" {} > /dev/null 2>&1; then
+          if ! grep -rn -l "trust" --include="*.html" site | xargs -I {} grep -l "trust" {} > /dev/null 2>&1; then
             echo "FAIL: no Trust Center reference present in any HTML file"
             exit 1
           fi
-          if ! grep -rn "Trust Center" --include="*.html" . > /dev/null; then
+          if ! grep -rn "Trust Center" --include="*.html" site > /dev/null; then
             echo "FAIL: 'Trust Center' link text not present in any HTML file"
             exit 1
           fi
@@ -228,3 +228,100 @@ jobs:
             exit 1
           fi
           echo "PASS: agent-fetchability parity holds for all canonical URLs"
+
+  published-tree-layout:
+    runs-on: ubuntu-latest
+    name: Published tree is site/ — repository files stay outside it
+    # §15.10.761 §2: the site publishes from a subfolder, not by ignore rules, so
+    # the fix cannot regress by a forgotten entry. Cloudflare Pages publishes
+    # site/ (the project's build output directory); the repository root is not
+    # published. This job reads the checkout only.
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Root holds repository files only; site/ holds public files only
+        run: |
+          set -euo pipefail
+          ROOT_ALLOWED='^(README\.md|CLAUDE\.md|\.gitattributes|\.gitignore|\.github|site)$'
+          FAILED=0
+          for entry in $(git ls-files | cut -d/ -f1 | sort -u); do
+            if [[ ! "$entry" =~ $ROOT_ALLOWED ]]; then
+              echo "FAIL: '$entry' is at the repository root, which is not published; public files belong under site/"
+              FAILED=1
+            fi
+          done
+          for required in site/index.html site/404.html; do
+            if [[ ! -f "$required" ]]; then
+              echo "FAIL: $required is missing"
+              FAILED=1
+            fi
+          done
+          while IFS= read -r f; do
+            case "$f" in
+              site/skills/* | site/.github/* | */README.md | */CLAUDE.md | */.gitattributes | */.gitignore)
+                echo "FAIL: '$f' is a repository file inside the published tree"
+                FAILED=1
+                ;;
+            esac
+          done < <(git ls-files site)
+          if [[ "$FAILED" -ne 0 ]]; then
+            exit 1
+          fi
+          echo "PASS: the root holds repository files only; site/ holds public files only"
+
+  unpublished-paths-404:
+    runs-on: ubuntu-latest
+    name: Repository files answer 404 on the host; site/ files answer 200
+    # §15.10.761 §2: /CLAUDE.md, /README.md, /skills/* and /.github/* return 404.
+    # On a pull request this probes the PR's own Cloudflare Pages preview (built
+    # with the project's current settings), so the PR stays red until the build
+    # output directory is site/. main is not branch-protected and this check is
+    # not required, so a red PR can still be merged: merge only on green. On a
+    # push to main it waits for that commit's production deployment, then probes
+    # both production hostnames. The probe itself: .github/scripts/published_tree_probe.sh
+    needs: published-tree-layout
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      checks: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Wait for this commit's Cloudflare Pages deployment
+        id: deploy
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          set -euo pipefail
+          url=$(bash .github/scripts/wait_for_pages_deploy.sh "$GITHUB_REPOSITORY" "$SHA" 1200)
+          echo "Deployment: $url"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+
+      - name: Probe the PR preview
+        if: github.event_name == 'pull_request'
+        env:
+          PREVIEW_URL: ${{ steps.deploy.outputs.url }}
+        run: |
+          set -euo pipefail
+          bash .github/scripts/published_tree_probe.sh "$PREVIEW_URL"
+
+      - name: Probe production (apex and www)
+        if: github.event_name != 'pull_request'
+        run: |
+          set -uo pipefail
+          # The custom domains follow the new production deployment within
+          # seconds; up to six attempts, 20 s apart, absorb that lag only.
+          for attempt in 1 2 3 4 5 6; do
+            if bash .github/scripts/published_tree_probe.sh \
+                 https://sustainablefinancepartner.com \
+                 https://www.sustainablefinancepartner.com; then
+              exit 0
+            fi
+            echo "attempt $attempt failed"
+            sleep 20
+          done
+          echo "FAIL: production does not serve exactly site/ after six attempts"
+          exit 1
