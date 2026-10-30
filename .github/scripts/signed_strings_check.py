@@ -16,22 +16,27 @@ extracted from one line of its source document. For every entry this check asser
 3. with ``--source-root DIR`` (the desk, where the source documents live): the source
    line's sha256 matches, and extracting from it again gives the same text. A
    ``regex`` extraction must match exactly once; it returns the match's ``group``
-   (default 0, the whole match). A group the pattern does not have, or a negative
-   one, is reported as that entry's SOURCE failure, and the run goes on.
+   (default 0, the whole match). A group that is not an integer (null, a float, a
+   bool, a string), one the pattern does not have, or a negative one, is reported as
+   that entry's SOURCE failure, and the run goes on.
 
 The ``checks`` block adds plain-text absences (replaced wording must be gone),
 presences (facts and lines that must stay) and absent patterns.
 
-``--self-test`` proves every branch can fail. Every string with one character changed
-must be reported missing at each target. For every ``whole_line`` target, a copy of
-the file whose string line carries a suffix (``string + " x"``), and one whose line
-carries a prefix (``"x " + string``), must each be reported at that target. For every
-file the ``checks`` block reads, a text known to be in the file, entered as an
-absence, must be reported; a text known not to be in it, entered as a presence, must
-be reported; and a pattern that matches it, entered as an absent pattern, must be
-reported. A planted source line whose extraction names group 9, and one naming group
--1, must each be reported as a SOURCE failure. A check that cannot fail is not a
-check.
+``--self-test`` proves that the branches below can fail. It does not cover every
+branch: the last sentence names the ones it leaves out. Every string with one
+character changed must be reported missing at each target. For every ``whole_line``
+target, a copy of the file whose string line carries a suffix (``string + " x"``),
+and one whose line carries a prefix (``"x " + string``), must each be reported at
+that target. For every file the ``checks`` block reads, a text known to be in the
+file, entered as an absence, must be reported; a text known not to be in it, entered
+as a presence, must be reported; and a pattern that matches it, entered as an absent
+pattern, must be reported. A planted source line whose extraction names group 9,
+group -1, null, 1.5, true or "1" must each be reported as a SOURCE failure. No probe
+covers the FIXTURE checks (the recorded transforms, and the string's sha256), the
+SOURCE line-sha check, the SOURCE extraction-differs compare and the SOURCE not-found
+branch: disabling any one of them leaves ``--self-test`` OK, so for those it proves
+nothing.
 
 Exit code 0 only when every assertion holds. Standard library only.
 """
@@ -126,7 +131,10 @@ def apply_extract(line: str, extract: dict[str, Any]) -> str:
         matches = list(re.finditer(str(extract["pattern"]), line))
         if len(matches) != 1:
             raise ValueError(f"pattern matched {len(matches)} times, expected 1")
-        group = int(extract.get("group", 0))
+        raw = extract.get("group", 0)
+        if isinstance(raw, bool) or not isinstance(raw, int):
+            raise ValueError(f"group must be an integer, got {raw!r}")
+        group = raw
         if group < 0:
             raise ValueError(f"pattern has no group {group}")
         try:
@@ -289,10 +297,22 @@ def _whole_line_probes(
 
 
 def _extract_group_probes(tmp: Path, counts: dict[str, int]) -> list[str]:
-    """A regex group the pattern does not have must be a SOURCE failure, not a crash."""
+    """A bad regex group must be a SOURCE failure, not a crash and not a silent pass.
+
+    The groups are one the pattern does not have, a negative one, and four values that
+    are not integers (null, a float, a bool, a string).
+    """
     problems: list[str] = []
     line = "self-test (a) line"
-    for group in (9, -1):
+    cases: list[tuple[Any, str]] = [
+        (9, "pattern has no group 9"),
+        (-1, "pattern has no group -1"),
+        (None, "group must be an integer, got None"),
+        (1.5, "group must be an integer, got 1.5"),
+        (True, "group must be an integer, got True"),
+        ("1", "group must be an integer, got '1'"),
+    ]
+    for group, message in cases:
         counts["extract"] += 1
         src = tmp / f"source_{counts['extract']}"
         _plant(src, "source.md", line + "\n")
@@ -308,22 +328,22 @@ def _extract_group_probes(tmp: Path, counts: dict[str, int]) -> list[str]:
             "extract": {"kind": "regex", "pattern": r"\((a)\)", "group": group},
             "targets": [],
         }
-        want = f"SOURCE[self-test-group]: pattern has no group {group}"
+        want = f"SOURCE[self-test-group]: {message}"
         try:
             failures, _ = check({"entries": [entry], "checks": {}}, src)
         except Exception as exc:  # the probe reports a crash instead of crashing itself
             problems.append(
-                f"SELF-TEST[extract group {group}]: check() raised {type(exc).__name__} "
+                f"SELF-TEST[extract group {group!r}]: check() raised {type(exc).__name__} "
                 f"instead of reporting it"
             )
             continue
         if want not in failures:
-            problems.append(f"SELF-TEST[extract group {group}]: not reported as {want!r}")
+            problems.append(f"SELF-TEST[extract group {group!r}]: not reported as {want!r}")
     return problems
 
 
 def self_test(fixture: dict[str, Any]) -> tuple[list[str], dict[str, int]]:
-    """Return (problems, probes run by kind). Every branch must report a planted failure."""
+    """Return (problems, probes run by kind). Every probed branch must report a planted failure."""
     problems: list[str] = []
     counts = {"string": 0, "whole_line": 0, "checks": 0, "extract": 0}
     for entry in fixture["entries"]:
