@@ -1,0 +1,434 @@
+{
+  "about": "Signed and counsel-approved strings on this site, each extracted from its source line. Checked by .github/scripts/signed_strings_check.py; --source-root re-verifies every source line at the desk.",
+  "entries": [
+    {
+      "id": "tos-3.1",
+      "label": "ToS v1.3 insert 3.1 (package §3.1)",
+      "source_path": "01_Strategy/Phronesis_Legal_Monthly_Pass_2026_11_Confirm_or_Correct_Package_20261025.md",
+      "source_line": 64,
+      "source_line_sha256": "88671610b57c3245f939060afa664b6b1ae18fabe348cc8d26a8959bd4eb974e",
+      "extract": {
+        "kind": "after_prefix",
+        "prefix": "> "
+      },
+      "extracted": "Customer may not, by any means and whether through the Service or the public register: (a) extract, copy or compile Records in bulk to build, train or offer a dataset, scoring, ranking, calibration or repackaging product or service; (b) circumvent rate limits, robots directives, access controls or payment requirements; or (c) present any output derived from the Service or from Published Records as a Phronesis score, receipt or verification. Published Records on the public register are licensed under the Phronesis Register License; where these Terms and that license differ as to a Customer, these Terms govern.",
+      "transforms": [],
+      "string": "Customer may not, by any means and whether through the Service or the public register: (a) extract, copy or compile Records in bulk to build, train or offer a dataset, scoring, ranking, calibration or repackaging product or service; (b) circumvent rate limits, robots directives, access controls or payment requirements; or (c) present any output derived from the Service or from Published Records as a Phronesis score, receipt or verification. Published Records on the public register are licensed under the Phronesis Register License; where these Terms and that license differ as to a Customer, these Terms govern.",
+      "string_sha256": "df8299adcf8fa8181af1a13ce66833a53268d9c6eb603846b5ce6fcaf874717c",
+      "targets": [
+        {
+          "file": "site/terms-of-service.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "tos-3.2",
+      "label": "ToS v1.3 insert 3.2 (package §3.2)",
+      "source_path": "01_Strategy/Phronesis_Legal_Monthly_Pass_2026_11_Confirm_or_Correct_Package_20261025.md",
+      "source_line": 67,
+      "source_line_sha256": "a2cfe4ef0d923e2160c804cb65d68a933b02b3138cda85b259f9f979c0f481c7",
+      "extract": {
+        "kind": "after_prefix",
+        "prefix": "> "
+      },
+      "extracted": "**\"Derived Data\"** means indices, benchmarks, calibration statistics, aggregates, models and other outputs that Phronesis derives from Records, Resolutions and usage of the Service, in de-identified form. As between the parties, Phronesis owns all right, title and interest in Derived Data. Derived Data never identifies Customer or any natural person.",
+      "transforms": [
+        {
+          "kind": "drop_markdown"
+        }
+      ],
+      "string": "\"Derived Data\" means indices, benchmarks, calibration statistics, aggregates, models and other outputs that Phronesis derives from Records, Resolutions and usage of the Service, in de-identified form. As between the parties, Phronesis owns all right, title and interest in Derived Data. Derived Data never identifies Customer or any natural person.",
+      "string_sha256": "1184a0a37913d3a534a5cccc8860d056238856a6a95b354789ea91fc57b49183",
+      "targets": [
+        {
+          "file": "site/terms-of-service.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "tos-3.3",
+      "label": "ToS v1.3 insert 3.3 (package §3.3)",
+      "source_path": "01_Strategy/Phronesis_Legal_Monthly_Pass_2026_11_Confirm_or_Correct_Package_20261025.md",
+      "source_line": 70,
+      "source_line_sha256": "a3470ad21548a2d702bd0e851f22a962835bd427bf500a187f826b813234dcb9",
+      "extract": {
+        "kind": "after_prefix",
+        "prefix": "> "
+      },
+      "extracted": "**\"De-identified\"** means information that cannot reasonably be used to infer information about, or otherwise be linked to, Customer or an identified or identifiable natural person, where Phronesis (i) applies technical and organizational measures that reasonably prevent re-identification, (ii) publicly commits not to attempt re-identification, and (iii) contractually obligates any recipient to comply with (i) and (ii).",
+      "transforms": [
+        {
+          "kind": "drop_markdown"
+        }
+      ],
+      "string": "\"De-identified\" means information that cannot reasonably be used to infer information about, or otherwise be linked to, Customer or an identified or identifiable natural person, where Phronesis (i) applies technical and organizational measures that reasonably prevent re-identification, (ii) publicly commits not to attempt re-identification, and (iii) contractually obligates any recipient to comply with (i) and (ii).",
+      "string_sha256": "2b473f119a874fb809d1d24d60b9cac3504898ce87553851aa3ed7cb4360e4b4",
+      "targets": [
+        {
+          "file": "site/terms-of-service.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "tos-3.4-heading",
+      "label": "ToS v1.3 insert 3.4 heading words (package §3.4 title)",
+      "source_path": "01_Strategy/Phronesis_Legal_Monthly_Pass_2026_11_Confirm_or_Correct_Package_20261025.md",
+      "source_line": 72,
+      "source_line_sha256": "4ee3c9d5bde75bc233b5bca5d3475630b190be08b62d6505b9bfa32d4a5fd962",
+      "extract": {
+        "kind": "regex",
+        "pattern": "new §7\\.5 \\(([^)]+)\\)",
+        "group": 1
+      },
+      "extracted": "Third-party usage licensing",
+      "transforms": [],
+      "string": "Third-party usage licensing",
+      "string_sha256": "a2b5fe06f62ee168e7d231576c3acf480b25ea158e6fc1655b443b5d10f1f9d6",
+      "targets": [
+        {
+          "file": "site/terms-of-service.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "tos-3.4",
+      "label": "ToS v1.3 insert 3.4 (package §3.4; numbered §7.4 per 781 D)",
+      "source_path": "01_Strategy/Phronesis_Legal_Monthly_Pass_2026_11_Confirm_or_Correct_Package_20261025.md",
+      "source_line": 73,
+      "source_line_sha256": "34f6a7bf3f642263e070e7c7dfb3ada6f0f2bf4fd9f0fc62ff8035c2141a22dd",
+      "extract": {
+        "kind": "after_prefix",
+        "prefix": "> "
+      },
+      "extracted": "Phronesis may make Published Records available to third parties, including developers of AI systems, under usage-based licenses or programs (for example per-use or per-inference arrangements). Such licenses govern those third parties' use of Published Records only and do not alter Customer's rights, Phronesis's obligations under these Terms, or any Decision Asset's `data_rights`.",
+      "transforms": [
+        {
+          "kind": "drop_markdown"
+        }
+      ],
+      "string": "Phronesis may make Published Records available to third parties, including developers of AI systems, under usage-based licenses or programs (for example per-use or per-inference arrangements). Such licenses govern those third parties' use of Published Records only and do not alter Customer's rights, Phronesis's obligations under these Terms, or any Decision Asset's data_rights.",
+      "string_sha256": "7446ed63e96872e504ef89f6c9a6cb16adc1e0da2752fac12a136ab3eca5f185",
+      "targets": [
+        {
+          "file": "site/terms-of-service.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "tos-3.5",
+      "label": "ToS v1.3 insert 3.5 (package §3.5)",
+      "source_path": "01_Strategy/Phronesis_Legal_Monthly_Pass_2026_11_Confirm_or_Correct_Package_20261025.md",
+      "source_line": 76,
+      "source_line_sha256": "55b129f579029d835561374c9f5f47dea7c77705e6565b24c6802720280996f6",
+      "extract": {
+        "kind": "after_prefix",
+        "prefix": "> "
+      },
+      "extracted": "PHRONESIS and the Phronesis marks are trademarks used by Sustainable Finance Partners, LLC under license. No right in the marks is granted except factual attribution.",
+      "transforms": [],
+      "string": "PHRONESIS and the Phronesis marks are trademarks used by Sustainable Finance Partners, LLC under license. No right in the marks is granted except factual attribution.",
+      "string_sha256": "7a6ae3157ca2536dd8e577873bd1c806a7b9b89b5d09fd546eac6db3e2dd91f9",
+      "targets": [
+        {
+          "file": "site/terms-of-service.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "privacy-4",
+      "label": "Privacy v1.3 natural-persons row incl. the data-broker sentence (package §4)",
+      "source_path": "01_Strategy/Phronesis_Legal_Monthly_Pass_2026_11_Confirm_or_Correct_Package_20261025.md",
+      "source_line": 83,
+      "source_line_sha256": "dbb0ec8b9bf92d6b60d5f04c0fa20121d718a5738b9f50f631db74f690a1f88d",
+      "extract": {
+        "kind": "after_prefix",
+        "prefix": "> "
+      },
+      "extracted": "The public register records forecasts and decisions attributed to organizations and publications. We do not score or profile individuals; where a published forecast carries an individual byline, the register quotes the publication with a link and does not create a record about the individual. We do not sell or share personal information, and we are not a data broker under the California Delete Act or any other state data-broker law.",
+      "transforms": [],
+      "string": "The public register records forecasts and decisions attributed to organizations and publications. We do not score or profile individuals; where a published forecast carries an individual byline, the register quotes the publication with a link and does not create a record about the individual. We do not sell or share personal information, and we are not a data broker under the California Delete Act or any other state data-broker law.",
+      "string_sha256": "c04afaae0369ac9c6216742e5803a833a74614c9dcdb9616976b56297bf91fe9",
+      "targets": [
+        {
+          "file": "site/privacy-policy.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "privacy-5",
+      "label": "Privacy v1.3 hosting row, region + subprocessor-list URL filled (package §5; 781 B)",
+      "source_path": "01_Strategy/Phronesis_Legal_Monthly_Pass_2026_11_Confirm_or_Correct_Package_20261025.md",
+      "source_line": 89,
+      "source_line_sha256": "47f2ffd6c8c5786e0abad22892d5ed3cbe1e7030e2fbe05de163797834c2cdaf",
+      "extract": {
+        "kind": "after_prefix",
+        "prefix": "> "
+      },
+      "extracted": "Our database is hosted by Neon, a Databricks product, on infrastructure in the United States `[CCO CONFIRMS: us-east-1]`. Databricks, Inc. processes that data for us under its Master Cloud Services Agreement and Data Processing Addendum; it may access data only on a just-in-time, logged basis for support, troubleshooting and incident response; its subprocessors are listed at `[Databricks subprocessor list URL]` and include Grafana Labs. Encrypted off-site backups are retained for 30 days.",
+      "transforms": [
+        {
+          "kind": "replace",
+          "old": " `[CCO CONFIRMS: us-east-1]`.",
+          "new": " (us-east-1)."
+        },
+        {
+          "kind": "replace",
+          "old": "`[Databricks subprocessor list URL]`",
+          "new": "https://www.databricks.com/legal/databricks-subprocessors"
+        },
+        {
+          "kind": "drop_markdown"
+        }
+      ],
+      "string": "Our database is hosted by Neon, a Databricks product, on infrastructure in the United States (us-east-1). Databricks, Inc. processes that data for us under its Master Cloud Services Agreement and Data Processing Addendum; it may access data only on a just-in-time, logged basis for support, troubleshooting and incident response; its subprocessors are listed at https://www.databricks.com/legal/databricks-subprocessors and include Grafana Labs. Encrypted off-site backups are retained for 30 days.",
+      "string_sha256": "d09ec4173f7585dabd9a97d11b16d23742f8243057e1f093c92b4fd5b44a5943",
+      "targets": [
+        {
+          "file": "site/privacy-policy.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "privacy-6",
+      "label": "Privacy v1.3 model-provider row + the Covered-Models sentence (package §6; 774 §D)",
+      "source_path": "01_Strategy/Phronesis_Legal_Monthly_Pass_2026_11_Confirm_or_Correct_Package_20261025.md",
+      "source_line": 95,
+      "source_line_sha256": "86cd6ecc4067c43af915fb4f512a4d702ab7321a55e76e983ead4999339e7345",
+      "extract": {
+        "kind": "after_prefix",
+        "prefix": "> "
+      },
+      "extracted": "Some of our processing uses Anthropic's models through its API. Per Anthropic's published commercial terms as of 2026-10-25, API inputs and outputs are automatically deleted within 30 days of receipt or generation (retained longer only where required by law or to enforce Anthropic's usage policy), and by default they are not used to train Anthropic's models. Zero-data-retention is not enabled on our account. `[CCO CONFIRMS: the production models are not \"Covered Models\" (Mythos-class), which carry separate limited-retention-and-review requirements.]`",
+      "transforms": [
+        {
+          "kind": "replace",
+          "old": "`[CCO CONFIRMS: the production models",
+          "new": "The production models"
+        },
+        {
+          "kind": "replace",
+          "old": "requirements.]`",
+          "new": "requirements."
+        },
+        {
+          "kind": "drop_markdown"
+        }
+      ],
+      "string": "Some of our processing uses Anthropic's models through its API. Per Anthropic's published commercial terms as of 2026-10-25, API inputs and outputs are automatically deleted within 30 days of receipt or generation (retained longer only where required by law or to enforce Anthropic's usage policy), and by default they are not used to train Anthropic's models. Zero-data-retention is not enabled on our account. The production models are not \"Covered Models\" (Mythos-class), which carry separate limited-retention-and-review requirements.",
+      "string_sha256": "be397251b8e326319dd9ecae21b288bae1597c2ddc28c273b9f1885b480db3bd",
+      "targets": [
+        {
+          "file": "site/privacy-policy.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "s2-tos",
+      "label": "S.2 ToS version line (Copy Set §13 S.2; 781 C)",
+      "source_path": "02_Marketing/Commerce_Copy_Set_v1_WA2_Claim_State_20261006.md",
+      "source_line": 244,
+      "source_line_sha256": "133df7f7b65cce68f4d518930b3233aa7121da93e6d829397a8425f32130d13a",
+      "extract": {
+        "kind": "regex",
+        "pattern": "\"(Terms of Service v1\\.3[^\"]*)\"",
+        "group": 1
+      },
+      "extracted": "Terms of Service v1.3 — last updated 2026-10-31.",
+      "transforms": [],
+      "string": "Terms of Service v1.3 — last updated 2026-10-31.",
+      "string_sha256": "c14cef0f7bef700b9fff312e7bfdd98d1fa5319190a7258921ab9e93ca86c6e4",
+      "targets": [
+        {
+          "file": "site/terms-of-service.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "s2-privacy",
+      "label": "S.2 Privacy version line (Copy Set §13 S.2; 781 C)",
+      "source_path": "02_Marketing/Commerce_Copy_Set_v1_WA2_Claim_State_20261006.md",
+      "source_line": 244,
+      "source_line_sha256": "133df7f7b65cce68f4d518930b3233aa7121da93e6d829397a8425f32130d13a",
+      "extract": {
+        "kind": "regex",
+        "pattern": "\"(Privacy Policy v1\\.3[^\"]*)\"",
+        "group": 1
+      },
+      "extracted": "Privacy Policy v1.3 — last updated 2026-10-31.",
+      "transforms": [],
+      "string": "Privacy Policy v1.3 — last updated 2026-10-31.",
+      "string_sha256": "980b6ab845314b23c03c03838cd0896ba9b7bfd9c2fed405e8563c6988fb72fc",
+      "targets": [
+        {
+          "file": "site/privacy-policy.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "q6-corporate",
+      "label": "Q.6 corporate-site form (Copy Set §13 Q.6; 774 §D; 781 K)",
+      "source_path": "02_Marketing/Commerce_Copy_Set_v1_WA2_Claim_State_20261006.md",
+      "source_line": 230,
+      "source_line_sha256": "c0ba18d2bc8083da0a706d724f0337c73822585fd0c1d39da4f2a4cf4625ddd0",
+      "extract": {
+        "kind": "regex",
+        "pattern": "\\*\\*Q\\.6 corporate-site form[^*]*:\\*\\* \"([^\"]+)\"",
+        "group": 1
+      },
+      "extracted": "Sustainable Finance Partners, LLC holds the Phronesis platform, methodology and customer contracts, and an exclusive, royalty-free license to the PHRONESIS mark from its owner.",
+      "transforms": [],
+      "string": "Sustainable Finance Partners, LLC holds the Phronesis platform, methodology and customer contracts, and an exclusive, royalty-free license to the PHRONESIS mark from its owner.",
+      "string_sha256": "e1f2d3da51eaf3130165e2359c948c9cbcf99da82b8639603a9e83205f26551b",
+      "targets": [
+        {
+          "file": "site/index.html",
+          "surface": "meta_description",
+          "count": 1
+        },
+        {
+          "file": "site/index.html",
+          "surface": "jsonld_organization_description",
+          "count": 1
+        },
+        {
+          "file": "site/index.html",
+          "surface": "html_text",
+          "count": 1
+        },
+        {
+          "file": "site/.well-known/agents.txt",
+          "surface": "txt_comment_text",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "checks": {
+    "absent": [
+      {
+        "file": "site/terms-of-service.html",
+        "text": "the Phronesis brand and visual identity"
+      },
+      {
+        "file": "site/terms-of-service.html",
+        "text": "cannot reasonably be associated with an individual or a Customer"
+      },
+      {
+        "file": "site/terms-of-service.html",
+        "text": "<strong>Version</strong>v1.2"
+      },
+      {
+        "file": "site/privacy-policy.html",
+        "text": "Neon, LLC"
+      },
+      {
+        "file": "site/privacy-policy.html",
+        "text": "Per Neon's terms"
+      },
+      {
+        "file": "site/privacy-policy.html",
+        "text": "CCO CONFIRMS"
+      },
+      {
+        "file": "site/privacy-policy.html",
+        "text": "Databricks subprocessor list URL"
+      },
+      {
+        "file": "site/privacy-policy.html",
+        "text": "<strong>Version</strong>v1.2"
+      },
+      {
+        "file": "site/index.html",
+        "text": "holds the intellectual property"
+      },
+      {
+        "file": "site/index.html",
+        "text": "Holds the intellectual property"
+      },
+      {
+        "file": "site/.well-known/agents.txt",
+        "text": "holds the IP"
+      }
+    ],
+    "absent_regex": [
+      {
+        "file": "site/privacy-policy.html",
+        "pattern": "(?i)\\b(claude-[a-z0-9.-]+|opus-[0-9.]+|sonnet-[0-9.]+|haiku-[0-9.]+)\\b",
+        "why": "no model IDs on the Privacy Policy (spec Repo 3 item 2; Algorithm_Protection 6.X)"
+      }
+    ],
+    "present": [
+      {
+        "file": "site/terms-of-service.html",
+        "text": "<div><strong>Effective Date</strong>2026-10-31</div>"
+      },
+      {
+        "file": "site/terms-of-service.html",
+        "text": "<div><strong>Last Updated</strong>2026-10-31</div>"
+      },
+      {
+        "file": "site/terms-of-service.html",
+        "text": "<div><strong>Version</strong>v1.3</div>"
+      },
+      {
+        "file": "site/terms-of-service.html",
+        "text": "<h3>7.4 Third-party usage licensing</h3>"
+      },
+      {
+        "file": "site/terms-of-service.html",
+        "text": "PHRONESIS is a trademark of John Ross Stinehour, used under license by Sustainable Finance Partners, LLC."
+      },
+      {
+        "file": "site/privacy-policy.html",
+        "text": "<div><strong>Effective Date</strong>2026-10-31</div>"
+      },
+      {
+        "file": "site/privacy-policy.html",
+        "text": "<div><strong>Last Updated</strong>2026-10-31</div>"
+      },
+      {
+        "file": "site/privacy-policy.html",
+        "text": "<div><strong>Version</strong>v1.3</div>"
+      },
+      {
+        "file": "site/privacy-policy.html",
+        "text": "href=\"https://www.databricks.com/legal/databricks-subprocessors\""
+      },
+      {
+        "file": "site/privacy-policy.html",
+        "text": "PHRONESIS is a trademark of John Ross Stinehour, used under license by Sustainable Finance Partners, LLC."
+      },
+      {
+        "file": "site/index.html",
+        "text": "PHRONESIS is a trademark of John Ross Stinehour, used under license by Sustainable Finance Partners, LLC."
+      },
+      {
+        "file": "site/.well-known/agents.txt",
+        "text": "# SFP uses the PHRONESIS mark under an exclusive license from its owner, John Ross Stinehour (USPTO application Serial No. 99842940).\n# Pending application; status verifiable at tsdr.uspto.gov.\nTrademark-License: PHRONESIS, USPTO serial 99842940 (owner John Ross Stinehour; exclusive licensee Sustainable Finance Partners, LLC)\n",
+        "why": "781 K: agents.txt:62-64 stay unchanged"
+      }
+    ]
+  }
+}

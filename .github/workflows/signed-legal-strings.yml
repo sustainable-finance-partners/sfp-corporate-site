@@ -1,0 +1,32 @@
+# Signed legal strings render verbatim.
+#
+# The Terms of Service, the Privacy Policy and the corporate-entity lines carry
+# counsel-approved and signed strings. Each is pinned in .github/signed_strings.json
+# with its source document, line and sha256, and must render byte-for-byte on its
+# target surface. The source documents are not in this repository, so CI checks the
+# fixture and the render; the desk run adds --source-root to re-verify every line.
+
+name: Signed legal strings
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  signed-strings:
+    runs-on: ubuntu-latest
+    name: Signed strings render verbatim at their targets
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Matcher self-test (a changed string must be reported missing)
+        run: python3 .github/scripts/signed_strings_check.py --self-test
+
+      - name: Every signed string renders verbatim
+        run: python3 .github/scripts/signed_strings_check.py
