@@ -11,14 +11,22 @@ extracted from one line of its source document. For every entry this check asser
    - ``meta_description``: the ``content`` of ``<meta name="description">``;
    - ``jsonld_organization_description``: ``description`` of the Organization JSON-LD;
    - ``txt_comment_text``: the text of a ``.txt`` file's ``#`` comment lines;
+   - ``whole_line``: the file's lines; ``count`` is the number of lines that equal
+     the string exactly, so nothing else sits on that line;
 3. with ``--source-root DIR`` (the desk, where the source documents live): the source
-   line's sha256 matches, and extracting from it again gives the same text.
+   line's sha256 matches, and extracting from it again gives the same text. A
+   ``regex`` extraction must match exactly once; it returns the match's ``group``
+   (default 0, the whole match).
 
 The ``checks`` block adds plain-text absences (replaced wording must be gone),
 presences (facts and lines that must stay) and absent patterns.
 
-``--self-test`` proves the matcher can fail: every string with one character changed
-must be reported missing. A check that cannot fail is not a check.
+``--self-test`` proves every branch can fail. Every string with one character changed
+must be reported missing at each target. For every file the ``checks`` block reads,
+a text known to be in the file, entered as an absence, must be reported; a text known
+not to be in it, entered as a presence, must be reported; and a pattern that matches
+it, entered as an absent pattern, must be reported. A check that cannot fail is not a
+check.
 
 Exit code 0 only when every assertion holds. Standard library only.
 """
@@ -82,6 +90,8 @@ def surface_text(path: Path, surface: str) -> list[str]:
     if surface == "txt_comment_text":
         lines = [ln.rstrip("\r") for ln in raw.split("\n")]
         return ["\n".join(ln[1:].lstrip(" ") for ln in lines if ln.startswith("#"))]
+    if surface == "whole_line":
+        return [ln.rstrip("\r") for ln in raw.split("\n")]
     page = _Page()
     page.feed(raw)
     page.close()
@@ -107,10 +117,14 @@ def apply_extract(line: str, extract: dict[str, Any]) -> str:
             raise ValueError(f"source line does not start with {prefix!r}")
         return line[len(prefix) :]
     if kind == "regex":
-        matches = re.findall(str(extract["pattern"]), line)
+        matches = list(re.finditer(str(extract["pattern"]), line))
         if len(matches) != 1:
             raise ValueError(f"pattern matched {len(matches)} times, expected 1")
-        return str(matches[0])
+        group = int(extract.get("group", 0))
+        value = matches[0].group(group)
+        if value is None:
+            raise ValueError(f"group {group} did not take part in the match")
+        return str(value)
     raise ValueError(f"unknown extract kind {kind!r}")
 
 
@@ -179,7 +193,10 @@ def check(fixture: dict[str, Any], source_root: Path | None) -> tuple[list[str],
         for target in entry["targets"]:
             made += 1
             rel, surface, want = str(target["file"]), str(target["surface"]), int(target["count"])
-            found = sum(t.count(string) for t in texts(rel, surface))
+            if surface == "whole_line":
+                found = sum(1 for t in texts(rel, surface) if t == string)
+            else:
+                found = sum(t.count(string) for t in texts(rel, surface))
             if found != want:
                 failures.append(f"RENDER[{eid}] {rel} {surface}: found {found}, expected {want}")
 
@@ -203,9 +220,22 @@ def check(fixture: dict[str, Any], source_root: Path | None) -> tuple[list[str],
     return failures, made
 
 
-def self_test(fixture: dict[str, Any]) -> list[str]:
-    """Every string, with one character changed, must be reported missing."""
+def check_files(fixture: dict[str, Any]) -> list[str]:
+    """Every file the ``checks`` block reads, in order of first use."""
+    files: list[str] = []
+    checks = fixture.get("checks", {})
+    for kind in ("absent", "present", "absent_regex"):
+        for item in checks.get(kind, []):
+            rel = str(item["file"])
+            if rel not in files:
+                files.append(rel)
+    return files
+
+
+def self_test(fixture: dict[str, Any]) -> tuple[list[str], int]:
+    """Return (problems, probes run). Every branch must report a planted failure."""
     problems: list[str] = []
+    probes = 0
     for entry in fixture["entries"]:
         string = str(entry["string"])
         mid = len(string) // 2
@@ -215,10 +245,38 @@ def self_test(fixture: dict[str, Any]) -> list[str]:
         probe["string_sha256"] = _sha(mutated)
         probe["extracted"] = mutated
         probe["transforms"] = []
+        probes += 1
         failures, _ = check({"entries": [probe], "checks": {}}, None)
-        if not any(f.startswith(f"RENDER[{entry['id']}]") for f in failures):
-            problems.append(f"SELF-TEST[{entry['id']}]: a changed string was not reported missing")
-    return problems
+        for target in entry["targets"]:
+            where = f"RENDER[{entry['id']}] {target['file']} {target['surface']}:"
+            if not any(f.startswith(where) for f in failures):
+                problems.append(
+                    f"SELF-TEST[{entry['id']}]: a changed string was not reported missing "
+                    f"at {target['file']} {target['surface']}"
+                )
+    for rel in check_files(fixture):
+        body = (REPO_ROOT / rel).read_text(encoding="utf-8").replace("\r\n", "\n")
+        known_present = next((ln for ln in body.split("\n") if ln.strip()), "")
+        if not known_present:
+            problems.append(f"SELF-TEST[checks {rel}]: the file has no non-empty line to plant")
+            continue
+        # Longer than the file, so it cannot be a substring of it.
+        known_absent = body + "\n(self-test: this text is longer than the file)"
+        planted = {
+            "absent": [{"file": rel, "text": known_present}],
+            "present": [{"file": rel, "text": known_absent}],
+            "absent_regex": [{"file": rel, "pattern": re.escape(known_present), "why": "self-test"}],
+        }
+        failures, _ = check({"entries": [], "checks": planted}, None)
+        for branch, prefix in (
+            ("absent", f"ABSENT {rel}:"),
+            ("present", f"PRESENT {rel}:"),
+            ("absent_regex", f"ABSENT-RE {rel}:"),
+        ):
+            probes += 1
+            if not any(f.startswith(prefix) for f in failures):
+                problems.append(f"SELF-TEST[{branch} {rel}]: a planted failure was not reported")
+    return problems, probes
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -228,10 +286,15 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     fixture: dict[str, Any] = json.loads(FIXTURE.read_text(encoding="utf-8"))
     if args.self_test:
-        problems = self_test(fixture)
+        problems, probes = self_test(fixture)
         for line in problems:
             print(f"  {line}")
-        print(f"SIGNED STRINGS SELF-TEST: {'FAIL' if problems else 'OK'} ({len(fixture['entries'])} mutations)")
+        n_checks = probes - len(fixture["entries"])
+        print(
+            f"SIGNED STRINGS SELF-TEST: {'FAIL' if problems else 'OK'} "
+            f"({len(fixture['entries'])} string mutations, {n_checks} check-branch probes, "
+            f"{len(problems)} not reported)"
+        )
         return 1 if problems else 0
     failures, made = check(fixture, args.source_root)
     mode = "with source lines" if args.source_root else "fixture + render"

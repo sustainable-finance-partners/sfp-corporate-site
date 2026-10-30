@@ -321,6 +321,39 @@
           "file": "site/.well-known/agents.txt",
           "surface": "txt_comment_text",
           "count": 1
+        },
+        {
+          "file": "site/llms.txt",
+          "surface": "whole_line",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "marks-statement",
+      "label": "The marks statement (Copy Set §13 Q.6, the marks statement everywhere; the marks sweep, 773 §4)",
+      "source_path": "02_Marketing/Commerce_Copy_Set_v1_WA2_Claim_State_20261006.md",
+      "source_line": 230,
+      "source_line_sha256": "c0ba18d2bc8083da0a706d724f0337c73822585fd0c1d39da4f2a4cf4625ddd0",
+      "extract": {
+        "kind": "regex",
+        "pattern": "Q\\.6 the marks statement everywhere: \"([^\"]+)\"",
+        "group": 1
+      },
+      "extracted": "PHRONESIS and the Phronesis marks are trademarks used by Sustainable Finance Partners, LLC under license.",
+      "transforms": [],
+      "string": "PHRONESIS and the Phronesis marks are trademarks used by Sustainable Finance Partners, LLC under license.",
+      "string_sha256": "4b4077279dc9df930a0dba25e994be3e65252efaf170fe7ad97ff2483405c50e",
+      "targets": [
+        {
+          "file": "site/llms.txt",
+          "surface": "whole_line",
+          "count": 1
+        },
+        {
+          "file": "site/terms-of-service.html",
+          "surface": "html_text",
+          "count": 1
         }
       ]
     }
@@ -370,6 +403,22 @@
       {
         "file": "site/.well-known/agents.txt",
         "text": "holds the IP"
+      },
+      {
+        "file": "site/llms.txt",
+        "text": "**Trademark filing**"
+      },
+      {
+        "file": "site/llms.txt",
+        "text": "USPTO serial 99842940 (as-filed scope)"
+      },
+      {
+        "file": "site/llms.txt",
+        "text": "**Intellectual property**"
+      },
+      {
+        "file": "site/llms.txt",
+        "text": "# Last updated: 2026-05-26"
       }
     ],
     "absent_regex": [
@@ -428,6 +477,16 @@
         "file": "site/.well-known/agents.txt",
         "text": "# SFP uses the PHRONESIS mark under an exclusive license from its owner, John Ross Stinehour (USPTO application Serial No. 99842940).\n# Pending application; status verifiable at tsdr.uspto.gov.\nTrademark-License: PHRONESIS, USPTO serial 99842940 (owner John Ross Stinehour; exclusive licensee Sustainable Finance Partners, LLC)\n",
         "why": "781 K: agents.txt:62-64 stay unchanged"
+      },
+      {
+        "file": "site/llms.txt",
+        "text": "Sustainable Finance Partners, LLC (SFP) is a Colorado-registered limited liability company. It exists to operate Phronesis. As the operating entity, SFP holds:\n\n- **Customer contracts** — per-call agreements + subscription tiers + Decision Asset settlement obligations.\n- **Federal credentials** — verified U.S. federal contractor: SAM.gov-registered (active UEI), SBA small-business certified, ORCID + NSF Research.gov. Full identifiers released to verified counterparties under NDA during agent-to-agent diligence.\n- **Governance substrate** — operating model, ratification ledger, strategic canonical, legal protections substrate, runbooks.\n\nSustainable Finance Partners, LLC holds the Phronesis platform, methodology and customer contracts, and an exclusive, royalty-free license to the PHRONESIS mark from its owner.\n\nPHRONESIS and the Phronesis marks are trademarks used by Sustainable Finance Partners, LLC under license.\n\n## What Phronesis is (compact reference; full canonical at phronesisintel.com)",
+        "why": "fix round 10-30: the trademark item left the SFP-holds list for the marks statement (773 §4); the IP item's ownership claim became Q.6 (781 K); the other items stay"
+      },
+      {
+        "file": "site/llms.txt",
+        "text": "# Last updated: 2026-10-31\n",
+        "why": "the file's content changed"
       }
     ]
   }
