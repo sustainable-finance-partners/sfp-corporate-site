@@ -1,1 +1,3 @@
 * text=auto
+# Byte copies of signed sources: stored and checked out exactly as copied.
+.github/fixtures/** -text
