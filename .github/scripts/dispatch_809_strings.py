@@ -74,6 +74,17 @@ ROWS: tuple[dict[str, Any], ...] = (
         "targets": [("site/index.html", "html_text", 1)],
     },
     {
+        "id": "809-p1-clause",
+        "label": "809 section 7: the P1 sentence after its name, on the machine-readable "
+        "surfaces (agents.txt Path A, agentic-commerce.json path A)",
+        "line": 40,
+        "pattern": r':158 "[^"]*" → \*"P1 Identity & Mandate — ([^"]+)"\*',
+        "targets": [
+            ("site/.well-known/agents.txt", "txt_comment_text", 1),
+            ("site/.well-known/agentic-commerce.json", "json_strings", 1),
+        ],
+    },
+    {
         "id": "809-p3",
         "label": "809 section 7: index.html P3 status line (was :160)",
         "line": 40,
@@ -139,8 +150,33 @@ CHECKS: dict[str, list[dict[str, str]]] = {
         {"file": "site/privacy-policy.html", "text": "HIPAA Safe Harbor"},
         {"file": "site/privacy-policy.html", "text": "Themis-Healthcare"},
         {"file": "site/privacy-policy.html", "text": "PHI excluded under"},
+        {"file": "site/.well-known/agentic-commerce.json", "text": '"verticals_live"'},
+        {
+            "file": "site/.well-known/agentic-commerce.json",
+            "text": "Direct API access via AP2 mandate authorization",
+        },
+        {
+            "file": "site/.well-known/agents.txt",
+            "text": "recorded as evidence of delegated authority",
+        },
+        {"file": "site/.well-known/agents.txt", "text": "Auth-Methods: AP2,"},
     ],
     "present": [
+        {
+            "file": "site/.well-known/agentic-commerce.json",
+            "text": '"layer_1_authorization_availability": "planned"',
+            "why": "809 section 7: mandate verification is planned (a stub at bda96164)",
+        },
+        {
+            "file": "site/.well-known/agentic-commerce.json",
+            "text": '"ap2_mandate": "planned"',
+            "why": "809 section 7: mandate verification is planned",
+        },
+        {
+            "file": "site/.well-known/agents.txt",
+            "text": "Auth-Methods: AP2 (planned), Stripe-SPT (in build), Bearer-JWT",
+            "why": "809 section 7: mandate verification is planned",
+        },
         {
             "file": "site/index.html",
             "text": "<li><strong>P6 Market-State Telemetry</strong> — defined. "
@@ -164,6 +200,16 @@ CHECKS: dict[str, list[dict[str, str]]] = {
         },
     ],
     "absent_regex": [
+        {
+            "file": "site/.well-known/agentic-commerce.json",
+            "pattern": r'"primitives_live":\s*\[[^\]]*"P[126]-',
+            "why": "809 section 7: only P3 is live; P1 is partial, P2 in build, P6 defined",
+        },
+        {
+            "file": "site/.well-known/agentic-commerce.json",
+            "pattern": r'"supported_methods":\s*\[\s*"ap2_mandate"',
+            "why": "809 section 7: mandate verification is planned, not a live method",
+        },
         {
             "file": "site/index.html",
             "pattern": r"\bLIVE\b",
