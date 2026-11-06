@@ -356,6 +356,246 @@
           "count": 1
         }
       ]
+    },
+    {
+      "id": "809-p1",
+      "label": "809 section 7: index.html P1 status line (was :158)",
+      "source_path": "00_Operating_Model/CCO_DISPATCH_809_808_HANDBACK_2_RULED_610_LIVE_NSF_00132689_SUBMITTED_BLOOMBERGNEF_NOTES_SIGNED_RETENTION_PERMANENT_RECORD_CLASS_VS_ORIGIN_INTERNAL_NAMES_RULES_SITE_STRINGS_SUPPLIED_DEPLOY_HOOK_Q_20261106.md",
+      "source_copy": ".github/fixtures/dispatch_809/dispatch_809_20261106.md",
+      "source_line": 40,
+      "source_line_sha256": "5a151edfce027909f920bba56eda18a203380c0921fd8342690c2c3206231d75",
+      "extract": {
+        "kind": "regex",
+        "pattern": ":158 \"[^\"]*\" → \\*\"([^\"]+)\"\\*",
+        "group": 1
+      },
+      "extracted": "P1 Identity & Mandate — identity live (the Authority Credential); mandate verification planned; a mandate presented at mint is recorded as unverified context (Terms §4.3).",
+      "transforms": [],
+      "string": "P1 Identity & Mandate — identity live (the Authority Credential); mandate verification planned; a mandate presented at mint is recorded as unverified context (Terms §4.3).",
+      "string_sha256": "4cc6fc0e8472b09d77e89686b69599cfbf01eeeccda9ecc93c847ffe347dcfa6",
+      "targets": [
+        {
+          "file": "site/index.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "809-p1-clause",
+      "label": "809 section 7: the P1 sentence after its name, on the machine-readable surfaces (agents.txt Path A, agentic-commerce.json path A)",
+      "source_path": "00_Operating_Model/CCO_DISPATCH_809_808_HANDBACK_2_RULED_610_LIVE_NSF_00132689_SUBMITTED_BLOOMBERGNEF_NOTES_SIGNED_RETENTION_PERMANENT_RECORD_CLASS_VS_ORIGIN_INTERNAL_NAMES_RULES_SITE_STRINGS_SUPPLIED_DEPLOY_HOOK_Q_20261106.md",
+      "source_copy": ".github/fixtures/dispatch_809/dispatch_809_20261106.md",
+      "source_line": 40,
+      "source_line_sha256": "5a151edfce027909f920bba56eda18a203380c0921fd8342690c2c3206231d75",
+      "extract": {
+        "kind": "regex",
+        "pattern": ":158 \"[^\"]*\" → \\*\"P1 Identity & Mandate — ([^\"]+)\"\\*",
+        "group": 1
+      },
+      "extracted": "identity live (the Authority Credential); mandate verification planned; a mandate presented at mint is recorded as unverified context (Terms §4.3).",
+      "transforms": [],
+      "string": "identity live (the Authority Credential); mandate verification planned; a mandate presented at mint is recorded as unverified context (Terms §4.3).",
+      "string_sha256": "43d438ad91817ab08b2e10ca94553c1bf058ec2fc10f08d7a9c8a3acca2b66cc",
+      "targets": [
+        {
+          "file": "site/.well-known/agents.txt",
+          "surface": "txt_comment_text",
+          "count": 1
+        },
+        {
+          "file": "site/.well-known/agentic-commerce.json",
+          "surface": "json_strings",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "809-p3",
+      "label": "809 section 7: index.html P3 status line (was :160)",
+      "source_path": "00_Operating_Model/CCO_DISPATCH_809_808_HANDBACK_2_RULED_610_LIVE_NSF_00132689_SUBMITTED_BLOOMBERGNEF_NOTES_SIGNED_RETENTION_PERMANENT_RECORD_CLASS_VS_ORIGIN_INTERNAL_NAMES_RULES_SITE_STRINGS_SUPPLIED_DEPLOY_HOOK_Q_20261106.md",
+      "source_copy": ".github/fixtures/dispatch_809/dispatch_809_20261106.md",
+      "source_line": 40,
+      "source_line_sha256": "5a151edfce027909f920bba56eda18a203380c0921fd8342690c2c3206231d75",
+      "extract": {
+        "kind": "regex",
+        "pattern": ":160 \"[^\"]*\" → \\*\"([^\"]+)\"\\*",
+        "group": 1
+      },
+      "extracted": "P3 Forecast & Evidence — live. The Decision Asset substrate; sources are cited per record.",
+      "transforms": [],
+      "string": "P3 Forecast & Evidence — live. The Decision Asset substrate; sources are cited per record.",
+      "string_sha256": "7f7d943e5bd0a6e948b154cf083444cd27aa1ddf3c83c4efd1234096d5794b5c",
+      "targets": [
+        {
+          "file": "site/index.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "809-verticals",
+      "label": "809 section 7: index.html verticals heading (was :166)",
+      "source_path": "00_Operating_Model/CCO_DISPATCH_809_808_HANDBACK_2_RULED_610_LIVE_NSF_00132689_SUBMITTED_BLOOMBERGNEF_NOTES_SIGNED_RETENTION_PERMANENT_RECORD_CLASS_VS_ORIGIN_INTERNAL_NAMES_RULES_SITE_STRINGS_SUPPLIED_DEPLOY_HOOK_Q_20261106.md",
+      "source_copy": ".github/fixtures/dispatch_809/dispatch_809_20261106.md",
+      "source_line": 40,
+      "source_line_sha256": "5a151edfce027909f920bba56eda18a203380c0921fd8342690c2c3206231d75",
+      "extract": {
+        "kind": "regex",
+        "pattern": ":166 \"[^\"]*\" → \\*\"([^\"]+)\"\\*",
+        "group": 1
+      },
+      "extracted": "Verticals (twelve applied + V#0 meta-vertical, catalogued; records by vertical at phronesisintel.com/verticals)",
+      "transforms": [],
+      "string": "Verticals (twelve applied + V#0 meta-vertical, catalogued; records by vertical at phronesisintel.com/verticals)",
+      "string_sha256": "117da605619d25e5a78148a167e8c62a6a2c9de2dfb2f9a366c40caa8f97e201",
+      "targets": [
+        {
+          "file": "site/index.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "809-healthcare",
+      "label": "809 section 7: index.html V#3 name (was :171)",
+      "source_path": "00_Operating_Model/CCO_DISPATCH_809_808_HANDBACK_2_RULED_610_LIVE_NSF_00132689_SUBMITTED_BLOOMBERGNEF_NOTES_SIGNED_RETENTION_PERMANENT_RECORD_CLASS_VS_ORIGIN_INTERNAL_NAMES_RULES_SITE_STRINGS_SUPPLIED_DEPLOY_HOOK_Q_20261106.md",
+      "source_copy": ".github/fixtures/dispatch_809/dispatch_809_20261106.md",
+      "source_line": 40,
+      "source_line_sha256": "5a151edfce027909f920bba56eda18a203380c0921fd8342690c2c3206231d75",
+      "extract": {
+        "kind": "regex",
+        "pattern": ":171 \"[^\"]*\" → \\*\"([^\"]+)\"\\*",
+        "group": 1
+      },
+      "extracted": "Healthcare",
+      "transforms": [],
+      "string": "Healthcare",
+      "string_sha256": "a64b892ff09a8da719660e7dbec3c8c185b861385c8cdc723935ae9ee7ae344a",
+      "targets": [
+        {
+          "file": "site/index.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "809-register",
+      "label": "809 section 7: index.html product-surface card, the register sentence (was :214)",
+      "source_path": "00_Operating_Model/CCO_DISPATCH_809_808_HANDBACK_2_RULED_610_LIVE_NSF_00132689_SUBMITTED_BLOOMBERGNEF_NOTES_SIGNED_RETENTION_PERMANENT_RECORD_CLASS_VS_ORIGIN_INTERNAL_NAMES_RULES_SITE_STRINGS_SUPPLIED_DEPLOY_HOOK_Q_20261106.md",
+      "source_copy": ".github/fixtures/dispatch_809/dispatch_809_20261106.md",
+      "source_line": 40,
+      "source_line_sha256": "5a151edfce027909f920bba56eda18a203380c0921fd8342690c2c3206231d75",
+      "extract": {
+        "kind": "regex",
+        "pattern": "the live `/deploy` sentence \\(\\*\"([^\"]+)\"\\*",
+        "group": 1
+      },
+      "extracted": "The register holds {n} records as of {date}.",
+      "derivation": {
+        "url": "https://api.phronesisintel.com/.well-known/scorecard.json",
+        "fields": "aggregate_stats.forecast_count; UTC date of metadata.generated_at",
+        "n": 52,
+        "date": "2026-11-06",
+        "generated_at": "2026-11-06T04:14:39Z",
+        "body_sha256": "d9feb644b38eef4417c00148cfa99289ea979c393d0befd42b78d265b2d37ea5"
+      },
+      "transforms": [
+        {
+          "kind": "replace",
+          "old": "{n}",
+          "new": "52"
+        },
+        {
+          "kind": "replace",
+          "old": "{date}",
+          "new": "2026-11-06"
+        }
+      ],
+      "string": "The register holds 52 records as of 2026-11-06.",
+      "string_sha256": "9448519858331b74b7f0db7da48bf69765122a091d0c5d50185fb7b66b35b383",
+      "targets": [
+        {
+          "file": "site/index.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "809-catalogued",
+      "label": "809 section 7: index.html product-surface card, the catalogued sentence (was :214)",
+      "source_path": "00_Operating_Model/CCO_DISPATCH_809_808_HANDBACK_2_RULED_610_LIVE_NSF_00132689_SUBMITTED_BLOOMBERGNEF_NOTES_SIGNED_RETENTION_PERMANENT_RECORD_CLASS_VS_ORIGIN_INTERNAL_NAMES_RULES_SITE_STRINGS_SUPPLIED_DEPLOY_HOOK_Q_20261106.md",
+      "source_copy": ".github/fixtures/dispatch_809/dispatch_809_20261106.md",
+      "source_line": 40,
+      "source_line_sha256": "5a151edfce027909f920bba56eda18a203380c0921fd8342690c2c3206231d75",
+      "extract": {
+        "kind": "regex",
+        "pattern": "its as-of date\\) \\+ \\*\"([^\"]+)\"\\*",
+        "group": 1
+      },
+      "extracted": "Twelve applied verticals and the V#0 meta-vertical are catalogued.",
+      "transforms": [],
+      "string": "Twelve applied verticals and the V#0 meta-vertical are catalogued.",
+      "string_sha256": "6159020cdbc9b37014f8ff179c1bb595f9afdb1797c5b0fd8cf5052da69cfaec",
+      "targets": [
+        {
+          "file": "site/index.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "809-privacy-phi",
+      "label": "809 section 7: privacy-policy.html PHI item (was :104)",
+      "source_path": "00_Operating_Model/CCO_DISPATCH_809_808_HANDBACK_2_RULED_610_LIVE_NSF_00132689_SUBMITTED_BLOOMBERGNEF_NOTES_SIGNED_RETENTION_PERMANENT_RECORD_CLASS_VS_ORIGIN_INTERNAL_NAMES_RULES_SITE_STRINGS_SUPPLIED_DEPLOY_HOOK_Q_20261106.md",
+      "source_copy": ".github/fixtures/dispatch_809/dispatch_809_20261106.md",
+      "source_line": 40,
+      "source_line_sha256": "5a151edfce027909f920bba56eda18a203380c0921fd8342690c2c3206231d75",
+      "extract": {
+        "kind": "regex",
+        "pattern": "\\*\\*privacy-policy :104\\*\\* → \\*\"([^\"]+)\"\\*",
+        "group": 1
+      },
+      "extracted": "Protected Health Information (PHI): Phronesis does not process individually identifiable health information.",
+      "transforms": [],
+      "string": "Protected Health Information (PHI): Phronesis does not process individually identifiable health information.",
+      "string_sha256": "3c9f0cc0a021163affd3b19125e21241f659d1bd6bc7ca4943b19586f5442556",
+      "targets": [
+        {
+          "file": "site/privacy-policy.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "809-privacy-meta",
+      "label": "809 section 7: privacy-policy.html meta description, the PHI sentence",
+      "source_path": "00_Operating_Model/CCO_DISPATCH_809_808_HANDBACK_2_RULED_610_LIVE_NSF_00132689_SUBMITTED_BLOOMBERGNEF_NOTES_SIGNED_RETENTION_PERMANENT_RECORD_CLASS_VS_ORIGIN_INTERNAL_NAMES_RULES_SITE_STRINGS_SUPPLIED_DEPLOY_HOOK_Q_20261106.md",
+      "source_copy": ".github/fixtures/dispatch_809/dispatch_809_20261106.md",
+      "source_line": 40,
+      "source_line_sha256": "5a151edfce027909f920bba56eda18a203380c0921fd8342690c2c3206231d75",
+      "extract": {
+        "kind": "regex",
+        "pattern": "\"PHI excluded under HIPAA Safe Harbor\" → \\*\"([^\"]+)\"\\*",
+        "group": 1
+      },
+      "extracted": "No PHI is processed.",
+      "transforms": [],
+      "string": "No PHI is processed.",
+      "string_sha256": "0904332c9c99c7ecd8b1b494d95512aa343ef96e3d4f8057352f0809ab7afeb0",
+      "targets": [
+        {
+          "file": "site/privacy-policy.html",
+          "surface": "meta_description",
+          "count": 1
+        }
+      ]
     }
   ],
   "checks": {
@@ -419,6 +659,81 @@
       {
         "file": "site/llms.txt",
         "text": "# Last updated: 2026-05-26"
+      },
+      {
+        "file": "site/index.html",
+        "text": "— LIVE.",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/index.html",
+        "text": "all LIVE on production",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/index.html",
+        "text": "Phronesis is LIVE on production",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/index.html",
+        "text": "every mint primary-source-cited",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/index.html",
+        "text": "in production since",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/index.html",
+        "text": "HIPAA Safe Harbor",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/spec.html",
+        "text": "all twelve LIVE on production",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/spec.html",
+        "text": "for live status",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/privacy-policy.html",
+        "text": "HIPAA Safe Harbor",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/privacy-policy.html",
+        "text": "Themis-Healthcare",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/privacy-policy.html",
+        "text": "PHI excluded under",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/.well-known/agentic-commerce.json",
+        "text": "\"verticals_live\"",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/.well-known/agentic-commerce.json",
+        "text": "Direct API access via AP2 mandate authorization",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/.well-known/agents.txt",
+        "text": "recorded as evidence of delegated authority",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/.well-known/agents.txt",
+        "text": "Auth-Methods: AP2,",
+        "source": "809 section 7"
       }
     ],
     "absent_regex": [
@@ -426,6 +741,30 @@
         "file": "site/privacy-policy.html",
         "pattern": "(?i)\\b(claude-[a-z0-9.-]+|opus-[0-9.]+|sonnet-[0-9.]+|haiku-[0-9.]+)\\b",
         "why": "no model IDs on the Privacy Policy (spec Repo 3 item 2; Algorithm_Protection 6.X)"
+      },
+      {
+        "file": "site/.well-known/agentic-commerce.json",
+        "pattern": "\"primitives_live\":\\s*\\[[^\\]]*\"P[126]-",
+        "why": "809 section 7: only P3 is live; P1 is partial, P2 in build, P6 defined",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/.well-known/agentic-commerce.json",
+        "pattern": "\"supported_methods\":\\s*\\[\\s*\"ap2_mandate\"",
+        "why": "809 section 7: mandate verification is planned, not a live method",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/index.html",
+        "pattern": "\\bLIVE\\b",
+        "why": "809 section 7: no primitive or vertical reads LIVE",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/spec.html",
+        "pattern": "\\bLIVE\\b",
+        "why": "809 section 7: no primitive or vertical reads LIVE",
+        "source": "809 section 7"
       }
     ],
     "present": [
@@ -487,6 +826,42 @@
         "file": "site/llms.txt",
         "text": "# Last updated: 2026-10-31\n",
         "why": "the file's content changed"
+      },
+      {
+        "file": "site/.well-known/agentic-commerce.json",
+        "text": "\"layer_1_authorization_availability\": \"planned\"",
+        "why": "809 section 7: mandate verification is planned (a stub at bda96164)",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/.well-known/agentic-commerce.json",
+        "text": "\"ap2_mandate\": \"planned\"",
+        "why": "809 section 7: mandate verification is planned",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/.well-known/agents.txt",
+        "text": "Auth-Methods: AP2 (planned), Stripe-SPT (in build), Bearer-JWT",
+        "why": "809 section 7: mandate verification is planned",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/index.html",
+        "text": "<li><strong>P6 Market-State Telemetry</strong> — defined. The agentic-marketplace microstructure feed.</li>",
+        "why": "809 section 7: P6 takes the status word the code supports; no route serves it at bda96164, so 'defined'",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/index.html",
+        "text": "<li><strong>V#3</strong> Healthcare</li>",
+        "why": "809 section 7: the V#3 name alone",
+        "source": "809 section 7"
+      },
+      {
+        "file": "site/spec.html",
+        "text": "<p>Twelve verticals; all twelve catalogued; archetype taxonomy is per-vertical. See the home page <a href=\"/#phronesis\">vertical lineup</a>; records by vertical at <a href=\"https://phronesisintel.com/verticals\" rel=\"noopener\">phronesisintel.com/verticals</a>.</p>",
+        "why": "809 section 7: spec:104 under the same rule (catalogued; records by vertical at phronesisintel.com/verticals)",
+        "source": "809 section 7"
       }
     ]
   }

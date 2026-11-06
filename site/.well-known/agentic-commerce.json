@@ -38,7 +38,7 @@
     "moat_description": "Resolved-outcome ledger that compounds on wall-clock time. Per-vertical, per-horizon-class, per-methodology-version calibration history accrues publicly.",
     "category": "data-services/decision-assurance-layer",
     "meta_vertical": "v0-ai-industrial-mobilization-situational-awareness",
-    "verticals_live": [
+    "catalogued": [
       "energy",
       "computing-ai-infrastructure",
       "healthcare",
@@ -54,9 +54,20 @@
     ],
     "verticals_pre_launch": [],
     "primitives_live": [
-      "P1-identity-mandate",
-      "P2-reputation-counterparty-passport",
-      "P3-forecast-evidence",
+      "P3-forecast-evidence"
+    ],
+    "primitives_partial": [
+      {
+        "P1-identity-mandate": {
+          "identity": "live",
+          "mandate_verification": "planned"
+        }
+      }
+    ],
+    "primitives_in_build": [
+      "P2-reputation-counterparty-passport"
+    ],
+    "primitives_defined": [
       "P6-market-state-telemetry"
     ],
     "primitives_planned": [
@@ -83,7 +94,9 @@
   },
   "authentication": {
     "supported_methods": [
-      "ap2_mandate",
+      {
+        "ap2_mandate": "planned"
+      },
       {
         "stripe_spt": "in_build"
       },
@@ -91,13 +104,16 @@
     ],
     "agent_paths": {
       "path_a_autonomous_agent": {
-        "description": "Direct API access via AP2 mandate authorization (Google Agent Payments Protocol)",
-        "mandate_types_required": [
-          "intent_mandate",
-          "cart_mandate"
-        ],
-        "mandate_format": "verifiable_credential_signed_by_principal",
-        "authorization_budget_seconds": 5
+        "description": "identity live (the Authority Credential); mandate verification planned; a mandate presented at mint is recorded as unverified context (Terms §4.3).",
+        "mandate_verification": {
+          "availability": "planned",
+          "mandate_types": [
+            "intent_mandate",
+            "cart_mandate"
+          ],
+          "mandate_format": "verifiable_credential_signed_by_principal",
+          "authorization_budget_seconds": 5
+        }
       },
       "path_b_agent_for_human": {
         "description": "Stripe Agentic Commerce Suite checkout flow with SPT bound to AP2 Cart Mandate at issuance (in build)",
@@ -169,6 +185,7 @@
   },
   "trust_stack": {
     "layer_1_authorization": "ap2_mandate_verification",
+    "layer_1_authorization_availability": "planned",
     "layer_2_orchestration": "phronesis_orchestration_layer",
     "layer_3_settlement": "stripe_spt_execution",
     "layer_3_settlement_availability": "in_build",

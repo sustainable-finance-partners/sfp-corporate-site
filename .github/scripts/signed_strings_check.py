@@ -11,6 +11,7 @@ extracted from one line of its source document. For every entry this check asser
    - ``meta_description``: the ``content`` of ``<meta name="description">``;
    - ``jsonld_organization_description``: ``description`` of the Organization JSON-LD;
    - ``txt_comment_text``: the text of a ``.txt`` file's ``#`` comment lines;
+   - ``json_strings``: every string value in a JSON file, one text each;
    - ``whole_line``: the file's lines; ``count`` is the number of lines that equal
      the string exactly, so nothing else sits on that line;
 3. with ``--source-root DIR`` (the desk, where the source documents live): the source
@@ -103,6 +104,21 @@ def surface_text(path: Path, surface: str) -> list[str]:
         return ["\n".join(ln[1:].lstrip(" ") for ln in lines if ln.startswith("#"))]
     if surface == "whole_line":
         return [ln.rstrip("\r") for ln in raw.split("\n")]
+    if surface == "json_strings":
+        found: list[str] = []
+
+        def walk(node: Any) -> None:
+            if isinstance(node, str):
+                found.append(node)
+            elif isinstance(node, dict):
+                for value in node.values():
+                    walk(value)
+            elif isinstance(node, list):
+                for value in node:
+                    walk(value)
+
+        walk(json.loads(raw))
+        return found
     page = _Page()
     page.feed(raw)
     page.close()
