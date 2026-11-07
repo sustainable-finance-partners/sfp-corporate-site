@@ -184,7 +184,7 @@
     "proof_of_decision": "audit_receipt_publicly_verifiable_per_decision_asset"
   },
   "trust_stack": {
-    "layer_1_authorization": "ap2_mandate_verification",
+    "layer_1_authorization": "ap2_mandate_recorded_unverified",
     "layer_1_authorization_availability": "planned",
     "layer_2_orchestration": "phronesis_orchestration_layer",
     "layer_3_settlement": "stripe_spt_execution",

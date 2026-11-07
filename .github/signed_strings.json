@@ -794,6 +794,16 @@
         "file": "site/privacy-policy.html",
         "text": "<strong>Last Updated</strong>2026-10-31",
         "source": "810 section 4"
+      },
+      {
+        "file": "site/.well-known/agentic-commerce.json",
+        "text": "\"ap2_mandate_verification\"",
+        "source": "811 section 4"
+      },
+      {
+        "file": "site/spec.html",
+        "text": "(mandate or JWT failure)",
+        "source": "811 section 4"
       }
     ],
     "absent_regex": [
@@ -930,6 +940,18 @@
         "text": "<div><strong>Version</strong>v1.3</div>",
         "why": "810 section 4: the version stays v1.3",
         "source": "810 section 4"
+      },
+      {
+        "file": "site/.well-known/agentic-commerce.json",
+        "text": "\"layer_1_authorization\": \"ap2_mandate_recorded_unverified\"",
+        "why": "811 section 4: layer 1 records a presented AP2 mandate unverified; verification is planned",
+        "source": "811 section 4"
+      },
+      {
+        "file": "site/spec.html",
+        "text": "<code>auth</code> (JWT failure)",
+        "why": "811 section 4: the API has no mandate parse or format error path",
+        "source": "811 section 4"
       }
     ]
   }

@@ -84,7 +84,7 @@
 <h2>Error semantics</h2>
 <p>Errors are structured with stable machine-recoverable codes. Sixteen-code enumeration covers the canonical failure modes:</p>
 
-<p>Code categories: <code>auth</code> (mandate or JWT failure) · <code>validation</code> (request shape error) · <code>rate_limit</code> (per-tenant or per-mandate limit hit) · <code>circuit</code> (downstream circuit-breaker tripped) · <code>substrate</code> (canonical-correctness violation) · <code>billing</code> (charge failure) · <code>not_found</code> · <code>internal</code>. Retryable errors include <code>rate_limit</code> and <code>circuit</code>; all others are non-retryable.</p>
+<p>Code categories: <code>auth</code> (JWT failure) · <code>validation</code> (request shape error) · <code>rate_limit</code> (per-tenant or per-mandate limit hit) · <code>circuit</code> (downstream circuit-breaker tripped) · <code>substrate</code> (canonical-correctness violation) · <code>billing</code> (charge failure) · <code>not_found</code> · <code>internal</code>. Retryable errors include <code>rate_limit</code> and <code>circuit</code>; all others are non-retryable.</p>
 
 <h2>Meter events and pricing</h2>
 <p>Per-request settlement is in build. When it is live, agents will pay per request through Stripe — cards via Shared Payment Tokens, or USDC over x402 or Stripe's Machine Payments Protocol. Until then, per-request purchases are not available. Meter event amounts are reported with sub-cent precision (Decimal lift, no float).</p>
