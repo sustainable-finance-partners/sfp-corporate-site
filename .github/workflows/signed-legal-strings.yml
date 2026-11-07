@@ -5,8 +5,10 @@
 # with its source document, line and sha256, and must render byte-for-byte on its
 # target surface. The source documents are not in this repository, so CI checks the
 # fixture and the render; the desk run adds --source-root to re-verify every line.
-# The one exception is COO dispatch 809 (the section 7 status strings): its byte copy is
-# in .github/fixtures/dispatch_809/, so CI re-derives the 809 rows from it as well.
+# The exceptions are COO dispatches 809 (the section 7 status strings) and 810 (the
+# section 4 Privacy header and AP2 wording). Their byte copies are in
+# .github/fixtures/dispatch_809/ and .github/fixtures/dispatch_810/, so CI re-derives
+# those rows from them as well.
 
 name: Signed legal strings
 
@@ -38,3 +40,9 @@ jobs:
 
       - name: 809 rows equal a fresh extraction from the byte copy
         run: python3 .github/scripts/dispatch_809_strings.py --check
+
+      - name: 810 rows self-test (a changed copy or row must be reported)
+        run: python3 .github/scripts/dispatch_810_strings.py --self-test
+
+      - name: 810 rows equal a fresh extraction from the byte copy
+        run: python3 .github/scripts/dispatch_810_strings.py --check

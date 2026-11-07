@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>API Contract Surface — Phronesis</title>
-<meta name="description" content="Phronesis contract surface. Idempotency required. Sub-cent meter-event precision. AP2 mandate compatible. OpenAPI 3.1.">
+<meta name="description" content="Phronesis contract surface. Idempotency required. Sub-cent meter-event precision. An AP2 mandate is recorded as unverified context where presented; mandate verification is planned. OpenAPI 3.1.">
 <meta name="robots" content="index, follow">
 
 <!-- Agent discovery: Link headers (mirror in HTML) -->
@@ -52,7 +52,7 @@
   <div class="container-narrow">
     <span class="eyebrow">Contract Surface</span>
     <h1>API spec.</h1>
-    <p class="lead">Idempotency-key required, not optional. Errors are structured and machine-recoverable. Sub-cent meter-event precision. AP2 mandate compatible.</p>
+    <p class="lead">Idempotency-key required, not optional. Errors are structured and machine-recoverable. Sub-cent meter-event precision. An AP2 mandate is recorded as unverified context where presented; mandate verification is planned.</p>
 
     <div class="legal-meta">
       <div><strong>Base URL</strong>https://api.phronesisintel.com</div>
@@ -68,7 +68,7 @@
 <h2>Authentication</h2>
 
 <h3>Path A — Direct API (autonomous agents)</h3>
-<p>Agents authenticate with an Authority Credential; an AP2 mandate, where presented, is recorded as evidence of delegated authority (Terms §4.3).</p>
+<p>Agents authenticate with an Authority Credential; an AP2 mandate is recorded as unverified context where presented; mandate verification is planned (Terms §4.3).</p>
 
 <h3>Path B — Agentic commerce (agents acting for humans)</h3>
 <p>Per-request settlement is in build. When it is live, agents will pay per request through Stripe — cards via Shared Payment Tokens, or USDC over x402 or Stripe's Machine Payments Protocol. Until then, per-request purchases are not available.</p>
@@ -83,17 +83,6 @@
 
 <h2>Error semantics</h2>
 <p>Errors are structured with stable machine-recoverable codes. Sixteen-code enumeration covers the canonical failure modes:</p>
-
-<pre><code>{
-  "error": {
-    "code": "MANDATE_INVALID_SIGNATURE",
-    "message": "AP2 mandate signature verification failed",
-    "category": "auth",
-    "retryable": false,
-    "documentation_url": "https://sustainablefinancepartner.com/spec#errors",
-    "request_id": "req_01HXYZA1B2C3D4E5F6G7H8J9K0"
-  }
-}</code></pre>
 
 <p>Code categories: <code>auth</code> (mandate or JWT failure) · <code>validation</code> (request shape error) · <code>rate_limit</code> (per-tenant or per-mandate limit hit) · <code>circuit</code> (downstream circuit-breaker tripped) · <code>substrate</code> (canonical-correctness violation) · <code>billing</code> (charge failure) · <code>not_found</code> · <code>internal</code>. Retryable errors include <code>rate_limit</code> and <code>circuit</code>; all others are non-retryable.</p>
 

@@ -264,29 +264,6 @@
       ]
     },
     {
-      "id": "s2-privacy",
-      "label": "S.2 Privacy version line (Copy Set §13 S.2; 781 C)",
-      "source_path": "02_Marketing/Commerce_Copy_Set_v1_WA2_Claim_State_20261006.md",
-      "source_line": 244,
-      "source_line_sha256": "133df7f7b65cce68f4d518930b3233aa7121da93e6d829397a8425f32130d13a",
-      "extract": {
-        "kind": "regex",
-        "pattern": "\"(Privacy Policy v1\\.3[^\"]*)\"",
-        "group": 1
-      },
-      "extracted": "Privacy Policy v1.3 — last updated 2026-10-31.",
-      "transforms": [],
-      "string": "Privacy Policy v1.3 — last updated 2026-10-31.",
-      "string_sha256": "980b6ab845314b23c03c03838cd0896ba9b7bfd9c2fed405e8563c6988fb72fc",
-      "targets": [
-        {
-          "file": "site/privacy-policy.html",
-          "surface": "html_text",
-          "count": 1
-        }
-      ]
-    },
-    {
       "id": "q6-corporate",
       "label": "Q.6 corporate-site form (Copy Set §13 Q.6; 774 §D; 781 K)",
       "source_path": "02_Marketing/Commerce_Copy_Set_v1_WA2_Claim_State_20261006.md",
@@ -596,6 +573,59 @@
           "count": 1
         }
       ]
+    },
+    {
+      "id": "810-privacy-updated",
+      "label": "810 section 4: privacy-policy.html header, its last-updated date and version",
+      "source_path": "00_Operating_Model/CCO_DISPATCH_810_809_HANDBACK_3_RULED_Q_DEPLOY_B_BY_FACT_FIVE_PRS_CLEARED_31_PRE_ENGINE_SENTINEL_CLASSED_THREE_WITHDRAWN_RPS_NOTE_SIGNED_AUDIT_KINDS_PERMANENT_MIGRATION_RUN_BURN_RULE_20261106.md",
+      "source_copy": ".github/fixtures/dispatch_810/dispatch_810_20261106.md",
+      "source_line": 26,
+      "source_line_sha256": "27dff48aefd3779369012e86d5cc1c6759b7ac7336f745bcecf6a527d27a44fa",
+      "extract": {
+        "kind": "regex",
+        "pattern": "the Privacy Policy header \\*\"([^\"]+)\"\\*",
+        "group": 1
+      },
+      "extracted": "Last updated 2026-11-06 · v1.3",
+      "transforms": [],
+      "string": "Last updated 2026-11-06 · v1.3",
+      "string_sha256": "d0d4c9ad260e9dec8a809aba3a373a6048ead8ba9a0a1a4afbcd28bffa2836d9",
+      "targets": [
+        {
+          "file": "site/privacy-policy.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "810-ap2",
+      "label": "810 section 4: spec.html, the AP2 mandate claim-state (was :7, :55, :71)",
+      "source_path": "00_Operating_Model/CCO_DISPATCH_810_809_HANDBACK_3_RULED_Q_DEPLOY_B_BY_FACT_FIVE_PRS_CLEARED_31_PRE_ENGINE_SENTINEL_CLASSED_THREE_WITHDRAWN_RPS_NOTE_SIGNED_AUDIT_KINDS_PERMANENT_MIGRATION_RUN_BURN_RULE_20261106.md",
+      "source_copy": ".github/fixtures/dispatch_810/dispatch_810_20261106.md",
+      "source_line": 26,
+      "source_line_sha256": "27dff48aefd3779369012e86d5cc1c6759b7ac7336f745bcecf6a527d27a44fa",
+      "extract": {
+        "kind": "regex",
+        "pattern": "an AP2 mandate is \\*\"([^\"]+)\"\\*",
+        "group": 1
+      },
+      "extracted": "recorded as unverified context where presented; mandate verification is planned",
+      "transforms": [],
+      "string": "recorded as unverified context where presented; mandate verification is planned",
+      "string_sha256": "c18ce6db4d183cbcad7738ead6155c62d3d3a0cb5813cb82cf93fc350f6038b1",
+      "targets": [
+        {
+          "file": "site/spec.html",
+          "surface": "html_text",
+          "count": 2
+        },
+        {
+          "file": "site/spec.html",
+          "surface": "meta_description",
+          "count": 1
+        }
+      ]
     }
   ],
   "checks": {
@@ -734,6 +764,36 @@
         "file": "site/.well-known/agents.txt",
         "text": "Auth-Methods: AP2,",
         "source": "809 section 7"
+      },
+      {
+        "file": "site/spec.html",
+        "text": "AP2 mandate compatible",
+        "source": "810 section 4"
+      },
+      {
+        "file": "site/spec.html",
+        "text": "recorded as evidence of delegated authority",
+        "source": "810 section 4"
+      },
+      {
+        "file": "site/spec.html",
+        "text": "AP2 mandate signature verification failed",
+        "source": "810 section 4"
+      },
+      {
+        "file": "site/spec.html",
+        "text": "MANDATE_INVALID_SIGNATURE",
+        "source": "810 section 4"
+      },
+      {
+        "file": "site/privacy-policy.html",
+        "text": "last updated 2026-10-31",
+        "source": "810 section 4"
+      },
+      {
+        "file": "site/privacy-policy.html",
+        "text": "<strong>Last Updated</strong>2026-10-31",
+        "source": "810 section 4"
       }
     ],
     "absent_regex": [
@@ -791,10 +851,6 @@
       {
         "file": "site/privacy-policy.html",
         "text": "<div><strong>Effective Date</strong>2026-10-31</div>"
-      },
-      {
-        "file": "site/privacy-policy.html",
-        "text": "<div><strong>Last Updated</strong>2026-10-31</div>"
       },
       {
         "file": "site/privacy-policy.html",
@@ -862,6 +918,18 @@
         "text": "<p>Twelve verticals; all twelve catalogued; archetype taxonomy is per-vertical. See the home page <a href=\"/#phronesis\">vertical lineup</a>; records by vertical at <a href=\"https://phronesisintel.com/verticals\" rel=\"noopener\">phronesisintel.com/verticals</a>.</p>",
         "why": "809 section 7: spec:104 under the same rule (catalogued; records by vertical at phronesisintel.com/verticals)",
         "source": "809 section 7"
+      },
+      {
+        "file": "site/privacy-policy.html",
+        "text": "<div><strong>Last Updated</strong>2026-11-06</div>",
+        "why": "810 section 4: the header's date, in the page's metadata block too",
+        "source": "810 section 4"
+      },
+      {
+        "file": "site/privacy-policy.html",
+        "text": "<div><strong>Version</strong>v1.3</div>",
+        "why": "810 section 4: the version stays v1.3",
+        "source": "810 section 4"
       }
     ]
   }
