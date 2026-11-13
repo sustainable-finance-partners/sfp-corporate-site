@@ -626,6 +626,52 @@
           "count": 1
         }
       ]
+    },
+    {
+      "id": "786-operator",
+      "label": "786 section 5: the operator line (= Copy Set WA2 S-III line 272; owner yes 2026-11-12)",
+      "source_path": "00_Operating_Model/CCO_DISPATCH_786_POST_MONDAY_TESS_READ_EIGHT_CENSUS_ADDITIONS_LEAGUE_CLASS2_PUBLIC_FORECASTS_HEADLINE_DA_COUNT_HUMAN_LEAD_NOTHING_ON_MONDAY_20261101.md",
+      "source_line": 26,
+      "source_line_sha256": "27b16ee38f87f8e40a753d013949bd64f8317f0cca713f5b26d05d352d044b1b",
+      "extract": {
+        "kind": "regex",
+        "pattern": "\"(Phronesis is operated by [^\"]+)\"",
+        "group": 1
+      },
+      "extracted": "Phronesis is operated by Sustainable Finance Partners, LLC, Greenwood Village, Colorado; sole member John R. Stinehour. The company is run by AI officers under his governance (see How we work). Direct line: ops@phronesisintel.com, read by a person within one business day.",
+      "transforms": [],
+      "string": "Phronesis is operated by Sustainable Finance Partners, LLC, Greenwood Village, Colorado; sole member John R. Stinehour. The company is run by AI officers under his governance (see How we work). Direct line: ops@phronesisintel.com, read by a person within one business day.",
+      "string_sha256": "c8039e294e44323a541fe43dd51ece2075515f48149d820615251c5318b42d5d",
+      "targets": [
+        {
+          "file": "site/index.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "786-ownership",
+      "label": "786 section 5: the ownership line, ToS 7.1 restated (= Copy Set WA2 S-III line 272; owner yes 2026-11-12)",
+      "source_path": "00_Operating_Model/CCO_DISPATCH_786_POST_MONDAY_TESS_READ_EIGHT_CENSUS_ADDITIONS_LEAGUE_CLASS2_PUBLIC_FORECASTS_HEADLINE_DA_COUNT_HUMAN_LEAD_NOTHING_ON_MONDAY_20261101.md",
+      "source_line": 26,
+      "source_line_sha256": "27b16ee38f87f8e40a753d013949bd64f8317f0cca713f5b26d05d352d044b1b",
+      "extract": {
+        "kind": "regex",
+        "pattern": "\"(The software, the methodology [^\"]+)\"",
+        "group": 1
+      },
+      "extracted": "The software, the methodology and the register are owned by Sustainable Finance Partners, LLC; the PHRONESIS mark is licensed to it.",
+      "transforms": [],
+      "string": "The software, the methodology and the register are owned by Sustainable Finance Partners, LLC; the PHRONESIS mark is licensed to it.",
+      "string_sha256": "19b7a424fb9f2f9e1225a41dcb6fd9a96bc438aaaf0816511d77c5e7aed64bc4",
+      "targets": [
+        {
+          "file": "site/index.html",
+          "surface": "html_text",
+          "count": 1
+        }
+      ]
     }
   ],
   "checks": {
