@@ -10,7 +10,6 @@ the original.
 
 | Copy | Source | Bytes | SHA-256 |
 |---|---|---|---|
-| `dispatch_809_20261106.md` | `Sustainable Finance Partners Business Apparatus/00_Operating_Model/CCO_DISPATCH_809_808_HANDBACK_2_RULED_610_LIVE_NSF_00132689_SUBMITTED_BLOOMBERGNEF_NOTES_SIGNED_RETENTION_PERMANENT_RECORD_CLASS_VS_ORIGIN_INTERNAL_NAMES_RULES_SITE_STRINGS_SUPPLIED_DEPLOY_HOOK_Q_20261106.md` (COO, 2026-11-06; section 7, line 40: the P1, P3, verticals, Healthcare, register, catalogued, privacy PHI and meta-description strings; line 39: the three status words and the register-derived vertical rule) | 15277 | `c7271feef01379d7cd103a4a56df0ebb4bef4fa50d30af5f098ed1daceed2ae0` |
 
 The copy is LF-only, so its house pin (sha256 after CRLF→LF, first 16) is
 `c7271feef01379d7`. `.gitattributes` marks this folder `-text`, so every checkout holds

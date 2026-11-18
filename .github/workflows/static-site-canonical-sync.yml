@@ -144,7 +144,6 @@ jobs:
         run: |
           set -e
           # The Trust Center surface lives at the Phronesis production deployment
-          # (https://phronesis-jrstinehour.replit.app/trust). The static sites must
           # link to it from at least one location (footer typical).
           if ! grep -rn -l "trust" --include="*.html" site | xargs -I {} grep -l "trust" {} > /dev/null 2>&1; then
             echo "FAIL: no Trust Center reference present in any HTML file"
@@ -159,7 +158,6 @@ jobs:
   agent-fetchability-parity:
     runs-on: ubuntu-latest
     name: Agent-fetchability parity — non-browser GET returns real HTML
-    # Per CC_4_7_POSITIONING_RECUT_AND_SITES_FIX_DISPATCH_20260525.md §D6 AC-D6-4.
     # Root cause documented: Cloudflare Pages auto-rewrites .html-suffix paths to
     # the canonical no-extension URL via a 308, returning a zero-byte body. The
     # canonical no-extension URLs themselves return real HTML for both browser
