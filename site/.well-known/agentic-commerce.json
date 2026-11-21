@@ -98,7 +98,7 @@
         "ap2_mandate": "planned"
       },
       {
-        "stripe_spt": "in_build"
+        "stripe_spt": "planned"
       },
       "bearer_jwt"
     ],
@@ -117,7 +117,7 @@
       },
       "path_b_agent_for_human": {
         "description": "Stripe Agentic Commerce Suite checkout flow with SPT bound to AP2 Cart Mandate at issuance (in build)",
-        "availability": "in_build",
+        "availability": "planned",
         "spt_required": true,
         "ap2_cart_mandate_at_spt_issuance": true
       }
@@ -157,10 +157,10 @@
         "humans_stripe_checkout": "live"
       },
       {
-        "agents_stripe_agent_checkout": "in_build"
+        "agents_stripe_agent_checkout": "planned"
       },
       {
-        "agents_x402_via_stripe": "in_build"
+        "agents_x402_via_stripe": "planned"
       },
       {
         "wallet_abstraction": "not_offered"
@@ -172,7 +172,7 @@
     "per_call_pricing": {
       "agent_schedule_ref": "https://api.phronesisintel.com/.well-known/pricing.json#agent_schedule",
       "settlement": "stripe_meter_event_at_canonical_persistence",
-      "availability": "in_build"
+      "availability": "planned"
     },
     "refund_policy_url": "https://sustainablefinancepartner.com/refund-policy"
   },
@@ -188,7 +188,7 @@
     "layer_1_authorization_availability": "planned",
     "layer_2_orchestration": "phronesis_orchestration_layer",
     "layer_3_settlement": "stripe_spt_execution",
-    "layer_3_settlement_availability": "in_build",
+    "layer_3_settlement_availability": "planned",
     "substrate_guarantees": {
       "mcp_rest_co_equal": "every_endpoint_at_parity_neither_transport_primary",
       "attribution_timestamp_confidence_audit": "enforced_at_boundary_publish_per_decision_asset",
