@@ -134,12 +134,12 @@
           {
             "id": "tier-2-inquiry",
             "name": "Record",
-            "claim_state": "live"
+            "claim_state": "planned"
           },
           {
             "id": "tier-3-practice",
             "name": "Practice",
-            "claim_state": "live"
+            "claim_state": "planned"
           },
           {
             "id": "decision_room",
